@@ -55,6 +55,7 @@ typedef struct {
 
 -(void)onTimerDo{
     _angle += 5;
+//    _angle = 30;
     [self updateRender];
 }
 
