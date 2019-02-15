@@ -15,6 +15,8 @@
 #import "GLESView5.h"
 #import "GLESView6.h"
 #import "GLESView7.h"
+#import "GLESView8.h"
+#import "GLESView9.h"
 
 @interface ViewController ()
 
@@ -32,9 +34,11 @@
 //    GLESView2 *v = [[GLESView2 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    GLESView3 *v = [[GLESView3 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    GLESView4 *v = [[GLESView4 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    GLESView5 *v = [[GLESView5 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    GLESView5 *v = [[GLESView5 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    GLESView6 *v = [[GLESView6 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    GLESView7 *v = [[GLESView7 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    GLESView8 *v = [[GLESView8 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    GLESView9 *v = [[GLESView9 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:v];
 }
 

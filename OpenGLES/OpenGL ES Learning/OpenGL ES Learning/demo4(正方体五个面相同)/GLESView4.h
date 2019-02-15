@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYGestureRecognizerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLESView4 : UIView
+@interface GLESView4 : DYGestureRecognizerView
 
 @end
 

@@ -59,25 +59,3 @@ int generateSphere(int numSlices, float radius, float **vertices,
     
     return numIndices;
 }
-
-int generateSquare(float **vertices,uint16_t **indices,float **texCoords,int *numVertices_out){
-    float verticeArray[8] = {-1,1,1,1,-1,-1,1,-1};
-    *vertices = malloc(sizeof(float)*8);
-    for (int i = 0;i<8;i++){
-        (*vertices)[i]= verticeArray[i];
-    }
-    uint16_t  indiceArray[6] = {1,0,2,1,2,3};
-    *indices = malloc(sizeof(uint16_t)*6);;
-    
-    for (int i = 0;i<6;i++){
-        (*indices)[i] = indiceArray[i];
-    }
-    float texCoordArray[8] = { 0,0,1,0,0,1,1,1};
-    *texCoords = malloc(sizeof(float)*8);
-    for (int i = 0;i<8;i++){
-        (*texCoords)[i] = texCoordArray[i];
-    }
-    *numVertices_out= 6;
-    return 6;
-    
-}

@@ -19,17 +19,11 @@ typedef struct {
     GLuint modelViewMat;
 }ShaderV;
 
-typedef struct {
-    float position0[3];
-    float position1[2];
-}CustomVertex;
-
 @implementation GLESView5{
     CAEAGLLayer *_glLayer;
     EAGLContext *_glContext;
     GLuint _programHandle;
     ShaderV _lint;
-    int _angle;
     
     GLuint *_textur;
     GLuint _VAO;
@@ -39,8 +33,6 @@ typedef struct {
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _angle = 1;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(onTimerDo) userInfo:nil repeats:YES];
         [self setupContext];
         [self setupLayer];
         
@@ -51,12 +43,6 @@ typedef struct {
         [self setupRenderData];
     }
     return self;
-}
-
--(void)onTimerDo{
-    _angle += 5;
-//    _angle = 30;
-    [self updateRender];
 }
 
 + (Class)layerClass{
@@ -224,9 +210,6 @@ typedef struct {
         
     };
     
-    // - 设置显示区域
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    
     // - VAO (顶点数组对象)
     glGenVertexArrays(1, &_VAO);
     glBindVertexArray(_VAO);
@@ -247,27 +230,25 @@ typedef struct {
     glVertexAttribPointer(_lint.position, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), NULL);
     glVertexAttribPointer(_lint.textCoordinate, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (float *)NULL + 3);
     
+    // - 设置显示区域
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    [self updateRender];
 }
 
 -(void)updateRender{
+    if (_textur == NULL) return;
     
     // - 清除上次的渲染
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     [self setupShaderProperty];
-
-    for (int i = 0; i < 6; i++) {
-        glBindVertexArray(_VAO);
-        glBindTexture(GL_TEXTURE_2D, _textur[i]);
-        glDrawElements(GL_TRIANGLES, 6,  GL_UNSIGNED_INT, (GLvoid *)(sizeof(GLuint) * 6 * i));
-
-    }
     
     // - 模型矩阵 (世界空间)
     KSMatrix4 modelMat;
     ksMatrixLoadIdentity(&modelMat);
-    ksRotate(&modelMat, _angle, 1.0, 0.0, 0.0); //绕X轴
-    ksRotate(&modelMat, _angle, 0.0, 1.0, 0.0); //绕X轴
+    ksRotate(&modelMat, self.rote.roteY, 1.0, 0.0, 0.0); //绕X轴
+    ksRotate(&modelMat, self.rote.roteX, 0.0, 1.0, 0.0); //绕Y轴
+    ksScale(&modelMat, self.scale, self.scale, self.scale);
     
     // - 观察矩阵 (观察空间)
     KSMatrix4 viewMat;
@@ -283,7 +264,12 @@ typedef struct {
     //把变换矩阵相乘，注意先后顺序
     ksMatrixMultiply(&viewMat, &modelMat, &viewMat);
     glUniformMatrix4fv(_lint.modelViewMat, 1, GL_FALSE, (GLfloat*)&viewMat.m[0][0]);
-    
+
+    for (int i = 0; i < 6; i++) {
+        glBindVertexArray(_VAO);
+        glBindTexture(GL_TEXTURE_2D, _textur[i]);
+        glDrawElements(GL_TRIANGLES, 6,  GL_UNSIGNED_INT, (GLvoid *)(sizeof(GLuint) * 6 * i));
+    }
     [_glContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 @end

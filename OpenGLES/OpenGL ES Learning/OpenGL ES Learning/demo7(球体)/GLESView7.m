@@ -25,7 +25,6 @@ typedef struct {
     EAGLContext *_glContext;
     GLuint _programHandle;
     ShaderV _lint;
-    int _angle;
     
     GLuint _VAO;
     GLuint  _numIndices;
@@ -34,8 +33,6 @@ typedef struct {
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        _angle = 1;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(onTimerDo) userInfo:nil repeats:YES];
         
         [self setupContext];
         [self setupLayer];
@@ -48,11 +45,6 @@ typedef struct {
         
     }
     return self;
-}
-
--(void)onTimerDo{
-    _angle += 5;
-    [self updateRender];
 }
 
 +(Class)layerClass{
@@ -172,6 +164,7 @@ typedef struct {
     
     // - 设置显示区域
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    [self updateRender];
 
 }
 
@@ -186,9 +179,10 @@ typedef struct {
     // - 模型矩阵 (世界空间)
     KSMatrix4 modelMat;
     ksMatrixLoadIdentity(&modelMat);
-//    ksRotate(&modelMat, _angle, 1.0, 0.0, 0.0); //绕X轴
-    ksRotate(&modelMat, _angle, 0.0, 1.0, 0.0); //绕Y轴
-    
+    ksRotate(&modelMat, self.rote.roteY, 1.0, 0.0, 0.0); //绕X轴
+    ksRotate(&modelMat, self.rote.roteX, 0.0, 1.0, 0.0); //绕Y轴
+    ksScale(&modelMat, self.scale, self.scale, self.scale);
+
     // - 观察矩阵 (观察空间)
     KSMatrix4 viewMat;
     ksMatrixLoadIdentity(&viewMat);
