@@ -94,6 +94,11 @@ void ksRotate(KSMatrix4 *result, GLfloat angle, GLfloat x, GLfloat y, GLfloat z)
 //
 void ksMatrixMultiply(KSMatrix4 *result, const KSMatrix4 *srcA, const KSMatrix4 *srcB);
 
+// - 逆矩阵
+void ksMatrixInvert(KSMatrix4 *result, KSMatrix4*src) ;
+    
+// - 转置矩阵
+void ksMatrixTranspose(KSMatrix4 *result, const KSMatrix4 *srcA);
 //
 //// return an identity matrix 
 //// result returns identity matrix

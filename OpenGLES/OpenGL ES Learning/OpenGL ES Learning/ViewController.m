@@ -17,6 +17,7 @@
 #import "GLESView7.h"
 #import "GLESView8.h"
 #import "GLESView9.h"
+#import "GLESView10.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
     // Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -39,6 +40,7 @@
 //    GLESView7 *v = [[GLESView7 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    GLESView8 *v = [[GLESView8 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     GLESView9 *v = [[GLESView9 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    GLESView10 *v = [[GLESView10 alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:v];
 }
 

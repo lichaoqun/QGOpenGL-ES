@@ -72,7 +72,7 @@
     CVPixelBufferRef renderTarget;
     CVOpenGLESTextureRef renderTexture;
     CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, self.mContext, NULL, &coreVideoTextureCache);
-    UIImage *image = [UIImage imageNamed:@"for_test.jpg"];
+    UIImage *image = [UIImage imageNamed:@"abc.png"];
     renderTarget = [self pixelBufferFromCGImage:image.CGImage];
     
     

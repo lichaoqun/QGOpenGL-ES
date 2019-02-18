@@ -125,6 +125,69 @@ void ksMatrixMultiply(KSMatrix4 *result, const KSMatrix4 *srcA, const KSMatrix4 
     memcpy(result, &tmp, sizeof(KSMatrix4));
 }
 
+void ksMatrixTranspose(KSMatrix4 *result, const KSMatrix4 *srcA){
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            result->m[j][i] = srcA->m[i][j];
+        }
+    }
+}
+
+void ksMatrixSwapRows(KSMatrix4 *mat, int r1, int r2) {
+    GLfloat temp[4] = {0};
+    for (int i = 0; i < 4; i++) {
+        temp[i] = mat->m[r1][i];
+        mat->m[r2][i] = mat->m[r1][i];
+        mat->m[r1][i] = temp[i];
+    }
+}
+
+void ksMatrixShearRow(KSMatrix4 *mat, int r1, int r2, double scalar) {
+    for (int i = 0; i < 4; ++i) {
+        mat->m[r1][i] += scalar * mat->m[r2][i];
+    }
+}
+
+void ksMatrixScaleRow(KSMatrix4 *mat, int r, double scalar) {
+    for (int i = 0; i < 4; i++) {
+        mat->m[r][i] *= scalar;
+    }
+}
+
+void ksMatrixInvert(KSMatrix4 *result, KSMatrix4*src) {
+    int i;
+    int j;
+    int r;
+    double scalar;
+    double shear_needed;
+    
+    for (i = 0; i < 4; ++i) {
+        if (src->m[i][i] == 0.0) {
+            for (r = i + 1; r < 4; ++r) {
+                if (src->m[r][i] != 0.0) {
+                    break;
+                }
+            }
+            if (r == 4) {
+                return;
+            }
+            ksMatrixSwapRows(src, i, r);
+            ksMatrixSwapRows(result, i, r);
+        }
+        scalar = 1.0 / src->m[i][i];
+        ksMatrixScaleRow(src, i, scalar);
+        ksMatrixScaleRow(result, i, scalar);
+        for ( j = 0; j < 4; ++j) {
+            if (i == j) {
+                continue;
+            }
+            shear_needed = -src->m[j][i];
+            ksMatrixShearRow(src, j, i, shear_needed);
+            ksMatrixShearRow(result, j, i, shear_needed);
+        }
+    }
+}
+
 void ksCopyMatrix4(KSMatrix4 * target, const KSMatrix4 * src)
 {
     memcpy(target, src, sizeof(KSMatrix4));

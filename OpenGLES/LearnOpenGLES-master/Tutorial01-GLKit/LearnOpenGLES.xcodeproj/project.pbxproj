@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		342C49E621F72A9E0021B908 /* LearnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342C49E421F72A9E0021B908 /* LearnView.m */; };
 		FD8C73431C929DB9001A5D46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8C73421C929DB9001A5D46 /* main.m */; };
 		FD8C73461C929DB9001A5D46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8C73451C929DB9001A5D46 /* AppDelegate.m */; };
 		FD8C73491C929DB9001A5D46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8C73481C929DB9001A5D46 /* ViewController.m */; };
@@ -29,8 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		342C49E421F72A9E0021B908 /* LearnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnView.m; sourceTree = "<group>"; };
-		342C49E521F72A9E0021B908 /* LearnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnView.h; sourceTree = "<group>"; };
 		FD8C733E1C929DB9001A5D46 /* LearnOpenGLES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnOpenGLES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8C73421C929DB9001A5D46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD8C73441C929DB9001A5D46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,8 +86,6 @@
 				FD8C73691C92AC07001A5D46 /* for_test.jpg */,
 				FD8C73441C929DB9001A5D46 /* AppDelegate.h */,
 				FD8C73451C929DB9001A5D46 /* AppDelegate.m */,
-				342C49E521F72A9E0021B908 /* LearnView.h */,
-				342C49E421F72A9E0021B908 /* LearnView.m */,
 				FD8C73471C929DB9001A5D46 /* ViewController.h */,
 				FD8C73481C929DB9001A5D46 /* ViewController.m */,
 				FD8C734A1C929DB9001A5D46 /* Main.storyboard */,
@@ -164,7 +159,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = loyinglin;
+				ORGANIZATIONNAME = "loyinglin";
 				TargetAttributes = {
 					FD8C733D1C929DB9001A5D46 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -224,7 +219,6 @@
 				FD8C73491C929DB9001A5D46 /* ViewController.m in Sources */,
 				FD8C73461C929DB9001A5D46 /* AppDelegate.m in Sources */,
 				FD8C73431C929DB9001A5D46 /* main.m in Sources */,
-				342C49E621F72A9E0021B908 /* LearnView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

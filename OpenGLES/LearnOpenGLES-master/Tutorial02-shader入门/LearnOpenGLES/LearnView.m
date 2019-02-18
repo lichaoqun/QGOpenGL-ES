@@ -9,7 +9,7 @@
 #import "LearnView.h"
 #import <OpenGLES/ES2/gl.h>
 
-@interface LearnView()<UITableViewDelegate>
+@interface LearnView()
 @property (nonatomic , strong) EAGLContext* myContext;
 @property (nonatomic , strong) CAEAGLLayer* myEagLayer;
 @property (nonatomic , assign) GLuint       myProgram;
@@ -103,25 +103,26 @@
     //加载纹理
     [self setupTexture:@"for_test"];
     
-//    //获取shader里面的变量，这里记得要在glLinkProgram后面，后面，后面！
-//    GLuint rotate = glGetUniformLocation(self.myProgram, "rotateMatrix");
-//
-//    float radians = 0;
-//    float s = sin(radians);
-//    float c = cos(radians);
-//
-//    //z轴旋转矩阵
-//    GLfloat zRotation[16] = { //
-//        c, -s, 0, 0.2, //
-//        s, c, 0, 0,//
-//        0, 0, 1.0, 0,//
-//        0.0, 0, 0, 1.0//
-//    };
-//
-//    //设置旋转矩阵
-//    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat *)&zRotation[0]);
+    //获取shader里面的变量，这里记得要在glLinkProgram后面，后面，后面！
+    GLuint rotate = glGetUniformLocation(self.myProgram, "rotateMatrix");
+    
+    float radians = 10 * 3.14159f / 180.0f;
+    float s = sin(radians);
+    float c = cos(radians);
+    
+    //z轴旋转矩阵
+    GLfloat zRotation[16] = { //
+        c, -s, 0, 0.2, //
+        s, c, 0, 0,//
+        0, 0, 1.0, 0,//
+        0.0, 0, 0, 1.0//
+    };
+    
+    //设置旋转矩阵
+    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat *)&zRotation[0]);
     
     glDrawArrays(GL_TRIANGLES, 0, 6);
+    
     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
@@ -172,11 +173,12 @@
     
     // CALayer 默认是透明的，必须将它设为不透明才能让其可见
     self.myEagLayer.opaque = YES;
-  
+    
     // 设置描绘属性，在这里设置不维持渲染内容以及颜色格式为 RGBA8
     self.myEagLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];    
 }
+
 
 - (void)setupContext {
     // 指定 OpenGL 渲染 API 的版本，在这里我们使用 OpenGL ES 2.0

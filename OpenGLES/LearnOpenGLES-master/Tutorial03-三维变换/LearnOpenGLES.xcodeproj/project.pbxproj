@@ -32,8 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		340BFA2D220BEF35001B2E83 /* LearnView的副本.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LearnView的副本.h"; sourceTree = "<group>"; };
-		340BFA2E220BEF35001B2E83 /* LearnView的副本.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LearnView的副本.m"; sourceTree = "<group>"; };
 		FD0DF8A41CA29ECC00D2917E /* GLESMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESMath.c; sourceTree = "<group>"; };
 		FD0DF8A51CA29ECC00D2917E /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
 		FD0DF8A61CA29ECC00D2917E /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
@@ -118,8 +116,6 @@
 				FDC7A56F1C994EDE002B4BB5 /* LYGLViewController.m */,
 				FD8C73661C92A2EF001A5D46 /* LearnView.h */,
 				FD8C73671C92A2EF001A5D46 /* LearnView.m */,
-				340BFA2D220BEF35001B2E83 /* LearnView的副本.h */,
-				340BFA2E220BEF35001B2E83 /* LearnView的副本.m */,
 				FD8C734A1C929DB9001A5D46 /* Main.storyboard */,
 				FD8C734D1C929DB9001A5D46 /* Assets.xcassets */,
 				FD8C734F1C929DB9001A5D46 /* LaunchScreen.storyboard */,
@@ -193,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = loyinglin;
+				ORGANIZATIONNAME = "loyinglin";
 				TargetAttributes = {
 					FD8C733D1C929DB9001A5D46 = {
 						CreatedOnToolsVersion = 7.1.1;

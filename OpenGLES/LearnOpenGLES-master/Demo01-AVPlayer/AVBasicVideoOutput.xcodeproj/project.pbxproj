@@ -178,8 +178,7 @@
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					EF1D1FD81627784E0030141F = {
-						DevelopmentTeam = G74HU5SJSU;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = A478ENRUX2;
 					};
 				};
 			};
@@ -316,8 +315,7 @@
 		EF1D20091627784E0030141F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G74HU5SJSU;
+				DEVELOPMENT_TEAM = A478ENRUX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AVBasicVideoOutput/AVBasicVideoOutput-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AVBasicVideoOutput/AVBasicVideoOutput-Info.plist";
@@ -325,7 +323,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AVBasicVideoOutput;
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev Provisioning Profile";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -335,8 +332,7 @@
 		EF1D200A1627784E0030141F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G74HU5SJSU;
+				DEVELOPMENT_TEAM = A478ENRUX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AVBasicVideoOutput/AVBasicVideoOutput-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AVBasicVideoOutput/AVBasicVideoOutput-Info.plist";
@@ -344,7 +340,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AVBasicVideoOutput;
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev Provisioning Profile";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
