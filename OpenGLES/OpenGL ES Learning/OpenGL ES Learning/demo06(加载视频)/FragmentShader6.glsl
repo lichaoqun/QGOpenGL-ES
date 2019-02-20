@@ -31,5 +31,4 @@ void main(){
     rRGB = convert * rYUV;
     
     gl_FragColor = vec4(rRGB, lRGB.r);
-    
 }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GLESView6 : UIView
+@interface DYGLESView : UIView
 
 - (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer;
 

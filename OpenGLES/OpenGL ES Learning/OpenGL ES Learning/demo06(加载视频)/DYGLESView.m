@@ -6,11 +6,8 @@
 //  Copyright © 2019 李超群. All rights reserved.
 //
 
-#import "GLESView6.h"
-#import <OpenGLES/ES3/gl.h>
-#import <OpenGLES/ES3/glext.h>
-#import "GLESUtils.h"
-#import "PlayerManager.h"
+#import "DYGLESView.h"
+#import "DYGLESUtils.h"
 
 typedef struct {
     GLuint uniform_Y;
@@ -22,7 +19,7 @@ typedef struct {
     GLuint attribute_texcoord;
 }ShaderV;
 
-@interface GLESView6 (){
+@interface DYGLESView (){
     EAGLContext *_context;
     CVOpenGLESTextureRef _lumaTexture;
     CVOpenGLESTextureRef _chromaTexture;
@@ -39,19 +36,13 @@ typedef struct {
 
 @end
 
-@implementation GLESView6
+@implementation DYGLESView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self setupGL];
-        [self initManager];
     }
     return self;
-}
-
--(void)initManager{
-    PlayerManager  *mgr = [[PlayerManager alloc]init];
-    mgr.playerView = self;
 }
 
 # pragma mark - OpenGL setup
@@ -96,14 +87,9 @@ typedef struct {
 }
 
 -(void)setupShaderData{
-    
-    _shaderV.attribute_position = glGetAttribLocation(self.program, "position");
-    _shaderV.attribute_texcoord = glGetAttribLocation(self.program, "texCoord");
     glEnableVertexAttribArray(_shaderV.attribute_position);
     glEnableVertexAttribArray(_shaderV.attribute_texcoord);
-    
-    _shaderF.uniform_Y = glGetUniformLocation(self.program, "SamplerY");
-    _shaderF.uniform_UV = glGetUniformLocation(self.program, "SamplerUV");
+
     glUniform1i(_shaderF.uniform_Y, 0);
     glUniform1i(_shaderF.uniform_UV, 1);
 }
@@ -111,15 +97,18 @@ typedef struct {
 - (void)setupShader{
     NSString * vertextShaderPath = [[NSBundle mainBundle] pathForResource:@"VertextShader6" ofType:@"glsl"];
     NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader6" ofType:@"glsl"];
-    GLuint vertextShader = [GLESUtils loadShader:GL_VERTEX_SHADER withFilepath:vertextShaderPath];
-    GLuint framegmentShader = [GLESUtils loadShader:GL_FRAGMENT_SHADER withFilepath:fragmentShaderPath];
+    GLuint vertextShader = [DYGLESUtils loadShader:GL_VERTEX_SHADER withFilepath:vertextShaderPath];
+    GLuint framegmentShader = [DYGLESUtils loadShader:GL_FRAGMENT_SHADER withFilepath:fragmentShaderPath];
     self.program = glCreateProgram();
     glAttachShader(self.program, vertextShader);
     glAttachShader(self.program, framegmentShader);
     glLinkProgram(self.program);
     glUseProgram(self.program);
     
-    [self setupShaderData];
+    _shaderV.attribute_position = glGetAttribLocation(self.program, "position");
+    _shaderV.attribute_texcoord = glGetAttribLocation(self.program, "texCoord");
+    _shaderF.uniform_Y = glGetUniformLocation(self.program, "SamplerY");
+    _shaderF.uniform_UV = glGetUniformLocation(self.program, "SamplerUV");
     
     glDetachShader(self.program, vertextShader);
     glDeleteShader(vertextShader);
@@ -129,8 +118,12 @@ typedef struct {
 
 #pragma mark - OpenGLES drawing
 - (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClear(GL_COLOR_BUFFER_BIT);
     
+    [self setupShaderData];
+    [self cleanUpTextures];
     CVReturn err;
     if (pixelBuffer != NULL) {
         int frameWidth = (int)CVPixelBufferGetWidth(pixelBuffer);
@@ -182,19 +175,17 @@ typedef struct {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        
+        glViewport(0, 0, self.frame.size.width * [UIScreen mainScreen].scale, self.frame.size.width * [UIScreen mainScreen].scale);
+        glBindVertexArray(_VAO);
+        
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        [_context presentRenderbuffer:GL_RENDERBUFFER];
     }
-    
-    int scale = [UIScreen mainScreen].scale;
-    glViewport(0, 0, self.frame.size.width * scale, self.frame.size.height * scale);
-    [self setupShaderData];
-    glBindVertexArray(_VAO);
-    
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 -(void)setupRender{
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClearColor(0.0, 0.0, 0.0, 0.0f);
 
     //前三个是顶点坐标， 后面两个是纹理坐标
     GLfloat attrArr[] =
@@ -249,4 +240,11 @@ typedef struct {
         CFRelease(_videoTextureCache);
     }
 }
+
+/** 可以透过事件 */
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if ([super hitTest:point withEvent:event] == self) return nil;
+    return [super hitTest:point withEvent:event];
+}
+
 @end
