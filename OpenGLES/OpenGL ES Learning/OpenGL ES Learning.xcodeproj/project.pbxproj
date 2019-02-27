@@ -57,9 +57,7 @@
 		3425872D21FB0681009B3EB0 /* FragmentShader1.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 3425872C21FB0681009B3EB0 /* FragmentShader1.glsl */; };
 		3428AA2C221D4B21005E6AD5 /* DYGLESView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428AA1F221D4B1F005E6AD5 /* DYGLESView.m */; };
 		3428AA2D221D4B21005E6AD5 /* DYGLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428AA20221D4B1F005E6AD5 /* DYGLESUtils.m */; };
-		3428AA2E221D4B21005E6AD5 /* guanjun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA21221D4B20005E6AD5 /* guanjun.mp4 */; };
 		3428AA2F221D4B21005E6AD5 /* FragmentShader6.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA22221D4B20005E6AD5 /* FragmentShader6.glsl */; };
-		3428AA30221D4B21005E6AD5 /* rocket.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA25221D4B21005E6AD5 /* rocket.mp4 */; };
 		3428AA31221D4B21005E6AD5 /* VertextShader6.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA26221D4B21005E6AD5 /* VertextShader6.glsl */; };
 		3428AA32221D4B21005E6AD5 /* rocket.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA28221D4B21005E6AD5 /* rocket.mp4 */; };
 		3428AA33221D4B21005E6AD5 /* guanjun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA29221D4B21005E6AD5 /* guanjun.mp4 */; };
@@ -150,11 +148,9 @@
 		3425872C21FB0681009B3EB0 /* FragmentShader1.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader1.glsl; sourceTree = "<group>"; };
 		3428AA1F221D4B1F005E6AD5 /* DYGLESView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGLESView.m; sourceTree = "<group>"; };
 		3428AA20221D4B1F005E6AD5 /* DYGLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGLESUtils.m; sourceTree = "<group>"; };
-		3428AA21221D4B20005E6AD5 /* guanjun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guanjun.mp4; sourceTree = "<group>"; };
 		3428AA22221D4B20005E6AD5 /* FragmentShader6.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader6.glsl; sourceTree = "<group>"; };
 		3428AA23221D4B20005E6AD5 /* DYGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGLESView.h; sourceTree = "<group>"; };
 		3428AA24221D4B20005E6AD5 /* DYGLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGLESUtils.h; sourceTree = "<group>"; };
-		3428AA25221D4B21005E6AD5 /* rocket.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket.mp4; sourceTree = "<group>"; };
 		3428AA26221D4B21005E6AD5 /* VertextShader6.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader6.glsl; sourceTree = "<group>"; };
 		3428AA28221D4B21005E6AD5 /* rocket.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket.mp4; sourceTree = "<group>"; };
 		3428AA29221D4B21005E6AD5 /* guanjun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guanjun.mp4; sourceTree = "<group>"; };
@@ -403,18 +399,9 @@
 		3424E5712213C98500F8E743 /* demo06(加载视频) */ = {
 			isa = PBXGroup;
 			children = (
-				3428AA2A221D4B21005E6AD5 /* DYGiftEffectManager.h */,
-				3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */,
-				3428AA24221D4B20005E6AD5 /* DYGLESUtils.h */,
-				3428AA20221D4B1F005E6AD5 /* DYGLESUtils.m */,
-				3428AA23221D4B20005E6AD5 /* DYGLESView.h */,
-				3428AA1F221D4B1F005E6AD5 /* DYGLESView.m */,
-				3428AA22221D4B20005E6AD5 /* FragmentShader6.glsl */,
-				3428AA21221D4B20005E6AD5 /* guanjun.mp4 */,
-				3428AA25221D4B21005E6AD5 /* rocket.mp4 */,
-				3428AA26221D4B21005E6AD5 /* VertextShader6.glsl */,
-				3428AA27221D4B21005E6AD5 /* videoSource */,
 				3424E5822213E45E00F8E743 /* LYOpenGLView */,
+				34DA3D462224E9FB0019239C /* recourse */,
+				34DA3D452224E9D90019239C /* YUV 视频 */,
 			);
 			path = "demo06(加载视频)";
 			sourceTree = "<group>";
@@ -441,15 +428,6 @@
 			path = "demo07(球体)";
 			sourceTree = "<group>";
 		};
-		3428AA27221D4B21005E6AD5 /* videoSource */ = {
-			isa = PBXGroup;
-			children = (
-				3428AA28221D4B21005E6AD5 /* rocket.mp4 */,
-				3428AA29221D4B21005E6AD5 /* guanjun.mp4 */,
-			);
-			path = videoSource;
-			sourceTree = "<group>";
-		};
 		344FFFC7221A4FFF00BBD174 /* source */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +447,30 @@
 				34841D362217E1280088D974 /* FragmentShader10.glsl */,
 			);
 			path = "demo10(正方体光照贴图 法线有问题)";
+			sourceTree = "<group>";
+		};
+		34DA3D452224E9D90019239C /* YUV 视频 */ = {
+			isa = PBXGroup;
+			children = (
+				3428AA2A221D4B21005E6AD5 /* DYGiftEffectManager.h */,
+				3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */,
+				3428AA23221D4B20005E6AD5 /* DYGLESView.h */,
+				3428AA1F221D4B1F005E6AD5 /* DYGLESView.m */,
+				3428AA22221D4B20005E6AD5 /* FragmentShader6.glsl */,
+				3428AA26221D4B21005E6AD5 /* VertextShader6.glsl */,
+			);
+			path = "YUV 视频";
+			sourceTree = "<group>";
+		};
+		34DA3D462224E9FB0019239C /* recourse */ = {
+			isa = PBXGroup;
+			children = (
+				3428AA24221D4B20005E6AD5 /* DYGLESUtils.h */,
+				3428AA20221D4B1F005E6AD5 /* DYGLESUtils.m */,
+				3428AA28221D4B21005E6AD5 /* rocket.mp4 */,
+				3428AA29221D4B21005E6AD5 /* guanjun.mp4 */,
+			);
+			path = recourse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,12 +562,10 @@
 				3424E5572212B12300F8E743 /* color_3.png in Resources */,
 				34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */,
 				3417EA5B22165C1D00A9F54A /* jinshu.jpg in Resources */,
-				3428AA30221D4B21005E6AD5 /* rocket.mp4 in Resources */,
 				341E3E092216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf in Resources */,
 				3417EA582215719C00A9F54A /* VertextShader9.glsl in Resources */,
 				3424E5582212B12300F8E743 /* color_1.png in Resources */,
 				34133A3721F9A8E500B6CE10 /* VertexShader.glsl in Resources */,
-				3428AA2E221D4B21005E6AD5 /* guanjun.mp4 in Resources */,
 				3424E5752213CA9300F8E743 /* FragmentShader5.glsl in Resources */,
 				34133A3921F9A90100B6CE10 /* FragmentShader.glsl in Resources */,
 				3425872D21FB0681009B3EB0 /* FragmentShader1.glsl in Resources */,
