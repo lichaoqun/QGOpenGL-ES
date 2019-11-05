@@ -67,22 +67,31 @@ typedef struct {
 }
 
 -(void)setupBuffer{
-    // - depthBuffer
+    // - 深度渲染缓冲区对象
     GLuint depthRenderBuffer;
     glGenRenderbuffers(1, &depthRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBuffer);
+    
+    // - 可以创建一个深度和模板渲染缓冲对象
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
 
-    // - renderBuffer
+    // - 颜色渲染缓冲区对象
     GLuint colorRenderBuffer;
     glGenRenderbuffers(1, &colorRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderBuffer);
     [_glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_glLayer];
     
     // - frameBuffer
+    // - 来创建一个帧缓冲对象
     GLuint frameBuffer;
     glGenFramebuffers(1, &frameBuffer);
+    
+    /**
+     把它绑定到当前帧缓冲(绑定到GL_FRAMEBUFFER目标后，接下来所有的读、写帧缓冲的操作都会影响到当前绑定的帧缓冲)
+     */
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    
+    // - 将 renderbuffer 附加到帧缓冲区上
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderBuffer);
     
@@ -206,10 +215,17 @@ typedef struct {
     };
 
     // - VAO (顶点数组对象)
+    /**
+     VAO的全名是Vertex ArrayObject。它不用作存储数据，但它与顶点绘制相关。
+     它的定位是状态对象，记录存储状态信息。VAO记录的是一次绘制中做需要的信息，这包括数据在哪里、数据格式是什么等信息。VAO其实可以看成一个容器，可以包括多个VBO。 由于它进一步将VBO容于其中，所以绘制效率将在VBO的基础上更进一步。目前OpenGL ES3.0及以上才支持顶点数组对象。
+     */
     glGenVertexArrays(1, &_VAO);
     glBindVertexArray(_VAO);
     
     // - VBO (顶点缓冲对象)
+    /**
+    普通的顶点数组的传输，需要在绘制的时候频繁地从CPU到GPU传输顶点数据，这种做法效率低下，为了加快显示速度，显卡增加了一个扩展 VBO (Vertex Buffer object)，即顶点缓存。它直接在 GPU 中开辟一个缓存区域来存储顶点数据，因为它是用来缓存储顶点数据，因此被称之为顶点缓存。使用顶点缓存能够大大较少了CPU到GPU 之间的数据拷贝开销，因此显著地提升了程序运行的效率。
+     */
     GLuint VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);

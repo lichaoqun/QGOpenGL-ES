@@ -147,10 +147,17 @@ static int count = 2;
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
     glVertexAttribPointer(_lint.position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
     glVertexAttribPointer(_lint.textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (float *)NULL + 3);
+    
+    // - 可以改为一下的写法
+    glVertexAttribPointer(_lint.position, 3, GL_FLOAT, GL_FALSE,  sizeof(CustomVertex), NULL + offsetof(CustomVertex, position0));
+    glVertexAttribPointer(_lint.textCoor, 2, GL_FLOAT, GL_FALSE,  sizeof(CustomVertex),NULL + offsetof(CustomVertex, position1));
+    
+    // - 设置显示区域
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    glViewport(self.frame.origin.x  * scale, self.frame.origin.x  * scale, self.frame.size.width * scale, self.frame.size.height * scale);
     
     for (int idx = 0; idx < count; idx++) {
         glActiveTexture(GL_TEXTURE0 + idx);
