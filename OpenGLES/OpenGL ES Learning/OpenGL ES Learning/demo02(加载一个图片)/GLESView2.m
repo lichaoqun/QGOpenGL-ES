@@ -101,13 +101,19 @@ typedef struct {
 
 - (void)setupTexture{
 
-#if 1
-    CGImageRef imgRef = [UIImage imageNamed:@"wall.jpg"].CGImage;
+    CGImageRef imgRef = [UIImage imageNamed:@"kakaxi.jpg"].CGImage;
     size_t width = CGImageGetWidth(imgRef);
     size_t height = CGImageGetHeight(imgRef);
     GLubyte *imgData = (GLubyte *)calloc(width * height * 4, sizeof(GLbyte));
 
     CGContextRef contextRef = CGBitmapContextCreate(imgData, width, height, 8, width * 4, CGImageGetColorSpace(imgRef), kCGImageAlphaPremultipliedLast);
+    
+    // - 翻转纹理坐标
+    CGRect rect = CGRectMake(0, 0, width, height);
+    CGContextTranslateCTM(contextRef, 0, rect.size.height);
+    CGContextScaleCTM(contextRef, 1.0, -1.0);
+    
+    // - 绘制图片
     CGContextDrawImage(contextRef, CGRectMake(0, 0, width, height), imgRef);
     CGContextRelease(contextRef);
     
@@ -122,9 +128,6 @@ typedef struct {
 
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imgData);
     free(imgData);
-    
-#else 1
-#endif
 }
 
 -(void)render{

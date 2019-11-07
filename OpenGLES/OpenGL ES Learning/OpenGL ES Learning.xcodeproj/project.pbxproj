@@ -38,6 +38,7 @@
 		3417EA5B22165C1D00A9F54A /* jinshu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3417EA5A22165C1D00A9F54A /* jinshu.jpg */; };
 		3417EA5E22165CCC00A9F54A /* DYGestureRecognizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */; };
 		341E3E092216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 341E3E082216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf */; };
+		342490D82373BDE0003CDEB8 /* kakaxi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 342490D72373BDE0003CDEB8 /* kakaxi.jpg */; };
 		3424E54122125EFF00F8E743 /* GLESView5.m in Sources */ = {isa = PBXBuildFile; fileRef = 3424E54022125EFF00F8E743 /* GLESView5.m */; };
 		3424E5562212B12300F8E743 /* color_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3424E5502212B12300F8E743 /* color_2.png */; };
 		3424E5572212B12300F8E743 /* color_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3424E5512212B12300F8E743 /* color_3.png */; };
@@ -124,6 +125,7 @@
 		3417EA5C22165CCC00A9F54A /* DYGestureRecognizerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYGestureRecognizerView.h; sourceTree = "<group>"; };
 		3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYGestureRecognizerView.m; sourceTree = "<group>"; };
 		341E3E082216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf"; sourceTree = "<group>"; };
+		342490D72373BDE0003CDEB8 /* kakaxi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kakaxi.jpg; sourceTree = "<group>"; };
 		3424E53F22125EFF00F8E743 /* GLESView5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLESView5.h; sourceTree = "<group>"; };
 		3424E54022125EFF00F8E743 /* GLESView5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLESView5.m; sourceTree = "<group>"; };
 		3424E5502212B12300F8E743 /* color_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_2.png; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 		3424E56D2213C95500F8E743 /* demo02(加载一个图片) */ = {
 			isa = PBXGroup;
 			children = (
+				342490D72373BDE0003CDEB8 /* kakaxi.jpg */,
 				34EB365021FC4C220087CE1B /* GLESView2.h */,
 				34EB365121FC4C220087CE1B /* GLESView2.m */,
 				34EB365521FC4CD20087CE1B /* VertextShader2.glsl */,
@@ -550,6 +553,7 @@
 				3417EA332215469900A9F54A /* jinshu.jpg in Resources */,
 				3417EA402215504C00A9F54A /* Lamborginhi Aventador_diffuse.jpeg in Resources */,
 				3417EA3D22154E3900A9F54A /* Lamborginhi Aventador_gloss.jpeg in Resources */,
+				342490D82373BDE0003CDEB8 /* kakaxi.jpg in Resources */,
 				3424E5792213CACD00F8E743 /* VertextShader3.glsl in Resources */,
 				34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */,
 				3428AA2F221D4B21005E6AD5 /* FragmentShader6.glsl in Resources */,
