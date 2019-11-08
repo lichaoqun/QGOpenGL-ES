@@ -13,6 +13,8 @@
 #import <OpenGLES/ES3/glext.h>
 #import <GLKit/GLKit.h>
 #import "smoothMonkey.h"
+#define PI 3.1415926535898
+#define ANGLE_TO_RADIAN(angle) angle * (PI / 180.0f)
 
 typedef struct {
     GLuint position;
@@ -140,19 +142,17 @@ typedef struct {
     glUniform3f(_shaderF.light_diffuseColor, 0.5, 0.5, 0.5);
     glUniform3f(_shaderF.light_specularColor, 1.0, 1.0, 1.0);
     
-    /*
      // -  材质 金
      glUniform3f(_shaderF.material_diffuseColor, 0.75164, 0.60648, 0.22648);
      glUniform3f(_shaderF.material_ambientColor, 0.24725, 0.1995, 0.0745);
      glUniform3f(_shaderF.material_specularColor, 0.628281, 0.555802, 0.366065);
      glUniform1f(_shaderF.material_smoothness, 0.4);
-     */
     
     // -  材质 玉
-    glUniform3f(_shaderF.material_diffuseColor, 0.54, 0.89, 0.63);
-    glUniform3f(_shaderF.material_ambientColor, 0.135, 0.2225, 0.1575);
-    glUniform3f(_shaderF.material_specularColor, 0.316228, 0.316228, 0.316228);
-    glUniform1f(_shaderF.material_smoothness, 0.1);
+//    glUniform3f(_shaderF.material_diffuseColor, 0.54, 0.89, 0.63);
+//    glUniform3f(_shaderF.material_ambientColor, 0.135, 0.2225, 0.1575);
+//    glUniform3f(_shaderF.material_specularColor, 0.316228, 0.316228, 0.316228);
+//    glUniform1f(_shaderF.material_smoothness, 0.1);
 
     glUniform3f(_shaderF.viewPos, 0.0, 0.0, 3.0);
     
@@ -218,8 +218,8 @@ typedef struct {
     float aspect = width / height; //长宽比
     
     // - 模型矩阵 (世界空间)
-    GLKMatrix4 modelMat = GLKMatrix4Rotate(GLKMatrix4Identity, self.rote.roteY, 1.0, 0.0, 0.0);
-    modelMat = GLKMatrix4Rotate(modelMat, self.rote.roteX, 0.0, 1.0, 0.0);
+    GLKMatrix4 modelMat = GLKMatrix4MakeRotation(ANGLE_TO_RADIAN(self.rote.roteY), 1.0, 0.0, 0.0);
+    modelMat = GLKMatrix4Rotate(modelMat, ANGLE_TO_RADIAN(self.rote.roteX), 0.0, 1.0, 0.0);
     modelMat = GLKMatrix4Scale(modelMat, self.scale, self.scale, self.scale);
     glUniformMatrix4fv(_shaderV.modelMat, 1, GL_FALSE, modelMat.m);
     
@@ -229,9 +229,11 @@ typedef struct {
     normalMat = canInvert ? normalMat : GLKMatrix4Identity;
     glUniformMatrix4fv(_shaderV.normalMat, 1, GL_FALSE, normalMat.m);
     
-    // - 观察矩阵 (观察空间)
-    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0);
+    // - 观察矩阵 (观察空间) (观察矩阵, 可以说是相机的位置在变, 也可以是物体的位置在变, 所以以下的两种写法都可以)
+//    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0);
+    GLKMatrix4 viewMat = GLKMatrix4MakeLookAt(0, 0, -5, 0, 0, 0, 0, 1, 0);
     glUniformMatrix4fv(_shaderV.viewMat, 1, GL_FALSE, viewMat.m);
+    
     
     //投影矩阵 (裁剪空间)
     GLKMatrix4 projectionMat = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45),  aspect, 0.1, 1000.0);

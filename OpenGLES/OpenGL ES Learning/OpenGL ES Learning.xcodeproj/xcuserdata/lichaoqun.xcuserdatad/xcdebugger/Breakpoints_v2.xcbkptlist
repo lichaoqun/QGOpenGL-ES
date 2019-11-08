@@ -3,4 +3,22 @@
    uuid = "4C48BDB1-B1C6-47F0-B883-2BA41377EA30"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A808C9AA-F60A-48B2-968F-EB0BC3378FAE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL ES Learning/demo10(&#x6b63;&#x65b9;&#x4f53;&#x5149;&#x7167;&#x8d34;&#x56fe; &#x6cd5;&#x7ebf;&#x6709;&#x95ee;&#x9898;)/GLESView10.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-updateRender"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

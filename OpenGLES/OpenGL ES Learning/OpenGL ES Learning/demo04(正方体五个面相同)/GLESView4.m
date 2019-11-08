@@ -11,6 +11,10 @@
 #import "GLESMath.h"
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
+#import <GLKit/GLKit.h>
+
+#define PI 3.1415926535898
+#define ANGLE_TO_RADIAN(angle) angle * (PI / 180.0f)
 
 typedef struct {
     GLuint position;
@@ -42,7 +46,6 @@ typedef struct {
         [self setupTextur];
         
         [self render];
-
     }
     return self;
 }
@@ -93,8 +96,13 @@ typedef struct {
     
     // - 将 renderbuffer 附加到帧缓冲区上
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
+    
+    // - 将深度 buffer 附加到帧缓冲区上
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderBuffer);
     
+    // - 将纹理附加到缓冲区上
+//    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture, 0);
+
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -380,24 +388,40 @@ typedef struct {
     float aspect = width / height; //长宽比
     
     // - 模型矩阵 (世界空间)
-    KSMatrix4 modelMat;
-    ksMatrixLoadIdentity(&modelMat);
-    ksRotate(&modelMat, self.rote.roteY, 1.0, 0.0, 0.0); //绕X轴
-    ksRotate(&modelMat, self.rote.roteX, 0.0, 1.0, 0.0); //绕Y轴
-    ksScale(&modelMat, self.scale, self.scale, self.scale);
-    glUniformMatrix4fv(_lint.modelMat, 1, GL_FALSE, (GLfloat*)&modelMat.m[0][0]);
+//    KSMatrix4 modelMat;
+//    ksMatrixLoadIdentity(&modelMat);
+//    ksRotate(&modelMat, self.rote.roteY, 1.0, 0.0, 0.0); //绕X轴
+//    ksRotate(&modelMat, self.rote.roteX, 0.0, 1.0, 0.0); //绕Y轴
+//    ksScale(&modelMat, self.scale, self.scale, self.scale);
+//    glUniformMatrix4fv(_lint.modelMat, 1, GL_FALSE, (GLfloat*)&modelMat.m[0][0]);
+//
+//    // - 观察矩阵 (观察空间)
+//    KSMatrix4 viewMat;
+//    ksMatrixLoadIdentity(&viewMat);
+//    ksTranslate(&viewMat, 0.0, 0.0, -5);
+//    glUniformMatrix4fv(_lint.viewMat, 1, GL_FALSE, (GLfloat*)&viewMat.m[0][0]);
+//
+//    //投影矩阵 (裁剪空间)
+//    KSMatrix4 projectionMat;
+//    ksMatrixLoadIdentity(&projectionMat);
+//    ksPerspective(&projectionMat, 45.0, aspect, 0.1f, 100.0f); //透视变换，视角30°
+//    glUniformMatrix4fv(_lint.projectionMat, 1, GL_FALSE, (GLfloat*)&projectionMat.m[0][0]);
+    
+    // - 使用系统的库
+    // - 模型矩阵 (世界空间)
+//    GLKMatrix4 modelMat = GLKMatrix4MakeYRotation(self.rote.roteX * (3.14159 / 180.0f));
+    GLKMatrix4 modelMat = GLKMatrix4MakeRotation(ANGLE_TO_RADIAN(self.rote.roteY), 1.0, 0.0, 0.0);
+    modelMat = GLKMatrix4Rotate(modelMat, ANGLE_TO_RADIAN(self.rote.roteX), 0.0, 1.0, 0.0);
+    glUniformMatrix4fv(_lint.modelMat, 1, GL_FALSE, modelMat.m);
 
     // - 观察矩阵 (观察空间)
-    KSMatrix4 viewMat;
-    ksMatrixLoadIdentity(&viewMat);
-    ksTranslate(&viewMat, 0.0, 0.0, -5);
-    glUniformMatrix4fv(_lint.viewMat, 1, GL_FALSE, (GLfloat*)&viewMat.m[0][0]);
+    GLKMatrix4 viewMat = GLKMatrix4MakeTranslation(0.0, 0.0, -5.0);
+    glUniformMatrix4fv(_lint.viewMat, 1, GL_FALSE, viewMat.m);
 
     //投影矩阵 (裁剪空间)
-    KSMatrix4 projectionMat;
-    ksMatrixLoadIdentity(&projectionMat);
-    ksPerspective(&projectionMat, 45.0, aspect, 0.1f, 100.0f); //透视变换，视角30°
-    glUniformMatrix4fv(_lint.projectionMat, 1, GL_FALSE, (GLfloat*)&projectionMat.m[0][0]);
+    GLKMatrix4 projectionMat = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45),  aspect, 0.1, 1000.0);
+    glUniformMatrix4fv(_lint.projectionMat, 1, GL_FALSE, projectionMat.m);
+
     
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     [_glContext presentRenderbuffer:GL_RENDERBUFFER];

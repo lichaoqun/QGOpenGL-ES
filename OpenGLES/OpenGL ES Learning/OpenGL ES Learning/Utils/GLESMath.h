@@ -102,7 +102,7 @@ void ksMatrixTranspose(KSMatrix4 *result, const KSMatrix4 *srcA);
 //
 //// return an identity matrix 
 //// result returns identity matrix
-//
+// - 单位矩阵
 void ksMatrixLoadIdentity(KSMatrix4 *result);
 
 //
@@ -112,7 +112,7 @@ void ksMatrixLoadIdentity(KSMatrix4 *result);
 /// aspect Aspect ratio of screen
 /// nearZ Near plane distance
 /// farZ Far plane distance
-//
+// - 透视投影矩阵
 void ksPerspective(KSMatrix4 *result, float fovy, float aspect, float nearZ, float farZ);
 
 //
@@ -121,7 +121,7 @@ void ksPerspective(KSMatrix4 *result, float fovy, float aspect, float nearZ, flo
 /// left, right Coordinates for the left and right vertical clipping planes
 /// bottom, top Coordinates for the bottom and top horizontal clipping planes
 /// nearZ, farZ Distances to the near and far depth clipping planes.  These values are negative if plane is behind the viewer
-//
+// - 正投影矩阵
 void ksOrtho(KSMatrix4 *result, float left, float right, float bottom, float top, float nearZ, float farZ);
 
 //
@@ -130,7 +130,7 @@ void ksOrtho(KSMatrix4 *result, float left, float right, float bottom, float top
 /// left, right Coordinates for the left and right vertical clipping planes
 /// bottom, top Coordinates for the bottom and top horizontal clipping planes
 /// nearZ, farZ Distances to the near and far depth clipping planes.  Both distances must be positive.
-//
+// - 透视投影矩阵
 void ksFrustum(KSMatrix4 *result, float left, float right, float bottom, float top, float nearZ, float farZ);
 
 #ifdef __cplusplus
