@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A808C9AA-F60A-48B2-968F-EB0BC3378FAE"
+            uuid = "0171CE55-94B1-477C-925D-46FF3933B094"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OpenGL ES Learning/demo10(&#x6b63;&#x65b9;&#x4f53;&#x5149;&#x7167;&#x8d34;&#x56fe; &#x6cd5;&#x7ebf;&#x6709;&#x95ee;&#x9898;)/GLESView10.m"
+            filePath = "OpenGL ES Learning/demo04(&#x6b63;&#x65b9;&#x4f53;&#x4e94;&#x4e2a;&#x9762;&#x76f8;&#x540c;)/GLESView4.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-updateRender"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-setupTextur"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0238ECDF-4875-4960-892E-C52A5383CCAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL ES Learning/demo04(&#x6b63;&#x65b9;&#x4f53;&#x4e94;&#x4e2a;&#x9762;&#x76f8;&#x540c;)/GLESView4.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-setupTextur"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

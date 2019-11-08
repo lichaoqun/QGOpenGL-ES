@@ -14,6 +14,8 @@
 #import <GLKit/GLKit.h>
 #import <GLKit/GLKit.h>
 #import "cube.h"
+#define PI 3.1415926535898
+#define ANGLE_TO_RADIAN(angle) angle * (PI / 180.0f)
 
 typedef struct {
     GLuint position;
@@ -218,8 +220,8 @@ static int count = 2;
     float aspect = width / height; //长宽比
     
     // - 模型矩阵 (世界空间)
-    GLKMatrix4 modelMat = GLKMatrix4Rotate(GLKMatrix4Identity, self.rote.roteY, 1.0, 0.0, 0.0);
-    modelMat = GLKMatrix4Rotate(modelMat, self.rote.roteX, 0.0, 1.0, 0.0);
+    GLKMatrix4 modelMat = GLKMatrix4Rotate(GLKMatrix4Identity, ANGLE_TO_RADIAN(self.rote.roteY), 1.0, 0.0, 0.0);
+    modelMat = GLKMatrix4Rotate(modelMat, ANGLE_TO_RADIAN(self.rote.roteX), 0.0, 1.0, 0.0);
     modelMat = GLKMatrix4Scale(modelMat, self.scale, self.scale, self.scale);
     glUniformMatrix4fv(_shaderV.modelMat, 1, GL_FALSE, modelMat.m);
     
