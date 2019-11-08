@@ -22,7 +22,7 @@ typedef struct {
     GLuint projectionMat;
     GLuint modelMat;
     GLuint viewMat;
-    GLuint normalMat;
+    GLuint inverseTransposeModelMat;
 }ShaderV;
 
 typedef struct {
@@ -124,7 +124,7 @@ typedef struct {
     _shaderV.projectionMat = glGetUniformLocation(_programHandle, "projectionMat");
     _shaderV.modelMat = glGetUniformLocation(_programHandle, "modelMat");
     _shaderV.viewMat = glGetUniformLocation(_programHandle, "viewMat");
-    _shaderV.normalMat = glGetUniformLocation(_programHandle, "normalMat");
+    _shaderV.inverseTransposeModelMat = glGetUniformLocation(_programHandle, "inverseTransposeModelMat");
 
     _shaderF.light_position = glGetUniformLocation(_programHandle, "light.position");
     _shaderF.light_diffuseColor = glGetUniformLocation(_programHandle, "light.diffuse");
@@ -137,22 +137,23 @@ typedef struct {
     _shaderF.material_smoothness = glGetUniformLocation(_programHandle, "material.shininess");
     _shaderF.viewPos = glGetUniformLocation(_programHandle, "viewPos");
  
+    
     glUniform3f(_shaderF.light_position, 1.2, 1.0, 2.0);
     glUniform3f(_shaderF.light_ambientColor, 0.2, 0.2, 0.2);
     glUniform3f(_shaderF.light_diffuseColor, 0.5, 0.5, 0.5);
     glUniform3f(_shaderF.light_specularColor, 1.0, 1.0, 1.0);
     
      // -  材质 金
-     glUniform3f(_shaderF.material_diffuseColor, 0.75164, 0.60648, 0.22648);
-     glUniform3f(_shaderF.material_ambientColor, 0.24725, 0.1995, 0.0745);
-     glUniform3f(_shaderF.material_specularColor, 0.628281, 0.555802, 0.366065);
-     glUniform1f(_shaderF.material_smoothness, 0.4);
+//     glUniform3f(_shaderF.material_diffuseColor, 0.75164, 0.60648, 0.22648);
+//     glUniform3f(_shaderF.material_ambientColor, 0.24725, 0.1995, 0.0745);
+//     glUniform3f(_shaderF.material_specularColor, 0.628281, 0.555802, 0.366065);
+//     glUniform1f(_shaderF.material_smoothness, 0.4);
     
     // -  材质 玉
-//    glUniform3f(_shaderF.material_diffuseColor, 0.54, 0.89, 0.63);
-//    glUniform3f(_shaderF.material_ambientColor, 0.135, 0.2225, 0.1575);
-//    glUniform3f(_shaderF.material_specularColor, 0.316228, 0.316228, 0.316228);
-//    glUniform1f(_shaderF.material_smoothness, 0.1);
+    glUniform3f(_shaderF.material_diffuseColor, 0.54, 0.89, 0.63);
+    glUniform3f(_shaderF.material_ambientColor, 0.135, 0.2225, 0.1575);
+    glUniform3f(_shaderF.material_specularColor, 0.316228, 0.316228, 0.316228);
+    glUniform1f(_shaderF.material_smoothness, 0.1);
 
     glUniform3f(_shaderF.viewPos, 0.0, 0.0, 3.0);
     
@@ -224,13 +225,11 @@ typedef struct {
     glUniformMatrix4fv(_shaderV.modelMat, 1, GL_FALSE, modelMat.m);
     
     // - 法线矩阵
-    bool canInvert;
-    GLKMatrix4 normalMat = GLKMatrix4InvertAndTranspose(modelMat, &canInvert);
-    normalMat = canInvert ? normalMat : GLKMatrix4Identity;
-    glUniformMatrix4fv(_shaderV.normalMat, 1, GL_FALSE, normalMat.m);
+    GLKMatrix4 inverseTransposeModelMat = GLKMatrix4InvertAndTranspose(modelMat, NULL);
+    glUniformMatrix4fv(_shaderV.inverseTransposeModelMat, 1, GL_FALSE, inverseTransposeModelMat.m);
     
     // - 观察矩阵 (观察空间) (观察矩阵, 可以说是相机的位置在变, 也可以是物体的位置在变, 所以以下的两种写法都可以)
-//    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0);
+//    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0); 设置摄像机在 arg0，arg1，arg2 坐标，看向 arg3，arg4，arg5点。(arg7, arg7, arg8)点为摄像机顶部指向的方向
     GLKMatrix4 viewMat = GLKMatrix4MakeLookAt(0, 0, -5, 0, 0, 0, 0, 1, 0);
     glUniformMatrix4fv(_shaderV.viewMat, 1, GL_FALSE, viewMat.m);
     

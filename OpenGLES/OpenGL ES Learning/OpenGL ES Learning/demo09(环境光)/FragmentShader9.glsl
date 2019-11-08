@@ -6,6 +6,7 @@ precision highp float;
  shininess影响镜面高光的散射/半径。
  
 */
+// - 材质
 struct Material {
     vec3 ambient;
     vec3 diffuse;
@@ -13,15 +14,17 @@ struct Material {
     float shininess;
 };
 
+// - 光
 struct Light {
-    vec3 position;
-    
-    vec3 ambient;
-    vec3 diffuse;
-    vec3 specular;
+    vec3 position; // - 位置
+    vec3 ambient; // - 环境光照
+    vec3 diffuse; // - 漫反射光照
+    vec3 specular; // - 镜面反射光照
 };
 
 varying vec3 FragPos;
+
+// - 法向量
 varying vec3 Normal;
 
 uniform vec3 viewPos;
