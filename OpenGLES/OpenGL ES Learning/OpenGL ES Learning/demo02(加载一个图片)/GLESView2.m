@@ -11,6 +11,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "GLESUtils.h"
+#import "FilterBar.h"
 
 typedef struct {
     GLuint position;
@@ -21,6 +22,10 @@ typedef struct {
     float position0[3];
     float position1[2];
 }CustomVertex;
+
+@interface GLESView2 () <FilterBarDelegate>
+@property (nonatomic, weak) FilterBar *filerBar;
+@end
 
 
 @implementation GLESView2{
@@ -34,19 +39,55 @@ typedef struct {
     CustomLint _lint;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setuplayer];
+        [self setupContext];
+        [self destoryRenderAndFrameBuffer];
+        
+
+        [self initFliterBar];
+    }
+    return self;
+}
+
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self setuplayer];
-    [self setupContext];
-    [self destoryRenderAndFrameBuffer];
-    
     [self setupRenderBuffer];
     [self setupFrameBuffer];
     [self setupProgramHandle];
     [self setupTexture];
-    
     [self render];
     
+    
+}
+
+-(void)initFliterBar{
+    CGFloat filterBarWidth = self.bounds.size.width;
+    CGFloat filterBarHeight = 100;
+    CGFloat filterBarY = self.bounds.size.height - filterBarHeight;
+    FilterBar *filerBar = [[FilterBar alloc] initWithFrame:CGRectMake(0, filterBarY, filterBarWidth, filterBarHeight)];
+    filerBar.delegate = self;
+    [self addSubview:filerBar];
+    self.filerBar = filerBar;
+    
+    NSArray *dataSource = @[[FilterModel filterModelWithTitle:@"1" shader:@"11"],
+                            [FilterModel filterModelWithTitle:@"2" shader:@"12"],
+                            [FilterModel filterModelWithTitle:@"3" shader:@"13"],
+                            [FilterModel filterModelWithTitle:@"4" shader:@"14"],
+                            [FilterModel filterModelWithTitle:@"5" shader:@"15"],
+                            [FilterModel filterModelWithTitle:@"6" shader:@"16"],
+                            ];
+    
+    
+    filerBar.itemList = dataSource;
+
+}
+
+- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model{
+    NSLog(@"%@==%@", model.filterTitle, model.filterShader);
 }
 
 +(Class)layerClass{

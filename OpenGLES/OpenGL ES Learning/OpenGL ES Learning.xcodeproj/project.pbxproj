@@ -69,6 +69,8 @@
 		344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */ = {isa = PBXBuildFile; fileRef = 3417EA5022156DB400A9F54A /* GLESView9.m */; };
 		34841D382217E1280088D974 /* VertextShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D342217E1280088D974 /* VertextShader10.glsl */; };
 		34841D392217E1280088D974 /* FragmentShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D362217E1280088D974 /* FragmentShader10.glsl */; };
+		34E4098D237E880300F6BCF5 /* FilterBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E40989237E880300F6BCF5 /* FilterBarCell.m */; };
+		34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4098A237E880300F6BCF5 /* FilterBar.m */; };
 		34EB365221FC4C220087CE1B /* GLESView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB365121FC4C220087CE1B /* GLESView2.m */; };
 		34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */; };
 		34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365521FC4CD20087CE1B /* VertextShader2.glsl */; };
@@ -170,6 +172,10 @@
 		34841D342217E1280088D974 /* VertextShader10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader10.glsl; sourceTree = "<group>"; };
 		34841D352217E1280088D974 /* GLESView10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView10.h; sourceTree = "<group>"; };
 		34841D362217E1280088D974 /* FragmentShader10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader10.glsl; sourceTree = "<group>"; };
+		34E40989237E880300F6BCF5 /* FilterBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBarCell.m; sourceTree = "<group>"; };
+		34E4098A237E880300F6BCF5 /* FilterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBar.m; sourceTree = "<group>"; };
+		34E4098B237E880300F6BCF5 /* FilterBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBarCell.h; sourceTree = "<group>"; };
+		34E4098C237E880300F6BCF5 /* FilterBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBar.h; sourceTree = "<group>"; };
 		34EB365021FC4C220087CE1B /* GLESView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLESView2.h; sourceTree = "<group>"; };
 		34EB365121FC4C220087CE1B /* GLESView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLESView2.m; sourceTree = "<group>"; };
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 		3424E56D2213C95500F8E743 /* demo02(加载一个图片) */ = {
 			isa = PBXGroup;
 			children = (
+				34E40988237E880300F6BCF5 /* Tool */,
 				342490D72373BDE0003CDEB8 /* kakaxi.jpg */,
 				34EB365021FC4C220087CE1B /* GLESView2.h */,
 				34EB365121FC4C220087CE1B /* GLESView2.m */,
@@ -474,6 +481,17 @@
 				3428AA29221D4B21005E6AD5 /* guanjun.mp4 */,
 			);
 			path = recourse;
+			sourceTree = "<group>";
+		};
+		34E40988237E880300F6BCF5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				34E40989237E880300F6BCF5 /* FilterBarCell.m */,
+				34E4098A237E880300F6BCF5 /* FilterBar.m */,
+				34E4098B237E880300F6BCF5 /* FilterBarCell.h */,
+				34E4098C237E880300F6BCF5 /* FilterBar.h */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,10 +616,12 @@
 				344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */,
 				3428AA34221D4B21005E6AD5 /* DYGiftEffectManager.m in Sources */,
 				3428AA2D221D4B21005E6AD5 /* DYGLESUtils.m in Sources */,
+				34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */,
 				344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */,
 				3417EA5E22165CCC00A9F54A /* DYGestureRecognizerView.m in Sources */,
 				34133A2A21F999A900B6CE10 /* main.m in Sources */,
 				34133A3521F9A3BE00B6CE10 /* GLESUtils.m in Sources */,
+				34E4098D237E880300F6BCF5 /* FilterBarCell.m in Sources */,
 				3425872921FAFDDC009B3EB0 /* GLESView1.m in Sources */,
 				3417EA2B22150E4500A9F54A /* GLESView8.m in Sources */,
 				34133A1C21F999A700B6CE10 /* AppDelegate.m in Sources */,
@@ -749,7 +769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 735495048@qq.com (4599FFQGB3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: wei liu (4599FFQGB3)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R9TTUZA6N2;
 				INFOPLIST_FILE = "OpenGL ES Learning/Info.plist";
@@ -758,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tencent.tv.qie.OpenGL-ES-Learning";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = QIENEWNEW;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -769,7 +789,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 735495048@qq.com (4599FFQGB3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: wei liu (4599FFQGB3)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R9TTUZA6N2;
 				INFOPLIST_FILE = "OpenGL ES Learning/Info.plist";
@@ -778,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tencent.tv.qie.OpenGL-ES-Learning";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = QIENEWNEW;
 				TARGETED_DEVICE_FAMILY = 1;

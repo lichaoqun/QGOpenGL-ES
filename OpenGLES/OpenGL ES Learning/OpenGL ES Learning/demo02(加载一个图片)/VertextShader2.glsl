@@ -1,7 +1,7 @@
 attribute vec4 position;
 attribute vec2 textCoordinate;
 
-varying lowp vec2 varyTextCoord;
+varying vec2 varyTextCoord;
 
 void main(void){
     varyTextCoord = textCoordinate;
