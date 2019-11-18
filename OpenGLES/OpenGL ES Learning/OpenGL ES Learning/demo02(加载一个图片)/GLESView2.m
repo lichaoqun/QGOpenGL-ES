@@ -25,6 +25,8 @@ typedef struct {
 
 @interface GLESView2 () <FilterBarDelegate>
 @property (nonatomic, weak) FilterBar *filerBar;
+@property(nonatomic, strong)FilterModel *model;
+
 @end
 
 
@@ -46,48 +48,63 @@ typedef struct {
         [self setuplayer];
         [self setupContext];
         [self destoryRenderAndFrameBuffer];
-        
-
+        [self setupRenderBuffer];
+        [self setupFrameBuffer];
+        [self setupTexture];
         [self initFliterBar];
     }
     return self;
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    [self setupRenderBuffer];
-    [self setupFrameBuffer];
-    [self setupProgramHandle];
-    [self setupTexture];
-    [self render];
-    
-    
-}
-
 -(void)initFliterBar{
     CGFloat filterBarWidth = self.bounds.size.width;
-    CGFloat filterBarHeight = 100;
+    CGFloat filterBarHeight = 60;
     CGFloat filterBarY = self.bounds.size.height - filterBarHeight;
     FilterBar *filerBar = [[FilterBar alloc] initWithFrame:CGRectMake(0, filterBarY, filterBarWidth, filterBarHeight)];
     filerBar.delegate = self;
     [self addSubview:filerBar];
     self.filerBar = filerBar;
     
-    NSArray *dataSource = @[[FilterModel filterModelWithTitle:@"1" shader:@"11"],
-                            [FilterModel filterModelWithTitle:@"2" shader:@"12"],
-                            [FilterModel filterModelWithTitle:@"3" shader:@"13"],
-                            [FilterModel filterModelWithTitle:@"4" shader:@"14"],
-                            [FilterModel filterModelWithTitle:@"5" shader:@"15"],
-                            [FilterModel filterModelWithTitle:@"6" shader:@"16"],
-                            ];
+    NSArray <FilterModel *> *arrayList = @[
+    [FilterModel filterModelWithTitle:@"普通" shader:@"FragmentShader2_00"],
+    [FilterModel filterModelWithTitle:@"二分原比例" shader:@"FragmentShader2_01"],
+    [FilterModel filterModelWithTitle:@"三分原比例" shader:@"FragmentShader2_02"],
+    [FilterModel filterModelWithTitle:@"四分压缩" shader:@"FragmentShader2_03"],
+    [FilterModel filterModelWithTitle:@"九分原比例" shader:@"FragmentShader2_04"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"黑白色" shader:@"FragmentShader2_06"],
+    [FilterModel filterModelWithTitle:@"黑白分屏缩放1" shader:@"FragmentShader2_07"],
+    [FilterModel filterModelWithTitle:@"黑白分屏缩放2" shader:@"FragmentShader2_08"],
+    [FilterModel filterModelWithTitle:@"黑边上下颠倒" shader:@"FragmentShader2_09"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    ];
     
     
-    filerBar.itemList = dataSource;
+    filerBar.itemList = arrayList;
+    [self filterBar:filerBar didSelectModel:[arrayList firstObject]];
 
 }
 
 - (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model{
-    NSLog(@"%@==%@", model.filterTitle, model.filterShader);
+    self.model = model;
+    [self setupProgramHandle];
+    [self render];
 }
 
 +(Class)layerClass{
@@ -121,8 +138,9 @@ typedef struct {
 }
 
 -(void)setupProgramHandle{
+    
     NSString * vertextShaderPath = [[NSBundle mainBundle] pathForResource:@"VertextShader2" ofType:@"glsl"];
-    NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader2" ofType:@"glsl"];
+    NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:self.model.filterShader ofType:@"glsl"];
     
     GLuint vertextShader = [GLESUtils loadShader:GL_VERTEX_SHADER withFilepath:vertextShaderPath];
     GLuint framegmentShader = [GLESUtils loadShader:GL_FRAGMENT_SHADER withFilepath:fragmentShaderPath];
@@ -142,7 +160,7 @@ typedef struct {
 
 - (void)setupTexture{
 
-    CGImageRef imgRef = [UIImage imageNamed:@"kakaxi.jpg"].CGImage;
+    CGImageRef imgRef = [UIImage imageNamed:@"gyy.jpg"].CGImage;
     size_t width = CGImageGetWidth(imgRef);
     size_t height = CGImageGetHeight(imgRef);
     GLubyte *imgData = (GLubyte *)calloc(width * height * 4, sizeof(GLbyte));
@@ -175,14 +193,13 @@ typedef struct {
 -(void)render{
     glClearColor(0, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    CustomVertex lint1 = {.position0 = {1,  1, 0}, .position1 = {1.0, 1.0}};
+    CustomVertex lint2 = {.position0 = {1,  -1, 0}, .position1 = {1.0, 0.0}};
+    CustomVertex lint3 = {.position0 = {-1,  1, 0}, .position1 = {0.0, 1.0}};
 
-    CustomVertex lint1 = {.position0 = {0.5,  -0.5, 0}, .position1 = {1.0, 0.0}};
-    CustomVertex lint2 = {.position0 = {-0.5,  0.5, 0}, .position1 = {0.0, 1.0}};
-    CustomVertex lint3 = {.position0 = {-0.5,  -0.5, 0}, .position1 = {0.0, 0.0}};
-
-    CustomVertex lint4 = {.position0 = {0.5,  0.5, 0}, .position1 = {1.0, 1.0}};
-    CustomVertex lint5 = {.position0 = {-0.5,  0.5, 0}, .position1 = {0.0, 1.0}};
-    CustomVertex lint6 = {.position0 = {0.5,  -0.5, 0}, .position1 = {1.0, 0.0}};
+    CustomVertex lint4 = {.position0 = {1,  -1, 0}, .position1 = {1.0, 0.0}};
+    CustomVertex lint5 = {.position0 = {-1,  -1, 0}, .position1 = {0.0, 0.0}};
+    CustomVertex lint6 = {.position0 = {-1,  1, 0}, .position1 = {0.0, 1.0}};
     CustomVertex vertices[] ={lint1, lint2, lint3, lint4, lint5, lint6};
 
     GLuint vertexBuffer;
@@ -206,4 +223,7 @@ typedef struct {
     _colorRenderBuffer = 0;
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.filerBar.hidden = !self.filerBar.hidden;
+}
 @end

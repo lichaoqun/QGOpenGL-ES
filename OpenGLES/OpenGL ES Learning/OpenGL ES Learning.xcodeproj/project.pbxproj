@@ -71,6 +71,46 @@
 		34841D392217E1280088D974 /* FragmentShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D362217E1280088D974 /* FragmentShader10.glsl */; };
 		34E4098D237E880300F6BCF5 /* FilterBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E40989237E880300F6BCF5 /* FilterBarCell.m */; };
 		34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4098A237E880300F6BCF5 /* FilterBar.m */; };
+		34EA40C4238234F600AD48AF /* FragmentShader2_24.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA409D238234F600AD48AF /* FragmentShader2_24.glsl */; };
+		34EA40C5238234F600AD48AF /* FragmentShader2_32.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA409E238234F600AD48AF /* FragmentShader2_32.glsl */; };
+		34EA40C6238234F600AD48AF /* FragmentShader2_08.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA409F238234F600AD48AF /* FragmentShader2_08.glsl */; };
+		34EA40C7238234F600AD48AF /* FragmentShader2_28.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A0238234F600AD48AF /* FragmentShader2_28.glsl */; };
+		34EA40C8238234F600AD48AF /* FragmentShader2_12.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A1238234F600AD48AF /* FragmentShader2_12.glsl */; };
+		34EA40C9238234F600AD48AF /* FragmentShader2_04.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A2238234F600AD48AF /* FragmentShader2_04.glsl */; };
+		34EA40CA238234F600AD48AF /* FragmentShader2_05.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A3238234F600AD48AF /* FragmentShader2_05.glsl */; };
+		34EA40CB238234F600AD48AF /* FragmentShader2_13.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A4238234F600AD48AF /* FragmentShader2_13.glsl */; };
+		34EA40CC238234F600AD48AF /* FragmentShader2_29.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A5238234F600AD48AF /* FragmentShader2_29.glsl */; };
+		34EA40CD238234F600AD48AF /* FragmentShader2_09.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A6238234F600AD48AF /* FragmentShader2_09.glsl */; };
+		34EA40CE238234F600AD48AF /* FragmentShader2_33.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A7238234F600AD48AF /* FragmentShader2_33.glsl */; };
+		34EA40CF238234F600AD48AF /* FragmentShader2_25.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A8238234F600AD48AF /* FragmentShader2_25.glsl */; };
+		34EA40D0238234F600AD48AF /* FragmentShader2_14.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40A9238234F600AD48AF /* FragmentShader2_14.glsl */; };
+		34EA40D1238234F600AD48AF /* FragmentShader2_02.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AA238234F600AD48AF /* FragmentShader2_02.glsl */; };
+		34EA40D2238234F600AD48AF /* FragmentShader2_22.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AB238234F600AD48AF /* FragmentShader2_22.glsl */; };
+		34EA40D3238234F600AD48AF /* FragmentShader2_34.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AC238234F600AD48AF /* FragmentShader2_34.glsl */; };
+		34EA40D4238234F600AD48AF /* FragmentShader2_18.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AD238234F600AD48AF /* FragmentShader2_18.glsl */; };
+		34EA40D5238234F600AD48AF /* FragmentShader2_19.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AE238234F600AD48AF /* FragmentShader2_19.glsl */; };
+		34EA40D6238234F600AD48AF /* FragmentShader2_35.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40AF238234F600AD48AF /* FragmentShader2_35.glsl */; };
+		34EA40D7238234F600AD48AF /* FragmentShader2_23.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B0238234F600AD48AF /* FragmentShader2_23.glsl */; };
+		34EA40D8238234F600AD48AF /* FragmentShader2_03.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B1238234F600AD48AF /* FragmentShader2_03.glsl */; };
+		34EA40D9238234F600AD48AF /* FragmentShader2_15.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B2238234F600AD48AF /* FragmentShader2_15.glsl */; };
+		34EA40DA238234F600AD48AF /* FragmentShader2_00.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B3238234F600AD48AF /* FragmentShader2_00.glsl */; };
+		34EA40DB238234F600AD48AF /* FragmentShader2_16.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B4238234F600AD48AF /* FragmentShader2_16.glsl */; };
+		34EA40DC238234F600AD48AF /* FragmentShader2_36.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B5238234F600AD48AF /* FragmentShader2_36.glsl */; };
+		34EA40DD238234F600AD48AF /* FragmentShader2_20.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B6238234F600AD48AF /* FragmentShader2_20.glsl */; };
+		34EA40DE238234F600AD48AF /* FragmentShader2_21.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B7238234F600AD48AF /* FragmentShader2_21.glsl */; };
+		34EA40DF238234F600AD48AF /* FragmentShader2_37.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B8238234F600AD48AF /* FragmentShader2_37.glsl */; };
+		34EA40E0238234F600AD48AF /* FragmentShader2_17.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40B9238234F600AD48AF /* FragmentShader2_17.glsl */; };
+		34EA40E1238234F600AD48AF /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BA238234F600AD48AF /* VertextShader2.glsl */; };
+		34EA40E2238234F600AD48AF /* FragmentShader2_01.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BB238234F600AD48AF /* FragmentShader2_01.glsl */; };
+		34EA40E3238234F600AD48AF /* FragmentShader2_30.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BC238234F600AD48AF /* FragmentShader2_30.glsl */; };
+		34EA40E4238234F600AD48AF /* FragmentShader2_26.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BD238234F600AD48AF /* FragmentShader2_26.glsl */; };
+		34EA40E5238234F600AD48AF /* FragmentShader2_06.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BE238234F600AD48AF /* FragmentShader2_06.glsl */; };
+		34EA40E6238234F600AD48AF /* FragmentShader2_10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40BF238234F600AD48AF /* FragmentShader2_10.glsl */; };
+		34EA40E7238234F600AD48AF /* FragmentShader2_11.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40C0238234F600AD48AF /* FragmentShader2_11.glsl */; };
+		34EA40E8238234F600AD48AF /* FragmentShader2_07.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40C1238234F600AD48AF /* FragmentShader2_07.glsl */; };
+		34EA40E9238234F600AD48AF /* FragmentShader2_27.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40C2238234F600AD48AF /* FragmentShader2_27.glsl */; };
+		34EA40EA238234F600AD48AF /* FragmentShader2_31.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40C3238234F600AD48AF /* FragmentShader2_31.glsl */; };
+		34EA40EC238234FD00AD48AF /* gyy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34EA40EB238234FD00AD48AF /* gyy.jpg */; };
 		34EB365221FC4C220087CE1B /* GLESView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB365121FC4C220087CE1B /* GLESView2.m */; };
 		34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */; };
 		34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365521FC4CD20087CE1B /* VertextShader2.glsl */; };
@@ -176,6 +216,46 @@
 		34E4098A237E880300F6BCF5 /* FilterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBar.m; sourceTree = "<group>"; };
 		34E4098B237E880300F6BCF5 /* FilterBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBarCell.h; sourceTree = "<group>"; };
 		34E4098C237E880300F6BCF5 /* FilterBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBar.h; sourceTree = "<group>"; };
+		34EA409D238234F600AD48AF /* FragmentShader2_24.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_24.glsl; sourceTree = "<group>"; };
+		34EA409E238234F600AD48AF /* FragmentShader2_32.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_32.glsl; sourceTree = "<group>"; };
+		34EA409F238234F600AD48AF /* FragmentShader2_08.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_08.glsl; sourceTree = "<group>"; };
+		34EA40A0238234F600AD48AF /* FragmentShader2_28.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_28.glsl; sourceTree = "<group>"; };
+		34EA40A1238234F600AD48AF /* FragmentShader2_12.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_12.glsl; sourceTree = "<group>"; };
+		34EA40A2238234F600AD48AF /* FragmentShader2_04.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_04.glsl; sourceTree = "<group>"; };
+		34EA40A3238234F600AD48AF /* FragmentShader2_05.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_05.glsl; sourceTree = "<group>"; };
+		34EA40A4238234F600AD48AF /* FragmentShader2_13.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_13.glsl; sourceTree = "<group>"; };
+		34EA40A5238234F600AD48AF /* FragmentShader2_29.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_29.glsl; sourceTree = "<group>"; };
+		34EA40A6238234F600AD48AF /* FragmentShader2_09.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_09.glsl; sourceTree = "<group>"; };
+		34EA40A7238234F600AD48AF /* FragmentShader2_33.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_33.glsl; sourceTree = "<group>"; };
+		34EA40A8238234F600AD48AF /* FragmentShader2_25.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_25.glsl; sourceTree = "<group>"; };
+		34EA40A9238234F600AD48AF /* FragmentShader2_14.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_14.glsl; sourceTree = "<group>"; };
+		34EA40AA238234F600AD48AF /* FragmentShader2_02.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_02.glsl; sourceTree = "<group>"; };
+		34EA40AB238234F600AD48AF /* FragmentShader2_22.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_22.glsl; sourceTree = "<group>"; };
+		34EA40AC238234F600AD48AF /* FragmentShader2_34.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_34.glsl; sourceTree = "<group>"; };
+		34EA40AD238234F600AD48AF /* FragmentShader2_18.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_18.glsl; sourceTree = "<group>"; };
+		34EA40AE238234F600AD48AF /* FragmentShader2_19.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_19.glsl; sourceTree = "<group>"; };
+		34EA40AF238234F600AD48AF /* FragmentShader2_35.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_35.glsl; sourceTree = "<group>"; };
+		34EA40B0238234F600AD48AF /* FragmentShader2_23.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_23.glsl; sourceTree = "<group>"; };
+		34EA40B1238234F600AD48AF /* FragmentShader2_03.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_03.glsl; sourceTree = "<group>"; };
+		34EA40B2238234F600AD48AF /* FragmentShader2_15.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_15.glsl; sourceTree = "<group>"; };
+		34EA40B3238234F600AD48AF /* FragmentShader2_00.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_00.glsl; sourceTree = "<group>"; };
+		34EA40B4238234F600AD48AF /* FragmentShader2_16.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_16.glsl; sourceTree = "<group>"; };
+		34EA40B5238234F600AD48AF /* FragmentShader2_36.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_36.glsl; sourceTree = "<group>"; };
+		34EA40B6238234F600AD48AF /* FragmentShader2_20.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_20.glsl; sourceTree = "<group>"; };
+		34EA40B7238234F600AD48AF /* FragmentShader2_21.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_21.glsl; sourceTree = "<group>"; };
+		34EA40B8238234F600AD48AF /* FragmentShader2_37.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_37.glsl; sourceTree = "<group>"; };
+		34EA40B9238234F600AD48AF /* FragmentShader2_17.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_17.glsl; sourceTree = "<group>"; };
+		34EA40BA238234F600AD48AF /* VertextShader2.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader2.glsl; sourceTree = "<group>"; };
+		34EA40BB238234F600AD48AF /* FragmentShader2_01.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_01.glsl; sourceTree = "<group>"; };
+		34EA40BC238234F600AD48AF /* FragmentShader2_30.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_30.glsl; sourceTree = "<group>"; };
+		34EA40BD238234F600AD48AF /* FragmentShader2_26.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_26.glsl; sourceTree = "<group>"; };
+		34EA40BE238234F600AD48AF /* FragmentShader2_06.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_06.glsl; sourceTree = "<group>"; };
+		34EA40BF238234F600AD48AF /* FragmentShader2_10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_10.glsl; sourceTree = "<group>"; };
+		34EA40C0238234F600AD48AF /* FragmentShader2_11.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_11.glsl; sourceTree = "<group>"; };
+		34EA40C1238234F600AD48AF /* FragmentShader2_07.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_07.glsl; sourceTree = "<group>"; };
+		34EA40C2238234F600AD48AF /* FragmentShader2_27.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_27.glsl; sourceTree = "<group>"; };
+		34EA40C3238234F600AD48AF /* FragmentShader2_31.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader2_31.glsl; sourceTree = "<group>"; };
+		34EA40EB238234FD00AD48AF /* gyy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gyy.jpg; sourceTree = "<group>"; };
 		34EB365021FC4C220087CE1B /* GLESView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLESView2.h; sourceTree = "<group>"; };
 		34EB365121FC4C220087CE1B /* GLESView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLESView2.m; sourceTree = "<group>"; };
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
@@ -361,6 +441,8 @@
 		3424E56D2213C95500F8E743 /* demo02(加载一个图片) */ = {
 			isa = PBXGroup;
 			children = (
+				34EA40EB238234FD00AD48AF /* gyy.jpg */,
+				34EA409C238234F600AD48AF /* shaders */,
 				34E40988237E880300F6BCF5 /* Tool */,
 				342490D72373BDE0003CDEB8 /* kakaxi.jpg */,
 				34EB365021FC4C220087CE1B /* GLESView2.h */,
@@ -494,6 +576,52 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		34EA409C238234F600AD48AF /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				34EA409D238234F600AD48AF /* FragmentShader2_24.glsl */,
+				34EA409E238234F600AD48AF /* FragmentShader2_32.glsl */,
+				34EA409F238234F600AD48AF /* FragmentShader2_08.glsl */,
+				34EA40A0238234F600AD48AF /* FragmentShader2_28.glsl */,
+				34EA40A1238234F600AD48AF /* FragmentShader2_12.glsl */,
+				34EA40A2238234F600AD48AF /* FragmentShader2_04.glsl */,
+				34EA40A3238234F600AD48AF /* FragmentShader2_05.glsl */,
+				34EA40A4238234F600AD48AF /* FragmentShader2_13.glsl */,
+				34EA40A5238234F600AD48AF /* FragmentShader2_29.glsl */,
+				34EA40A6238234F600AD48AF /* FragmentShader2_09.glsl */,
+				34EA40A7238234F600AD48AF /* FragmentShader2_33.glsl */,
+				34EA40A8238234F600AD48AF /* FragmentShader2_25.glsl */,
+				34EA40A9238234F600AD48AF /* FragmentShader2_14.glsl */,
+				34EA40AA238234F600AD48AF /* FragmentShader2_02.glsl */,
+				34EA40AB238234F600AD48AF /* FragmentShader2_22.glsl */,
+				34EA40AC238234F600AD48AF /* FragmentShader2_34.glsl */,
+				34EA40AD238234F600AD48AF /* FragmentShader2_18.glsl */,
+				34EA40AE238234F600AD48AF /* FragmentShader2_19.glsl */,
+				34EA40AF238234F600AD48AF /* FragmentShader2_35.glsl */,
+				34EA40B0238234F600AD48AF /* FragmentShader2_23.glsl */,
+				34EA40B1238234F600AD48AF /* FragmentShader2_03.glsl */,
+				34EA40B2238234F600AD48AF /* FragmentShader2_15.glsl */,
+				34EA40B3238234F600AD48AF /* FragmentShader2_00.glsl */,
+				34EA40B4238234F600AD48AF /* FragmentShader2_16.glsl */,
+				34EA40B5238234F600AD48AF /* FragmentShader2_36.glsl */,
+				34EA40B6238234F600AD48AF /* FragmentShader2_20.glsl */,
+				34EA40B7238234F600AD48AF /* FragmentShader2_21.glsl */,
+				34EA40B8238234F600AD48AF /* FragmentShader2_37.glsl */,
+				34EA40B9238234F600AD48AF /* FragmentShader2_17.glsl */,
+				34EA40BA238234F600AD48AF /* VertextShader2.glsl */,
+				34EA40BB238234F600AD48AF /* FragmentShader2_01.glsl */,
+				34EA40BC238234F600AD48AF /* FragmentShader2_30.glsl */,
+				34EA40BD238234F600AD48AF /* FragmentShader2_26.glsl */,
+				34EA40BE238234F600AD48AF /* FragmentShader2_06.glsl */,
+				34EA40BF238234F600AD48AF /* FragmentShader2_10.glsl */,
+				34EA40C0238234F600AD48AF /* FragmentShader2_11.glsl */,
+				34EA40C1238234F600AD48AF /* FragmentShader2_07.glsl */,
+				34EA40C2238234F600AD48AF /* FragmentShader2_27.glsl */,
+				34EA40C3238234F600AD48AF /* FragmentShader2_31.glsl */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -552,50 +680,90 @@
 			buildActionMask = 2147483647;
 			files = (
 				3428AA33221D4B21005E6AD5 /* guanjun.mp4 in Resources */,
+				34EA40D1238234F600AD48AF /* FragmentShader2_02.glsl in Resources */,
+				34EA40D0238234F600AD48AF /* FragmentShader2_14.glsl in Resources */,
 				3417EA4A22155F4600A9F54A /* Orange_Normal.jpg in Resources */,
+				34EA40D8238234F600AD48AF /* FragmentShader2_03.glsl in Resources */,
 				3424E5772213CABA00F8E743 /* FragmentShader3.glsl in Resources */,
+				34EA40DE238234F600AD48AF /* FragmentShader2_21.glsl in Resources */,
 				3424E5592212B12300F8E743 /* color_4.png in Resources */,
+				34EA40E4238234F600AD48AF /* FragmentShader2_26.glsl in Resources */,
 				3417EA2F2215104100A9F54A /* VertextShader8.glsl in Resources */,
 				3424E5732213CA8600F8E743 /* VertextShader5.glsl in Resources */,
 				340222E9220E7A8F005D41E3 /* VertextShader4.glsl in Resources */,
+				34EA40E9238234F600AD48AF /* FragmentShader2_27.glsl in Resources */,
+				34EA40C9238234F600AD48AF /* FragmentShader2_04.glsl in Resources */,
+				34EA40D3238234F600AD48AF /* FragmentShader2_34.glsl in Resources */,
 				34133A2721F999A900B6CE10 /* LaunchScreen.storyboard in Resources */,
+				34EA40E7238234F600AD48AF /* FragmentShader2_11.glsl in Resources */,
 				340222F6220EE92A005D41E3 /* wall.jpg in Resources */,
 				3417EA4922155F4600A9F54A /* Orange_Color.jpg in Resources */,
 				3424E58E2214290D00F8E743 /* earth-diffuse.jpg in Resources */,
+				34EA40C7238234F600AD48AF /* FragmentShader2_28.glsl in Resources */,
 				3428AA31221D4B21005E6AD5 /* VertextShader6.glsl in Resources */,
 				34841D392217E1280088D974 /* FragmentShader10.glsl in Resources */,
+				34EA40C8238234F600AD48AF /* FragmentShader2_12.glsl in Resources */,
 				3424E58C22140DF800F8E743 /* FragmentShader7.glsl in Resources */,
+				34EA40E1238234F600AD48AF /* VertextShader2.glsl in Resources */,
 				3417EA3E22154E3900A9F54A /* Lamborginhi Aventador_spec.jpeg in Resources */,
+				34EA40E2238234F600AD48AF /* FragmentShader2_01.glsl in Resources */,
 				340222EB220E7A9D005D41E3 /* FragmentShader4.glsl in Resources */,
+				34EA40E8238234F600AD48AF /* FragmentShader2_07.glsl in Resources */,
 				3428AA32221D4B21005E6AD5 /* rocket.mp4 in Resources */,
 				3417EA332215469900A9F54A /* jinshu.jpg in Resources */,
 				3417EA402215504C00A9F54A /* Lamborginhi Aventador_diffuse.jpeg in Resources */,
 				3417EA3D22154E3900A9F54A /* Lamborginhi Aventador_gloss.jpeg in Resources */,
+				34EA40D7238234F600AD48AF /* FragmentShader2_23.glsl in Resources */,
 				342490D82373BDE0003CDEB8 /* kakaxi.jpg in Resources */,
 				3424E5792213CACD00F8E743 /* VertextShader3.glsl in Resources */,
 				34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */,
 				3428AA2F221D4B21005E6AD5 /* FragmentShader6.glsl in Resources */,
+				34EA40E6238234F600AD48AF /* FragmentShader2_10.glsl in Resources */,
 				3417EA5422156DB400A9F54A /* FragmentShader9.glsl in Resources */,
+				34EA40C4238234F600AD48AF /* FragmentShader2_24.glsl in Resources */,
+				34EA40DF238234F600AD48AF /* FragmentShader2_37.glsl in Resources */,
+				34EA40EC238234FD00AD48AF /* gyy.jpg in Resources */,
+				34EA40D4238234F600AD48AF /* FragmentShader2_18.glsl in Resources */,
 				3424E55B2212B12300F8E743 /* color_6.png in Resources */,
+				34EA40E5238234F600AD48AF /* FragmentShader2_06.glsl in Resources */,
+				34EA40DC238234F600AD48AF /* FragmentShader2_36.glsl in Resources */,
 				3425872B21FB0669009B3EB0 /* VertextShader1.glsl in Resources */,
+				34EA40D9238234F600AD48AF /* FragmentShader2_15.glsl in Resources */,
+				34EA40CA238234F600AD48AF /* FragmentShader2_05.glsl in Resources */,
 				34841D382217E1280088D974 /* VertextShader10.glsl in Resources */,
 				34133A2421F999A900B6CE10 /* Assets.xcassets in Resources */,
+				34EA40DA238234F600AD48AF /* FragmentShader2_00.glsl in Resources */,
+				34EA40D6238234F600AD48AF /* FragmentShader2_35.glsl in Resources */,
+				34EA40C6238234F600AD48AF /* FragmentShader2_08.glsl in Resources */,
 				344FFFCB221A500E00BBD174 /* box_1.png in Resources */,
+				34EA40CD238234F600AD48AF /* FragmentShader2_09.glsl in Resources */,
+				34EA40DB238234F600AD48AF /* FragmentShader2_16.glsl in Resources */,
 				3424E5572212B12300F8E743 /* color_3.png in Resources */,
 				34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */,
 				3417EA5B22165C1D00A9F54A /* jinshu.jpg in Resources */,
+				34EA40E0238234F600AD48AF /* FragmentShader2_17.glsl in Resources */,
+				34EA40E3238234F600AD48AF /* FragmentShader2_30.glsl in Resources */,
 				341E3E092216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf in Resources */,
 				3417EA582215719C00A9F54A /* VertextShader9.glsl in Resources */,
 				3424E5582212B12300F8E743 /* color_1.png in Resources */,
 				34133A3721F9A8E500B6CE10 /* VertexShader.glsl in Resources */,
+				34EA40CC238234F600AD48AF /* FragmentShader2_29.glsl in Resources */,
 				3424E5752213CA9300F8E743 /* FragmentShader5.glsl in Resources */,
 				34133A3921F9A90100B6CE10 /* FragmentShader.glsl in Resources */,
+				34EA40C5238234F600AD48AF /* FragmentShader2_32.glsl in Resources */,
+				34EA40CE238234F600AD48AF /* FragmentShader2_33.glsl in Resources */,
 				3425872D21FB0681009B3EB0 /* FragmentShader1.glsl in Resources */,
+				34EA40DD238234F600AD48AF /* FragmentShader2_20.glsl in Resources */,
 				3424E55A2212B12300F8E743 /* color_5.png in Resources */,
 				34133A2221F999A700B6CE10 /* Main.storyboard in Resources */,
+				34EA40CB238234F600AD48AF /* FragmentShader2_13.glsl in Resources */,
 				344FFFCA221A500E00BBD174 /* box_2.png in Resources */,
+				34EA40CF238234F600AD48AF /* FragmentShader2_25.glsl in Resources */,
 				3417EA2E2215104100A9F54A /* FragmentShader8.glsl in Resources */,
+				34EA40D2238234F600AD48AF /* FragmentShader2_22.glsl in Resources */,
+				34EA40D5238234F600AD48AF /* FragmentShader2_19.glsl in Resources */,
 				3424E58A22140DEB00F8E743 /* VertextShader7.glsl in Resources */,
+				34EA40EA238234F600AD48AF /* FragmentShader2_31.glsl in Resources */,
 				3424E5562212B12300F8E743 /* color_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
