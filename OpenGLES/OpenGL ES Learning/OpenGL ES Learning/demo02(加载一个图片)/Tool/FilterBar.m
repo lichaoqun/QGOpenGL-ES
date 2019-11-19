@@ -86,8 +86,8 @@ static NSString * const kFilterBarCellIdentifier = @"FilterBarCell";
     [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     FilterModel *model = self.itemList[indexPath.row];
 
-    if (self.delegate && [self.delegate respondsToSelector:@selector(filterBar:didSelectModel:)]) {
-        [self.delegate filterBar:self didSelectModel:model];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(filterBar:didSelectModel:indexPath:)]) {
+        [self.delegate filterBar:self didSelectModel:model indexPath:indexPath];
     }
 }
 

@@ -12,7 +12,7 @@
 
 @protocol FilterBarDelegate <NSObject>
 
-- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model;
+- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath;
 
 @end
 

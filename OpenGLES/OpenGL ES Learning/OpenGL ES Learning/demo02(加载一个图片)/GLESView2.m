@@ -75,35 +75,36 @@ typedef struct {
     [FilterModel filterModelWithTitle:@"黑白色" shader:@"FragmentShader2_06"],
     [FilterModel filterModelWithTitle:@"黑白分屏缩放1" shader:@"FragmentShader2_07"],
     [FilterModel filterModelWithTitle:@"黑白分屏缩放2" shader:@"FragmentShader2_08"],
-    [FilterModel filterModelWithTitle:@"黑边上下颠倒" shader:@"FragmentShader2_09"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
+    [FilterModel filterModelWithTitle:@"黑白上下颠倒" shader:@"FragmentShader2_09"],
+    [FilterModel filterModelWithTitle:@"黑白模糊分屏缩放" shader:@"FragmentShader2_10"]
     ];
     
     
     filerBar.itemList = arrayList;
-    [self filterBar:filerBar didSelectModel:[arrayList firstObject]];
+    [self filterBar:filerBar didSelectModel:[arrayList firstObject] indexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
 
 }
 
-- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model{
+- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath{
     self.model = model;
-    [self setupProgramHandle];
+    NSInteger index = indexPath.row;
+    switch (index) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:{
+            [self setupProgramHandle];
+            break;
+        }
+        default:
+            break;
+    }
     [self render];
 }
 
