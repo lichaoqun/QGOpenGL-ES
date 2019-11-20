@@ -26,6 +26,8 @@ typedef struct {
 @interface GLESView2 () <FilterBarDelegate>
 @property (nonatomic, weak) FilterBar *filerBar;
 @property(nonatomic, strong)FilterModel *model;
+/** frameBuffer 的尺寸 */
+@property (nonatomic, assign) CGSize frameBufferSize;
 
 @end
 
@@ -165,6 +167,7 @@ typedef struct {
     size_t width = CGImageGetWidth(imgRef);
     size_t height = CGImageGetHeight(imgRef);
     GLubyte *imgData = (GLubyte *)calloc(width * height * 4, sizeof(GLbyte));
+    self.frameBufferSize = CGSizeMake(width, height);
 
     CGContextRef contextRef = CGBitmapContextCreate(imgData, width, height, 8, width * 4, CGImageGetColorSpace(imgRef), kCGImageAlphaPremultipliedLast);
     
@@ -214,6 +217,49 @@ typedef struct {
     glVertexAttribPointer(_lint.textCoor, 2, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 5, (float *)NULL + 3);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     [_glContext presentRenderbuffer:GL_RENDERBUFFER];
+    
+    // - 从当前的 framebuffer 中取到 image
+    [self newCGImageFromFramebufferContents];
+}
+
+/** 从当前的 framebuffer 中取到 image */
+- (CGImageRef)newCGImageFromFramebufferContents{
+    CGImageRef cgImageFromBytes;
+    NSUInteger totalBytesForImage = (int)self.frameBufferSize.width * (int)self.frameBufferSize.height * 4;
+    GLubyte *rawImagePixels;
+    CGDataProviderRef dataProvider = NULL;
+    rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
+    glReadPixels(0, 0, (int)self.frameBufferSize.width, (int)self.frameBufferSize.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
+    dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage, dataProviderReleaseCallback);
+    CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    cgImageFromBytes = CGImageCreate((int)self.frameBufferSize.width, (int)self.frameBufferSize.height, 8, 32, 4 * (int)self.frameBufferSize.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
+    
+    // Capture image with current device orientation
+    CGDataProviderRelease(dataProvider);
+    CGColorSpaceRelease(defaultRGBColorSpace);
+    
+    return cgImageFromBytes;
+}
+
+
+void dataProviderReleaseCallback (void *info, const void *data, size_t size)
+{
+    free((void *)data);
+}
+
+- (BOOL)supportsFastTextureUpload;
+{
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
+    return (CVOpenGLESTextureCacheCreate != NULL);
+#pragma clang diagnostic pop
+
+#endif
 }
 
 -(void)destoryRenderAndFrameBuffer{
