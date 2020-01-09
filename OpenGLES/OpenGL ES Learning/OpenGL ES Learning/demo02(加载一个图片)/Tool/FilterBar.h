@@ -25,7 +25,12 @@
 /** 美颜的 shader */
 @property (nonatomic, copy) NSString *filterShader;
 
+/** 美颜的 shader */
+@property (nonatomic, copy) NSString *filterImageName;
+
 +(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader;
+
++(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader filterImageName:(NSString *)filterImageName;
 
 @end
 

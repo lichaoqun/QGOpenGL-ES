@@ -55,16 +55,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "18F7A849-6FB3-4B12-83B9-8CDED908A828"
+            uuid = "976B6D14-3311-4101-9075-E4A9E101CC9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL ES Learning/demo03(&#x4e24;&#x4e2a;&#x56fe;&#x7247;&#x5b9e;&#x73b0;&#x7eb9;&#x7406;&#x6df7;&#x5408;&#x6db2;)/GLESView3.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "GLESView3"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE2568CD-AC58-4C1C-8EAC-65213FEDC08D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenGL ES Learning/demo02(&#x52a0;&#x8f7d;&#x4e00;&#x4e2a;&#x56fe;&#x7247;)/GLESView2.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "-newCGImageFromFramebufferContents"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
+            landmarkName = "-render1"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF77A511-1DB9-4F26-9DC3-9BA557F9E8B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL ES Learning/demo02(&#x52a0;&#x8f7d;&#x4e00;&#x4e2a;&#x56fe;&#x7247;)/GLESView2.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-filterBar:didSelectModel:indexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

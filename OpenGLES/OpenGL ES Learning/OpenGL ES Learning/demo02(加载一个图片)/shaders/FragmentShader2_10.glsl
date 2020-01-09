@@ -17,16 +17,6 @@ vec2 scaleByPoint(vec2 textCoord, float scale, vec2 center){
     return newTextCoord;
 }
 
-
-// - 马赛克
-vec2 scaleByPoint(sampler2D colorM, vec2 textCoord){
-    vec2 newTextCoord = textCoord;
-    newTextCoord -= center;
-    newTextCoord = newTextCoord / scale;
-    newTextCoord += center;
-    return newTextCoord;
-}
-
 void main(void){
     gl_FragColor = texture2D(colorMap, varyTextCoord);
 }

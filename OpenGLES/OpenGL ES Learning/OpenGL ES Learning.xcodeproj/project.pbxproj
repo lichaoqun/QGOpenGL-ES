@@ -63,6 +63,11 @@
 		3428AA32221D4B21005E6AD5 /* rocket.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA28221D4B21005E6AD5 /* rocket.mp4 */; };
 		3428AA33221D4B21005E6AD5 /* guanjun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA29221D4B21005E6AD5 /* guanjun.mp4 */; };
 		3428AA34221D4B21005E6AD5 /* DYGiftEffectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */; };
+		343F2F122391199000576324 /* lookup_soft_elegance_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0D2391198F00576324 /* lookup_soft_elegance_2.png */; };
+		343F2F132391199000576324 /* lookup_soft_elegance_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0E2391198F00576324 /* lookup_soft_elegance_1.png */; };
+		343F2F142391199000576324 /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0F2391198F00576324 /* lookup.png */; };
+		343F2F152391199000576324 /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F102391198F00576324 /* lookup_amatorka.png */; };
+		343F2F162391199000576324 /* lookup_miss_etikate.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F112391198F00576324 /* lookup_miss_etikate.png */; };
 		344FFFCA221A500E00BBD174 /* box_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 344FFFC8221A500D00BBD174 /* box_2.png */; };
 		344FFFCB221A500E00BBD174 /* box_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 344FFFC9221A500E00BBD174 /* box_1.png */; };
 		344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */ = {isa = PBXBuildFile; fileRef = 34841D332217E1280088D974 /* GLESView10.m */; };
@@ -114,6 +119,13 @@
 		34EB365221FC4C220087CE1B /* GLESView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB365121FC4C220087CE1B /* GLESView2.m */; };
 		34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */; };
 		34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365521FC4CD20087CE1B /* VertextShader2.glsl */; };
+		D0752B282393AF5400262358 /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B212393AF5300262358 /* 03.png */; };
+		D0752B292393AF5400262358 /* 07.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B222393AF5300262358 /* 07.png */; };
+		D0752B2A2393AF5400262358 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B232393AF5300262358 /* 02.png */; };
+		D0752B2B2393AF5400262358 /* 05.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B242393AF5300262358 /* 05.png */; };
+		D0752B2C2393AF5400262358 /* 06.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B252393AF5300262358 /* 06.png */; };
+		D0752B2D2393AF5400262358 /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B262393AF5300262358 /* 04.png */; };
+		D0752B2E2393AF5400262358 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B272393AF5400262358 /* 01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +212,11 @@
 		3428AA29221D4B21005E6AD5 /* guanjun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guanjun.mp4; sourceTree = "<group>"; };
 		3428AA2A221D4B21005E6AD5 /* DYGiftEffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGiftEffectManager.h; sourceTree = "<group>"; };
 		3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGiftEffectManager.m; sourceTree = "<group>"; };
+		343F2F0D2391198F00576324 /* lookup_soft_elegance_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_2.png; sourceTree = "<group>"; };
+		343F2F0E2391198F00576324 /* lookup_soft_elegance_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_1.png; sourceTree = "<group>"; };
+		343F2F0F2391198F00576324 /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
+		343F2F102391198F00576324 /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
+		343F2F112391198F00576324 /* lookup_miss_etikate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_miss_etikate.png; sourceTree = "<group>"; };
 		344FFFC5221A4ED700BBD174 /* LYOpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYOpenGLView.h; sourceTree = "<group>"; };
 		344FFFC6221A4ED700BBD174 /* LYOpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYOpenGLView.m; sourceTree = "<group>"; };
 		344FFFC8221A500D00BBD174 /* box_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_2.png; sourceTree = "<group>"; };
@@ -260,6 +277,13 @@
 		34EB365121FC4C220087CE1B /* GLESView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLESView2.m; sourceTree = "<group>"; };
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
 		34EB365521FC4CD20087CE1B /* VertextShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertextShader2.glsl; sourceTree = "<group>"; };
+		D0752B212393AF5300262358 /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
+		D0752B222393AF5300262358 /* 07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 07.png; sourceTree = "<group>"; };
+		D0752B232393AF5300262358 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		D0752B242393AF5300262358 /* 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05.png; sourceTree = "<group>"; };
+		D0752B252393AF5300262358 /* 06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06.png; sourceTree = "<group>"; };
+		D0752B262393AF5300262358 /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04.png; sourceTree = "<group>"; };
+		D0752B272393AF5400262358 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +465,8 @@
 		3424E56D2213C95500F8E743 /* demo02(加载一个图片) */ = {
 			isa = PBXGroup;
 			children = (
+				D0752B162393A9A400262358 /* watermark */,
+				343F2F0C2391198F00576324 /* Resources */,
 				342490D72373BDE0003CDEB8 /* kakaxi.jpg */,
 				34EA40EB238234FD00AD48AF /* gyy.jpg */,
 				34EA409C238234F600AD48AF /* shaders */,
@@ -518,6 +544,18 @@
 				3424E58B22140DF800F8E743 /* FragmentShader7.glsl */,
 			);
 			path = "demo07(球体)";
+			sourceTree = "<group>";
+		};
+		343F2F0C2391198F00576324 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				343F2F0D2391198F00576324 /* lookup_soft_elegance_2.png */,
+				343F2F0E2391198F00576324 /* lookup_soft_elegance_1.png */,
+				343F2F0F2391198F00576324 /* lookup.png */,
+				343F2F102391198F00576324 /* lookup_amatorka.png */,
+				343F2F112391198F00576324 /* lookup_miss_etikate.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		344FFFC7221A4FFF00BBD174 /* source */ = {
@@ -622,6 +660,20 @@
 			path = shaders;
 			sourceTree = "<group>";
 		};
+		D0752B162393A9A400262358 /* watermark */ = {
+			isa = PBXGroup;
+			children = (
+				D0752B272393AF5400262358 /* 01.png */,
+				D0752B232393AF5300262358 /* 02.png */,
+				D0752B212393AF5300262358 /* 03.png */,
+				D0752B262393AF5300262358 /* 04.png */,
+				D0752B242393AF5300262358 /* 05.png */,
+				D0752B252393AF5300262358 /* 06.png */,
+				D0752B222393AF5300262358 /* 07.png */,
+			);
+			path = watermark;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -688,10 +740,13 @@
 				34EA40DE238234F600AD48AF /* FragmentShader2_21.glsl in Resources */,
 				3424E5592212B12300F8E743 /* color_4.png in Resources */,
 				34EA40E4238234F600AD48AF /* FragmentShader2_26.glsl in Resources */,
+				D0752B2E2393AF5400262358 /* 01.png in Resources */,
 				3417EA2F2215104100A9F54A /* VertextShader8.glsl in Resources */,
+				D0752B282393AF5400262358 /* 03.png in Resources */,
 				3424E5732213CA8600F8E743 /* VertextShader5.glsl in Resources */,
 				340222E9220E7A8F005D41E3 /* VertextShader4.glsl in Resources */,
 				34EA40E9238234F600AD48AF /* FragmentShader2_27.glsl in Resources */,
+				D0752B2D2393AF5400262358 /* 04.png in Resources */,
 				34EA40C9238234F600AD48AF /* FragmentShader2_04.glsl in Resources */,
 				34EA40D3238234F600AD48AF /* FragmentShader2_34.glsl in Resources */,
 				34133A2721F999A900B6CE10 /* LaunchScreen.storyboard in Resources */,
@@ -706,6 +761,7 @@
 				3424E58C22140DF800F8E743 /* FragmentShader7.glsl in Resources */,
 				34EA40E1238234F600AD48AF /* VertextShader2.glsl in Resources */,
 				3417EA3E22154E3900A9F54A /* Lamborginhi Aventador_spec.jpeg in Resources */,
+				D0752B2A2393AF5400262358 /* 02.png in Resources */,
 				34EA40E2238234F600AD48AF /* FragmentShader2_01.glsl in Resources */,
 				340222EB220E7A9D005D41E3 /* FragmentShader4.glsl in Resources */,
 				34EA40E8238234F600AD48AF /* FragmentShader2_07.glsl in Resources */,
@@ -726,11 +782,13 @@
 				34EA40D4238234F600AD48AF /* FragmentShader2_18.glsl in Resources */,
 				3424E55B2212B12300F8E743 /* color_6.png in Resources */,
 				34EA40E5238234F600AD48AF /* FragmentShader2_06.glsl in Resources */,
+				D0752B2C2393AF5400262358 /* 06.png in Resources */,
 				34EA40DC238234F600AD48AF /* FragmentShader2_36.glsl in Resources */,
 				3425872B21FB0669009B3EB0 /* VertextShader1.glsl in Resources */,
 				34EA40D9238234F600AD48AF /* FragmentShader2_15.glsl in Resources */,
 				34EA40CA238234F600AD48AF /* FragmentShader2_05.glsl in Resources */,
 				34841D382217E1280088D974 /* VertextShader10.glsl in Resources */,
+				D0752B292393AF5400262358 /* 07.png in Resources */,
 				34133A2421F999A900B6CE10 /* Assets.xcassets in Resources */,
 				34EA40DA238234F600AD48AF /* FragmentShader2_00.glsl in Resources */,
 				34EA40D6238234F600AD48AF /* FragmentShader2_35.glsl in Resources */,
@@ -740,10 +798,14 @@
 				34EA40DB238234F600AD48AF /* FragmentShader2_16.glsl in Resources */,
 				3424E5572212B12300F8E743 /* color_3.png in Resources */,
 				34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */,
+				343F2F132391199000576324 /* lookup_soft_elegance_1.png in Resources */,
+				343F2F162391199000576324 /* lookup_miss_etikate.png in Resources */,
 				3417EA5B22165C1D00A9F54A /* jinshu.jpg in Resources */,
 				34EA40E0238234F600AD48AF /* FragmentShader2_17.glsl in Resources */,
 				34EA40E3238234F600AD48AF /* FragmentShader2_30.glsl in Resources */,
 				341E3E092216A0D300C208B4 /* OpenGL（十七）Photoshop blend算法 与 图层混合模式 - 阿修罗道 - CSDN博客.pdf in Resources */,
+				343F2F142391199000576324 /* lookup.png in Resources */,
+				D0752B2B2393AF5400262358 /* 05.png in Resources */,
 				3417EA582215719C00A9F54A /* VertextShader9.glsl in Resources */,
 				3424E5582212B12300F8E743 /* color_1.png in Resources */,
 				34133A3721F9A8E500B6CE10 /* VertexShader.glsl in Resources */,
@@ -752,6 +814,7 @@
 				34133A3921F9A90100B6CE10 /* FragmentShader.glsl in Resources */,
 				34EA40C5238234F600AD48AF /* FragmentShader2_32.glsl in Resources */,
 				34EA40CE238234F600AD48AF /* FragmentShader2_33.glsl in Resources */,
+				343F2F152391199000576324 /* lookup_amatorka.png in Resources */,
 				3425872D21FB0681009B3EB0 /* FragmentShader1.glsl in Resources */,
 				34EA40DD238234F600AD48AF /* FragmentShader2_20.glsl in Resources */,
 				3424E55A2212B12300F8E743 /* color_5.png in Resources */,
@@ -759,6 +822,7 @@
 				34EA40CB238234F600AD48AF /* FragmentShader2_13.glsl in Resources */,
 				344FFFCA221A500E00BBD174 /* box_2.png in Resources */,
 				34EA40CF238234F600AD48AF /* FragmentShader2_25.glsl in Resources */,
+				343F2F122391199000576324 /* lookup_soft_elegance_2.png in Resources */,
 				3417EA2E2215104100A9F54A /* FragmentShader8.glsl in Resources */,
 				34EA40D2238234F600AD48AF /* FragmentShader2_22.glsl in Resources */,
 				34EA40D5238234F600AD48AF /* FragmentShader2_19.glsl in Resources */,
