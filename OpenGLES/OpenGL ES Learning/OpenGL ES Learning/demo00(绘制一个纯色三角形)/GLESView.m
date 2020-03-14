@@ -51,6 +51,8 @@
 }
 
 -(void)setupContext{
+    
+    // - iOS应用程序中的每个线程都有一个当前上下文 要设置线程的当前上下文，请在该线程上执行时调用EAGLContext类方法setCurrentContext：
     _glcontext = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:_glcontext];
 }
