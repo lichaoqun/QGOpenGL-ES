@@ -41,7 +41,6 @@
     }
 }
 
-
 -(void)setType:(NSInteger)type{
     UIView *v;
     CGFloat topY = 80;
