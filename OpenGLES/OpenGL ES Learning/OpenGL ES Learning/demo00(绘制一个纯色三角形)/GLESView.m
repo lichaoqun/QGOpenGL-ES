@@ -58,6 +58,7 @@
 }
 
 -(void)setupRenderBuffer{
+    // - 帧缓冲区和渲染缓冲区 https://blog.csdn.net/majiakun1/article/details/80416961
     glGenRenderbuffers(1, &_renderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
     [_glcontext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_gllayer];

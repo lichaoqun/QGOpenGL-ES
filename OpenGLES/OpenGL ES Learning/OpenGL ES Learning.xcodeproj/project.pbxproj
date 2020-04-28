@@ -126,6 +126,9 @@
 		D0752B2C2393AF5400262358 /* 06.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B252393AF5300262358 /* 06.png */; };
 		D0752B2D2393AF5400262358 /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B262393AF5300262358 /* 04.png */; };
 		D0752B2E2393AF5400262358 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B272393AF5400262358 /* 01.png */; };
+		D0EFA0D52457AB3D00E2065A /* QGCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D12457AB3C00E2065A /* QGCell.m */; };
+		D0EFA0D62457AB3D00E2065A /* QGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D22457AB3D00E2065A /* QGModel.m */; };
+		D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D82457AB6D00E2065A /* QGViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,6 +287,12 @@
 		D0752B252393AF5300262358 /* 06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06.png; sourceTree = "<group>"; };
 		D0752B262393AF5300262358 /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04.png; sourceTree = "<group>"; };
 		D0752B272393AF5400262358 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
+		D0EFA0D12457AB3C00E2065A /* QGCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGCell.m; sourceTree = "<group>"; };
+		D0EFA0D22457AB3D00E2065A /* QGModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGModel.m; sourceTree = "<group>"; };
+		D0EFA0D32457AB3D00E2065A /* QGModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGModel.h; sourceTree = "<group>"; };
+		D0EFA0D42457AB3D00E2065A /* QGCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGCell.h; sourceTree = "<group>"; };
+		D0EFA0D72457AB6D00E2065A /* QGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGViewController.h; sourceTree = "<group>"; };
+		D0EFA0D82457AB6D00E2065A /* QGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +355,12 @@
 				34133A1B21F999A700B6CE10 /* AppDelegate.m */,
 				34133A1D21F999A700B6CE10 /* ViewController.h */,
 				34133A1E21F999A700B6CE10 /* ViewController.m */,
+				D0EFA0D42457AB3D00E2065A /* QGCell.h */,
+				D0EFA0D12457AB3C00E2065A /* QGCell.m */,
+				D0EFA0D32457AB3D00E2065A /* QGModel.h */,
+				D0EFA0D22457AB3D00E2065A /* QGModel.m */,
+				D0EFA0D72457AB6D00E2065A /* QGViewController.h */,
+				D0EFA0D82457AB6D00E2065A /* QGViewController.m */,
 				3417EA5C22165CCC00A9F54A /* DYGestureRecognizerView.h */,
 				3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */,
 				34133A2021F999A700B6CE10 /* Main.storyboard */,
@@ -844,11 +859,14 @@
 				3424E54122125EFF00F8E743 /* GLESView5.m in Sources */,
 				3428AA2C221D4B21005E6AD5 /* DYGLESView.m in Sources */,
 				340222F4220E818A005D41E3 /* GLESMath.c in Sources */,
+				D0EFA0D52457AB3D00E2065A /* QGCell.m in Sources */,
+				D0EFA0D62457AB3D00E2065A /* QGModel.m in Sources */,
 				340222E7220E66C0005D41E3 /* GLESView4.m in Sources */,
 				344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */,
 				3428AA34221D4B21005E6AD5 /* DYGiftEffectManager.m in Sources */,
 				3428AA2D221D4B21005E6AD5 /* DYGLESUtils.m in Sources */,
 				34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */,
+				D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */,
 				344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */,
 				3417EA5E22165CCC00A9F54A /* DYGestureRecognizerView.m in Sources */,
 				34133A2A21F999A900B6CE10 /* main.m in Sources */,
@@ -1010,7 +1028,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie.gles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = QIENEWNEW;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1030,7 +1048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tv.qie.gles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = QIENEWNEW;
 				TARGETED_DEVICE_FAMILY = 1;

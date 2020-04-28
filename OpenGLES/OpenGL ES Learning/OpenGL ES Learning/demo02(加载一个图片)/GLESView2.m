@@ -228,6 +228,8 @@ continune:
     GLubyte *rawImagePixels;
     CGDataProviderRef dataProvider = NULL;
     rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
+
+    // - glReadPixels：读取一些像素。当前可以简单理解为“把已经绘制好的像素（它可能已经被保存到显卡的显存中）读取到内存”。
     glReadPixels(0, 0, (int)self.frameBufferSize.width, (int)self.frameBufferSize.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
     dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage, dataProviderReleaseCallback);
     CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
