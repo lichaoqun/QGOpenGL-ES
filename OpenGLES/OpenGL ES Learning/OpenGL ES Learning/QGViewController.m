@@ -48,62 +48,62 @@
     CGRect viewRect = CGRectMake(0, topY, self.view.frame.size.width, self.view.frame.size.height - topY);
     switch (type) {
         case 0:{
-            // - 分离文件中的 flv 和 aac 文件, 并写入到本地
+            // - 绘制三角形状
             v = [[GLESView alloc]initWithFrame:viewRect];
             break;
         }
         case 1:{
-            // - 播放文件
+            // - 正方形渐变
             v = [[GLESView1 alloc]initWithFrame:viewRect];
             break;
         }
         case 2:{
-            // - 格式转换
+            // - 加载图片
             v = [[GLESView2 alloc]initWithFrame:viewRect];
             break;
         }
         case 3:{
-            // - 裁剪视频
+            // - 两个图片纹理混合
             v = [[GLESView3 alloc]initWithFrame:viewRect];
             break;
         }
         case 4:{
-            // - 视频拼接
+            // - 正方体五个面相同
             v = [[GLESView4 alloc]initWithFrame:viewRect];
 
             break;
         }
         case 5:{
-            // - 视频编码
+            // - 正方体五个面不同
             v = [[GLESView5 alloc]initWithFrame:viewRect];
             break;
         }
         case 6:{
-            // - 显示视频
+            // - 加载视频
             [self testVideo];
             break;
         }
 
         case 7:{
-            // - 显示视频
+            // - 3D立体球体
             v = [[GLESView7 alloc]initWithFrame:viewRect];
             break;
         }
 
         case 8:{
-            // - 显示视频
+            // - 3D 贴图
                 v = [[GLESView8 alloc]initWithFrame:viewRect];
             break;
         }
 
         case 9:{
-            // - 显示视频
+            // - 3D材质, 环境光
                 v = [[GLESView9 alloc]initWithFrame:viewRect];
             break;
         }
 
         case 10:{
-            // - 显示视频
+            // - 光照+贴图
         v = [[GLESView10 alloc]initWithFrame:viewRect];
             break;
         }

@@ -38,6 +38,7 @@
         [QGModel createModelWithTitle:@"3D立体球体"],
         [QGModel createModelWithTitle:@"3D 贴图"],
         [QGModel createModelWithTitle:@"3D材质, 环境光"],
+        [QGModel createModelWithTitle:@"光照+贴图"],
     ];
 
 }
