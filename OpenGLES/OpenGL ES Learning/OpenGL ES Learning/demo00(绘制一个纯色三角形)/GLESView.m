@@ -85,20 +85,50 @@
     _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
 }
 
+// - 绘制三角形
 -(void)render{
     glClearColor(0, 1.0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     
     GLfloat vertices[] = {
-        0.0f,  0.5f, 0.0f,
-        -0.5f, -0.5f, 0.0f,
-        0.5f,  -0.5f, 0.0f
+        -1.0,  1.0, 0, // - 屏幕左上
+        -1.0,  -1.0, 0, // - 屏幕左下
+        1.0,  -1.0, 0, // - 屏幕右下
     };
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    // - 链接顶点属性
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT) * 3, vertices);
     glEnableVertexAttribArray(_positionSlot);
 
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 3);
+    // - 绘制图形 (3 表示有三个顶点)
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    [_glcontext presentRenderbuffer:GL_RENDERBUFFER];
+}
+
+// - 绘制四边形
+- (void)render1{
+    glClearColor(0, 1.0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    
+    // - 注意 要想绘制成四边形, 那么两个三角形重合的两个点必须是对角的两个点, 不能是相邻的两个点, 可以试试画图,就很明白了
+    GLfloat vertices[] = {
+        -1.0,  1.0, 0,// - 屏幕左上
+        -1.0,  -1.0, 0, // - 屏幕左下,
+        1.0,  -1.0, 0,// - 屏幕右下
+        
+        -1.0,  1.0, 0,// - 屏幕左上
+        1.0,  -1.0, 0, // - 屏幕右下
+        1.0,  1.0, 0,// - 屏幕右说
+    };
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    // - 链接顶点属性
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT) * 3, vertices);
+    glEnableVertexAttribArray(_positionSlot);
+
+    // - 绘制图形
+    glDrawArrays(GL_TRIANGLES, 0, 6);
     [_glcontext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
