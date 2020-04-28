@@ -92,19 +92,19 @@
 
         case 8:{
             // - 3D 贴图
-                v = [[GLESView8 alloc]initWithFrame:viewRect];
+            v = [[GLESView8 alloc]initWithFrame:viewRect];
             break;
         }
 
         case 9:{
             // - 3D材质, 环境光
-                v = [[GLESView9 alloc]initWithFrame:viewRect];
+            v = [[GLESView9 alloc]initWithFrame:viewRect];
             break;
         }
 
         case 10:{
             // - 光照+贴图
-        v = [[GLESView10 alloc]initWithFrame:viewRect];
+            v = [[GLESView10 alloc]initWithFrame:viewRect];
             break;
         }
             
