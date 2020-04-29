@@ -129,6 +129,7 @@
 		D0EFA0D52457AB3D00E2065A /* QGCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D12457AB3C00E2065A /* QGCell.m */; };
 		D0EFA0D62457AB3D00E2065A /* QGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D22457AB3D00E2065A /* QGModel.m */; };
 		D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D82457AB6D00E2065A /* QGViewController.m */; };
+		D0EFA0DC2459D22600E2065A /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0DB2459D22600E2065A /* FilterModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -293,6 +294,8 @@
 		D0EFA0D42457AB3D00E2065A /* QGCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGCell.h; sourceTree = "<group>"; };
 		D0EFA0D72457AB6D00E2065A /* QGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGViewController.h; sourceTree = "<group>"; };
 		D0EFA0D82457AB6D00E2065A /* QGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGViewController.m; sourceTree = "<group>"; };
+		D0EFA0DA2459D22600E2065A /* FilterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
+		D0EFA0DB2459D22600E2065A /* FilterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,6 +624,8 @@
 		34E40988237E880300F6BCF5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D0EFA0DA2459D22600E2065A /* FilterModel.h */,
+				D0EFA0DB2459D22600E2065A /* FilterModel.m */,
 				34E4098C237E880300F6BCF5 /* FilterBar.h */,
 				34E4098A237E880300F6BCF5 /* FilterBar.m */,
 				34E4098B237E880300F6BCF5 /* FilterBarCell.h */,
@@ -857,6 +862,7 @@
 				34133A1F21F999A700B6CE10 /* ViewController.m in Sources */,
 				3417EA312215402000A9F54A /* GLESView7.m in Sources */,
 				3424E54122125EFF00F8E743 /* GLESView5.m in Sources */,
+				D0EFA0DC2459D22600E2065A /* FilterModel.m in Sources */,
 				3428AA2C221D4B21005E6AD5 /* DYGLESView.m in Sources */,
 				340222F4220E818A005D41E3 /* GLESMath.c in Sources */,
 				D0EFA0D52457AB3D00E2065A /* QGCell.m in Sources */,

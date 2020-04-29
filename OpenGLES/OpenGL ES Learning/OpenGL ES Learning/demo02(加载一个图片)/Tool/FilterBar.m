@@ -12,23 +12,6 @@
 
 static NSString * const kFilterBarCellIdentifier = @"FilterBarCell";
 
-@implementation FilterModel
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader{
-    return [self filterModelWithTitle:title shader:shader filterImageName:nil];
-}
-
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader filterImageName:(NSString *)filterImageName{
-    FilterModel *model = [[FilterModel alloc]init];
-    model.filterTitle = title;
-    model.filterShader = shader;
-    model.filterImageName = filterImageName;
-    return model;
-}
-
-@end
-
 
 @interface FilterBar () <UICollectionViewDelegate, UICollectionViewDataSource>
 

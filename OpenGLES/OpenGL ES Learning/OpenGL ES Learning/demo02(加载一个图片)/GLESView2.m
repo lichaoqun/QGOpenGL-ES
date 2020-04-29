@@ -75,85 +75,7 @@ float timestamp_;
     index_ = 0;
     _texture = malloc(sizeof(GLuint) * count_);
     [self setupTexture];
-
-    CGFloat filterBarWidth = self.bounds.size.width;
-    CGFloat filterBarHeight = 60;
-    CGFloat filterBarY = self.bounds.size.height - filterBarHeight;
-    FilterBar *filerBar = [[FilterBar alloc] initWithFrame:CGRectMake(0, filterBarY, filterBarWidth, filterBarHeight)];
-    filerBar.delegate = self;
-    [self addSubview:filerBar];
-    self.filerBar = filerBar;
-    
-    NSArray <FilterModel *> *arrayList = @[
-    [FilterModel filterModelWithTitle:@"普通" shader:@"FragmentShader2_00"],
-    [FilterModel filterModelWithTitle:@"二分原比例" shader:@"FragmentShader2_01"],
-    [FilterModel filterModelWithTitle:@"三分原比例" shader:@"FragmentShader2_02"],
-    [FilterModel filterModelWithTitle:@"四分压缩" shader:@"FragmentShader2_03"],
-    [FilterModel filterModelWithTitle:@"九分原比例" shader:@"FragmentShader2_04"],
-    [FilterModel filterModelWithTitle:@"九分压缩" shader:@"FragmentShader2_05"],
-    [FilterModel filterModelWithTitle:@"黑白色" shader:@"FragmentShader2_06"],
-    [FilterModel filterModelWithTitle:@"黑白分屏缩放1" shader:@"FragmentShader2_07"],
-    [FilterModel filterModelWithTitle:@"黑白分屏缩放2" shader:@"FragmentShader2_08"],
-    [FilterModel filterModelWithTitle:@"黑白上下颠倒" shader:@"FragmentShader2_09"],
-    [FilterModel filterModelWithTitle:@"黑白模糊分屏缩放" shader:@"FragmentShader2_10"],
-    [FilterModel filterModelWithTitle:@"滤镜1" shader:@"FragmentShader2_11" filterImageName:@"lookup"],
-    [FilterModel filterModelWithTitle:@"滤镜2" shader:@"FragmentShader2_11" filterImageName:@"lookup_amatorka"],
-    [FilterModel filterModelWithTitle:@"滤镜3" shader:@"FragmentShader2_11" filterImageName:@"lookup_miss_etikate"],
-    [FilterModel filterModelWithTitle:@"滤镜4" shader:@"FragmentShader2_11" filterImageName:@"lookup_soft_elegance_1"],
-    [FilterModel filterModelWithTitle:@"滤镜5" shader:@"FragmentShader2_11" filterImageName:@"lookup_soft_elegance_2"],
-    [FilterModel filterModelWithTitle:@"动画水印" shader:@"FragmentShader2_12"],
-    ];
-    
-    
-    filerBar.itemList = arrayList;
-    [self filterBar:filerBar didSelectModel:[arrayList firstObject] indexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-
-}
-
-- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath{
-    [self.link setFireDate:[NSDate distantFuture]];
-    self.model = model;
-    NSInteger index = indexPath.row;
-    switch (index) {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:{
-            [self setupProgramHandle];
-            [self render];
-            break;
-        }
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:{
-            [self setupTexture1WithName:model.filterImageName];
-            [self setupProgramHandle1];
-            [self render1];
-            break;
-        }
-        case 16:{
-            goto continune;
-            break;
-        }
-
-        default:
-            break;
-    }
-    
-    return;
-    
-continune:
-    index_ = 0;
-    [self.link setFireDate:[NSDate distantPast]];
+    [self setupFilterBar];
 }
 
 +(Class)layerClass{
@@ -221,47 +143,6 @@ continune:
     free(imgData);
 }
 
-/** 从当前的 framebuffer 中取到 image */
-- (CGImageRef)newCGImageFromFramebufferContents{
-    CGImageRef cgImageFromBytes;
-    NSUInteger totalBytesForImage = (int)self.frameBufferSize.width * (int)self.frameBufferSize.height * 4;
-    GLubyte *rawImagePixels;
-    CGDataProviderRef dataProvider = NULL;
-    rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
-
-    // - glReadPixels：读取一些像素。当前可以简单理解为“把已经绘制好的像素（它可能已经被保存到显卡的显存中）读取到内存”。
-    glReadPixels(0, 0, (int)self.frameBufferSize.width, (int)self.frameBufferSize.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
-    dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage, dataProviderReleaseCallback);
-    CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
-    
-    cgImageFromBytes = CGImageCreate((int)self.frameBufferSize.width, (int)self.frameBufferSize.height, 8, 32, 4 * (int)self.frameBufferSize.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
-    
-    // Capture image with current device orientation
-    CGDataProviderRelease(dataProvider);
-    CGColorSpaceRelease(defaultRGBColorSpace);
-    
-    return cgImageFromBytes;
-}
-
-
-void dataProviderReleaseCallback (void *info, const void *data, size_t size)
-{
-    free((void *)data);
-}
-
-- (BOOL)supportsFastTextureUpload;
-{
-#if TARGET_IPHONE_SIMULATOR
-    return NO;
-#else
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
-    return (CVOpenGLESTextureCacheCreate != NULL);
-#pragma clang diagnostic pop
-
-#endif
-}
 
 -(void)destoryRenderAndFrameBuffer{
     glDeleteBuffers(1, &_frameBuffer);
@@ -506,6 +387,81 @@ void dataProviderReleaseCallback (void *info, const void *data, size_t size)
     
     // - 从当前的 framebuffer 中取到 image
     [self newCGImageFromFramebufferContents];
+}
+
+// - MARK: <-- 设置工具条 -->
+-(void)setupFilterBar{
+    CGFloat filterBarWidth = self.bounds.size.width;
+    CGFloat filterBarHeight = 60;
+    CGFloat filterBarY = self.bounds.size.height - filterBarHeight;
+    FilterBar *filerBar = [[FilterBar alloc] initWithFrame:CGRectMake(0, filterBarY - 80, filterBarWidth, filterBarHeight)];
+    filerBar.delegate = self;
+    [self addSubview:filerBar];
+    self.filerBar = filerBar;
+    
+    NSArray <FilterModel *> *arrayList = [FilterModel filterModels];
+    filerBar.itemList = arrayList;
+    [self filterBar:filerBar didSelectModel:[arrayList firstObject] indexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+}
+
+- (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath{
+    [self.link setFireDate:[NSDate distantFuture]];
+    self.model = model;
+    NSInteger index = indexPath.row;
+    if (index <= 10) {
+        [self setupProgramHandle];
+        [self render];
+    }else if(index <= 15){
+        [self setupTexture1WithName:model.filterImageName];
+        [self setupProgramHandle1];
+        [self render1];
+    }else{
+        index_ = 0;
+        [self.link setFireDate:[NSDate distantPast]];
+    }
+}
+
+// - MARK: <-- 从GPU中读取纹理数据到内存中 -->
+/** 从当前的 framebuffer 中取到 image */
+- (CGImageRef)newCGImageFromFramebufferContents{
+    CGImageRef cgImageFromBytes;
+    NSUInteger totalBytesForImage = (int)self.frameBufferSize.width * (int)self.frameBufferSize.height * 4;
+    GLubyte *rawImagePixels;
+    CGDataProviderRef dataProvider = NULL;
+    rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
+
+    // - glReadPixels：读取一些像素。当前可以简单理解为“把已经绘制好的像素（它可能已经被保存到显卡的显存中）读取到内存”。
+    glReadPixels(0, 0, (int)self.frameBufferSize.width, (int)self.frameBufferSize.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
+    dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage, dataProviderReleaseCallback);
+    CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    cgImageFromBytes = CGImageCreate((int)self.frameBufferSize.width, (int)self.frameBufferSize.height, 8, 32, 4 * (int)self.frameBufferSize.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
+    
+    // Capture image with current device orientation
+    CGDataProviderRelease(dataProvider);
+    CGColorSpaceRelease(defaultRGBColorSpace);
+    
+    return cgImageFromBytes;
+}
+
+
+void dataProviderReleaseCallback (void *info, const void *data, size_t size)
+{
+    free((void *)data);
+}
+
+- (BOOL)supportsFastTextureUpload;
+{
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
+    return (CVOpenGLESTextureCacheCreate != NULL);
+#pragma clang diagnostic pop
+
+#endif
 }
 
 @end

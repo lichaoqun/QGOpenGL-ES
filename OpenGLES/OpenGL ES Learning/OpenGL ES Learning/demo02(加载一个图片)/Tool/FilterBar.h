@@ -7,30 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class FilterBar, FilterModel;
+#import "FilterModel.h"
+@class FilterBar;
 
 @protocol FilterBarDelegate <NSObject>
 
 - (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath;
-
-@end
-
-
-@interface FilterModel : NSObject
-
-/** 美颜的标题 */
-@property (nonatomic, copy) NSString *filterTitle;
-
-/** 美颜的 shader */
-@property (nonatomic, copy) NSString *filterShader;
-
-/** 美颜的 shader */
-@property (nonatomic, copy) NSString *filterImageName;
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader;
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader filterImageName:(NSString *)filterImageName;
 
 @end
 
