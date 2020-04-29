@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
+// - MARK: <-- 通用的 model -->
 @interface FilterModel : NSObject
 
 /** 美颜的标题 */
@@ -18,14 +17,37 @@ NS_ASSUME_NONNULL_BEGIN
 /** 美颜的 shader */
 @property (nonatomic, copy) NSString *filterShader;
 
-/** 美颜的 shader */
-@property (nonatomic, copy) NSString *filterImageName;
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader;
-
-+(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader filterImageName:(NSString *)filterImageName;
+/** 暂停特效 */
+-(void)stopLastFilter;
 
 +(NSArray <FilterModel *> *)filterModels;
 @end
 
-NS_ASSUME_NONNULL_END
+// - MARK: <-- 基础的filter model -->
+@interface FilterNormalModel : FilterModel
+
++(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader;
+
+@end
+
+// - MARK: <-- 图片混合的filter model -->
+@interface FilterImageModel : FilterModel
+
+/** 混合的图片 */
+@property (nonatomic, copy) NSString *filterImageName;
+
++(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader filterImageName:(NSString *)filterImageName;
+
+@end
+
+// - MARK: <-- 动态的的filter model -->
+@interface FilterAnimationModel : FilterModel
+
+/** 动画数组 */
+@property(nonatomic, strong)NSArray *animations;
+
++(instancetype)filterModelWithTitle:(NSString *)title shader:(NSString *)shader animations:(NSArray *)animations;
+
+- (void)callbackImageName:(void (^) (NSString *imgName))callback;
+@end
+

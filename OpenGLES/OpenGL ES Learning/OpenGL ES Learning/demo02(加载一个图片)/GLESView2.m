@@ -32,15 +32,13 @@ typedef struct {
 @property (nonatomic, assign) CGSize frameBufferSize;
 /** <#title#> */
 @property(nonatomic, strong)NSArray *watermarks;
-/** c */
-@property(nonatomic, strong)NSTimer *link;
 
-
+/** <#title#> */
+@property(nonatomic, weak)FilterModel *lastFilterModel;
 
 @end
 
 int count_;
-int index_;
 float timestamp_;
 @implementation GLESView2{
     CAEAGLLayer *_glLayer;
@@ -58,21 +56,18 @@ float timestamp_;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.watermarks = [NSMutableArray arrayWithArray:@[@"01", @"02", @"03", @"04", @"05", @"06", @"07"]];
         [self setuplayer];
         [self setupContext];
         [self destoryRenderAndFrameBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self initFliterBar];
-        self.link = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateTextureIndex2) userInfo:nil repeats:YES];
     }
     return self;
 }
 
 -(void)initFliterBar{
     count_ = 2;
-    index_ = 0;
     _texture = malloc(sizeof(GLuint) * count_);
     [self setupTexture];
     [self setupFilterBar];
@@ -311,15 +306,6 @@ float timestamp_;
     [self newCGImageFromFramebufferContents];
 }
 
-// - MARK: <-- gif 水印 -->
--(void)updateTextureIndex2{
-    index_ = (index_ + 1) % self.watermarks.count;
-    timestamp_ = timestamp_ + 5.0;
-    [self setupTexture1WithName:self.watermarks[index_]];
-    [self setupProgramHandle2];
-    [self render2];
-}
-
 -(void)setupProgramHandle2{
     NSString * vertextShaderPath = [[NSBundle mainBundle] pathForResource:@"VertextShader2" ofType:@"glsl"];
     NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:self.model.filterShader ofType:@"glsl"];
@@ -405,20 +391,24 @@ float timestamp_;
 }
 
 - (void)filterBar:(FilterBar *)filterBar didSelectModel:(FilterModel *)model indexPath:(NSIndexPath *)indexPath{
-    [self.link setFireDate:[NSDate distantFuture]];
+    [self.lastFilterModel stopLastFilter];
     self.model = model;
-    NSInteger index = indexPath.row;
-    if (index <= 10) {
+    if ([model isKindOfClass:[FilterNormalModel class]]) {
         [self setupProgramHandle];
         [self render];
-    }else if(index <= 15){
-        [self setupTexture1WithName:model.filterImageName];
+    }else if([model isKindOfClass:[FilterImageModel class]]){
+        [self setupTexture1WithName:((FilterImageModel *)model).filterImageName];
         [self setupProgramHandle1];
         [self render1];
-    }else{
-        index_ = 0;
-        [self.link setFireDate:[NSDate distantPast]];
+    }else if ([model isKindOfClass:[FilterAnimationModel class]]){
+        [((FilterAnimationModel *)model) callbackImageName:^(NSString *imgName) {
+            timestamp_ = timestamp_ + 5.0;
+            [self setupTexture1WithName:imgName];
+            [self setupProgramHandle2];
+            [self render2];
+        }];
     }
+    self.lastFilterModel = model;
 }
 
 // - MARK: <-- 从GPU中读取纹理数据到内存中 -->
