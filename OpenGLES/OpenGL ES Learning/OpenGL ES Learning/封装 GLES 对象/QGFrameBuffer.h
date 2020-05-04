@@ -14,7 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QGFrameBuffer : NSObject
--(instancetype)initWithX:(int)x;
 
 /** 纹理索引id */
 -(GLuint)textureID;

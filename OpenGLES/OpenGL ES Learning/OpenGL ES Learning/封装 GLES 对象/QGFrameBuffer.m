@@ -13,23 +13,22 @@
 #import <OpenGLES/ES3/glext.h>
 
 @implementation QGFrameBuffer{
-    GLuint _textureID, _frameBufferID, _x;
+    GLuint _textureID, _frameBufferID;
 }
 
--(instancetype)initWithX:(int)x{
+-(instancetype)init{
     self = [super init];
     if (self) {
-        _x = x;
         [self setuptexture];
     }
     return self;
 }
 -(void)setuptexture{
     glGenFramebuffers(1, &_frameBufferID);
-    glActiveTexture(GL_TEXTURE0 + 0);
+    glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &_textureID);
     glBindTexture(GL_TEXTURE_2D, _textureID);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500 * 3, 899 * 3, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 889, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
