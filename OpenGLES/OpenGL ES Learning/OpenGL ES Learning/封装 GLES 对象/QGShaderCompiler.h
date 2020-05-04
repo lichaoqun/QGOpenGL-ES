@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 添加属性 */
 - (GLuint)addAttribute:(NSString *)attributeName;
 
+/** 添加属性 */
+- (GLuint)addUniform:(NSString *)attributeName;
+
 /** 使用某个着色器程序 */
 -(void)glUseProgram;
 

@@ -14,14 +14,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QGFrameBuffer : NSObject
+-(instancetype)initWithX:(int)x;
 
--(instancetype)initWithimageName:(NSString *)imageName;
+/** 纹理索引id */
+-(GLuint)textureID;
 
-/** 纹理索引 */
--(GLuint)texture;
+/** 帧缓冲 id */
+- (GLuint)framebufferID;
 
-/** 纹理索引 */
--(GLuint)frameBuffer;
+/** 激活帧缓冲 */
+-(void)activityFrameBuffer;
+
 @end
 
 NS_ASSUME_NONNULL_END

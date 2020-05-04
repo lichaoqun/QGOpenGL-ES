@@ -13,77 +13,46 @@
 #import <OpenGLES/ES3/glext.h>
 
 @implementation QGFrameBuffer{
-    GLuint _texture, _frameBuffer;
-    NSString *_name;
+    GLuint _textureID, _frameBufferID, _x;
 }
 
--(instancetype)initWithimageName:(NSString *)imageName{
+-(instancetype)initWithX:(int)x{
     self = [super init];
     if (self) {
-        _name = imageName;
+        _x = x;
         [self setuptexture];
-        [self setupFrameBuffer];
     }
     return self;
 }
-
--(void)setupFrameBuffer{
-    glGenFramebuffers(1, &_frameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-}
-
 -(void)setuptexture{
-    if (_name) {
-            CGImageRef imgRef = [UIImage imageNamed:_name].CGImage;
-        size_t width = CGImageGetWidth(imgRef);
-        size_t height = CGImageGetHeight(imgRef);
-        GLubyte *imgData = (GLubyte *)calloc(width * height * 4, sizeof(GLbyte));
+    glGenFramebuffers(1, &_frameBufferID);
+    glActiveTexture(GL_TEXTURE0 + 0);
+    glGenTextures(1, &_textureID);
+    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500 * 3, 899 * 3, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
-        CGContextRef contextRef = CGBitmapContextCreate(imgData, width, height, 8, width * 4, CGImageGetColorSpace(imgRef), kCGImageAlphaPremultipliedLast);
-        
-        // - 翻转纹理坐标
-        CGRect rect = CGRectMake(0, 0, width, height);
-        CGContextTranslateCTM(contextRef, 0, rect.size.height);
-        CGContextScaleCTM(contextRef, 1.0, -1.0);
-        
-        // - 绘制图片
-        CGContextDrawImage(contextRef, CGRectMake(0, 0, width, height), imgRef);
-        CGContextRelease(contextRef);
-        
-        glGenTextures(1, &_texture);
-        glBindTexture(GL_TEXTURE_2D, _texture);
-        
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-        // - 生成一个纹理对象
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imgData);
-        free(imgData);
-
-    }else{
-        glGenTextures(1, &_texture);
-        glBindTexture(GL_TEXTURE_2D, _texture);
-        
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-        // - 生成一个纹理对象
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)500, (GLsizei)889, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-
-    }
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferID);
+    
+    // - 生成一个纹理对象
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, _textureID, 0);
 }
 
-- (GLuint)texture{
-    return _texture;
+- (GLuint)textureID{
+    return _textureID;
 }
 
-/** 纹理索引 */
--(GLuint)frameBuffer{
-    return _frameBuffer;
+- (GLuint)framebufferID{
+    return _frameBufferID;
 }
+
+/** 激活帧缓冲 */
+-(void)activityFrameBuffer{
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferID);
+}
+
 
 @end

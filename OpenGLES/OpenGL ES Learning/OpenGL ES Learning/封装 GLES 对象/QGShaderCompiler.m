@@ -87,6 +87,13 @@
     return index;
 }
 
+/** 添加属性 */
+- (GLuint)addUniform:(NSString *)attributeName{
+    GLuint index = glGetUniformLocation(_program, attributeName.UTF8String);
+    glEnableVertexAttribArray(index);
+    return index;
+}
+
 
 /** 使用着色器程序 */
 -(void)glUseProgram{
