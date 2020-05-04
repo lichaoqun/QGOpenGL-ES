@@ -26,8 +26,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupGLESContext];
-        [self setupBuffer];
         [self setupShader];
+        [self setupBuffer];
         [self render];
     }
     return self;
@@ -42,6 +42,7 @@
     self.shaderCompiler = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader1" fshaderFileName:@"FragmentShader1"];
     _position = [self.shaderCompiler addAttribute:@"position"];
     _color = [self.shaderCompiler addAttribute:@"color"];
+    [self.shaderCompiler glUseProgram];
 }
 
 -(void)setupBuffer{
@@ -59,7 +60,6 @@
 
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    [self.shaderCompiler glUseProgram];
 
     GLfloat vertices[] = {
         -1.0,  1.0, 0, 1,// - 屏幕左上
