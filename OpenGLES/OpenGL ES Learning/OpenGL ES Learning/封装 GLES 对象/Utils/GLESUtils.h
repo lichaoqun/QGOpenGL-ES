@@ -14,4 +14,5 @@
 
 +(GLuint)loadShader:(GLenum)type withFilepath:(NSString *)shaderFilepath;
 
++(GLuint)loadShader:(GLenum)type withString:(NSString *)shaderString;
 @end

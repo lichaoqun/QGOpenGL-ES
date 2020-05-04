@@ -30,10 +30,7 @@ typedef struct {
 @property(nonatomic, strong)FilterModel *model;
 /** frameBuffer 的尺寸 */
 @property (nonatomic, assign) CGSize frameBufferSize;
-/** <#title#> */
 @property(nonatomic, strong)NSArray *watermarks;
-
-/** <#title#> */
 @property(nonatomic, weak)FilterModel *lastFilterModel;
 
 @end

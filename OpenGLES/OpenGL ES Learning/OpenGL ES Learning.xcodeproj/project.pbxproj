@@ -126,6 +126,9 @@
 		D0752B2C2393AF5400262358 /* 06.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B252393AF5300262358 /* 06.png */; };
 		D0752B2D2393AF5400262358 /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B262393AF5300262358 /* 04.png */; };
 		D0752B2E2393AF5400262358 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B272393AF5400262358 /* 01.png */; };
+		D0A424E5245FB83000BA74D0 /* QGGLESView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A424E4245FB83000BA74D0 /* QGGLESView.m */; };
+		D0A424E8245FB88F00BA74D0 /* QGEAGLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A424E7245FB88F00BA74D0 /* QGEAGLContext.m */; };
+		D0A424EB245FBB2F00BA74D0 /* QGShaderCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A424EA245FBB2F00BA74D0 /* QGShaderCompiler.m */; };
 		D0EFA0D52457AB3D00E2065A /* QGCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D12457AB3C00E2065A /* QGCell.m */; };
 		D0EFA0D62457AB3D00E2065A /* QGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D22457AB3D00E2065A /* QGModel.m */; };
 		D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFA0D82457AB6D00E2065A /* QGViewController.m */; };
@@ -288,6 +291,12 @@
 		D0752B252393AF5300262358 /* 06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06.png; sourceTree = "<group>"; };
 		D0752B262393AF5300262358 /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04.png; sourceTree = "<group>"; };
 		D0752B272393AF5400262358 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
+		D0A424E3245FB83000BA74D0 /* QGGLESView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGGLESView.h; sourceTree = "<group>"; };
+		D0A424E4245FB83000BA74D0 /* QGGLESView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGGLESView.m; sourceTree = "<group>"; };
+		D0A424E6245FB88F00BA74D0 /* QGEAGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGEAGLContext.h; sourceTree = "<group>"; };
+		D0A424E7245FB88F00BA74D0 /* QGEAGLContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGEAGLContext.m; sourceTree = "<group>"; };
+		D0A424E9245FBB2F00BA74D0 /* QGShaderCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGShaderCompiler.h; sourceTree = "<group>"; };
+		D0A424EA245FBB2F00BA74D0 /* QGShaderCompiler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGShaderCompiler.m; sourceTree = "<group>"; };
 		D0EFA0D12457AB3C00E2065A /* QGCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGCell.m; sourceTree = "<group>"; };
 		D0EFA0D22457AB3D00E2065A /* QGModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGModel.m; sourceTree = "<group>"; };
 		D0EFA0D32457AB3D00E2065A /* QGModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGModel.h; sourceTree = "<group>"; };
@@ -341,7 +350,6 @@
 		34133A1921F999A700B6CE10 /* OpenGL ES Learning */ = {
 			isa = PBXGroup;
 			children = (
-				340222EC220E818A005D41E3 /* Utils */,
 				34841D322217E1280088D974 /* demo10(正方体光照贴图 法线有问题) */,
 				3417EA4B22156DB400A9F54A /* demo09(环境光) */,
 				3417EA2822150E1A00A9F54A /* demo08(骷髅, 车, 橙子) */,
@@ -353,19 +361,12 @@
 				3424E56D2213C95500F8E743 /* demo02(加载一个图片) */,
 				3424E56C2213C94D00F8E743 /* demo01(绘制一个正方形渐变色) */,
 				3424E56A2213C90A00F8E743 /* demo00(绘制一个纯色三角形) */,
-				34133A1A21F999A700B6CE10 /* AppDelegate.h */,
+				D0A424E1245FB52A00BA74D0 /* 跳转的页面 */,
+				D0A424E0245FB4FB00BA74D0 /* 主页的结构 */,
 				3417EA4222155BC500A9F54A /* README.h */,
+				D0A424E2245FB7FF00BA74D0 /* 封装 GLES 对象 */,
+				34133A1A21F999A700B6CE10 /* AppDelegate.h */,
 				34133A1B21F999A700B6CE10 /* AppDelegate.m */,
-				34133A1D21F999A700B6CE10 /* ViewController.h */,
-				34133A1E21F999A700B6CE10 /* ViewController.m */,
-				D0EFA0D42457AB3D00E2065A /* QGCell.h */,
-				D0EFA0D12457AB3C00E2065A /* QGCell.m */,
-				D0EFA0D32457AB3D00E2065A /* QGModel.h */,
-				D0EFA0D22457AB3D00E2065A /* QGModel.m */,
-				D0EFA0D72457AB6D00E2065A /* QGViewController.h */,
-				D0EFA0D82457AB6D00E2065A /* QGViewController.m */,
-				3417EA5C22165CCC00A9F54A /* DYGestureRecognizerView.h */,
-				3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */,
 				34133A2021F999A700B6CE10 /* Main.storyboard */,
 				34133A2321F999A900B6CE10 /* Assets.xcassets */,
 				34133A2521F999A900B6CE10 /* LaunchScreen.storyboard */,
@@ -694,6 +695,44 @@
 			path = watermark;
 			sourceTree = "<group>";
 		};
+		D0A424E0245FB4FB00BA74D0 /* 主页的结构 */ = {
+			isa = PBXGroup;
+			children = (
+				34133A1D21F999A700B6CE10 /* ViewController.h */,
+				34133A1E21F999A700B6CE10 /* ViewController.m */,
+				D0EFA0D42457AB3D00E2065A /* QGCell.h */,
+				D0EFA0D12457AB3C00E2065A /* QGCell.m */,
+				D0EFA0D32457AB3D00E2065A /* QGModel.h */,
+				D0EFA0D22457AB3D00E2065A /* QGModel.m */,
+			);
+			path = "主页的结构";
+			sourceTree = "<group>";
+		};
+		D0A424E1245FB52A00BA74D0 /* 跳转的页面 */ = {
+			isa = PBXGroup;
+			children = (
+				3417EA5C22165CCC00A9F54A /* DYGestureRecognizerView.h */,
+				3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */,
+				D0EFA0D72457AB6D00E2065A /* QGViewController.h */,
+				D0EFA0D82457AB6D00E2065A /* QGViewController.m */,
+			);
+			path = "跳转的页面";
+			sourceTree = "<group>";
+		};
+		D0A424E2245FB7FF00BA74D0 /* 封装 GLES 对象 */ = {
+			isa = PBXGroup;
+			children = (
+				340222EC220E818A005D41E3 /* Utils */,
+				D0A424E3245FB83000BA74D0 /* QGGLESView.h */,
+				D0A424E4245FB83000BA74D0 /* QGGLESView.m */,
+				D0A424E6245FB88F00BA74D0 /* QGEAGLContext.h */,
+				D0A424E7245FB88F00BA74D0 /* QGEAGLContext.m */,
+				D0A424E9245FBB2F00BA74D0 /* QGShaderCompiler.h */,
+				D0A424EA245FBB2F00BA74D0 /* QGShaderCompiler.m */,
+			);
+			path = "封装 GLES 对象";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -859,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A424E8245FB88F00BA74D0 /* QGEAGLContext.m in Sources */,
 				34133A1F21F999A700B6CE10 /* ViewController.m in Sources */,
 				3417EA312215402000A9F54A /* GLESView7.m in Sources */,
 				3424E54122125EFF00F8E743 /* GLESView5.m in Sources */,
@@ -869,7 +909,9 @@
 				D0EFA0D62457AB3D00E2065A /* QGModel.m in Sources */,
 				340222E7220E66C0005D41E3 /* GLESView4.m in Sources */,
 				344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */,
+				D0A424EB245FBB2F00BA74D0 /* QGShaderCompiler.m in Sources */,
 				3428AA34221D4B21005E6AD5 /* DYGiftEffectManager.m in Sources */,
+				D0A424E5245FB83000BA74D0 /* QGGLESView.m in Sources */,
 				3428AA2D221D4B21005E6AD5 /* DYGLESUtils.m in Sources */,
 				34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */,
 				D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */,
