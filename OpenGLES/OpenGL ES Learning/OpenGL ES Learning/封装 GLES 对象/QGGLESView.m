@@ -8,9 +8,7 @@
 
 #import "QGGLESView.h"
 
-@implementation QGGLESView{
-    CAEAGLLayer *_glLayer;
-}
+@implementation QGGLESView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -24,6 +22,7 @@
     return [CAEAGLLayer class];
 }
 
+/** 设置 layer 的一些属性 */
 - (void)setuplayer{
     _glLayer =  (CAEAGLLayer *)self.layer;
     _glLayer.opaque = YES;

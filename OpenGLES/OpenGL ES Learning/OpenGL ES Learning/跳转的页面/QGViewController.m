@@ -18,6 +18,7 @@
 #import "GLESView9.h"
 #import "GLESView10.h"
 #import "DYGiftEffectManager.h"
+#import "QGDemo01.h"
 
 @interface QGViewController ()
 
@@ -100,6 +101,11 @@
         case 10:{
             // - 光照+贴图
             v = [[GLESView10 alloc]initWithFrame:viewRect];
+            break;
+        }
+        case 11:{
+            // - 光照+贴图
+            v = [[QGDemo01 alloc]initWithFrame:viewRect];
             break;
         }
         default:

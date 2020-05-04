@@ -11,6 +11,10 @@
 
 @interface QGEAGLContext : NSObject
 
+/** gles 上下文 */
 @property(nonatomic, strong, readonly)EAGLContext * glContext;
+
+/** 发送到渲染缓冲区, 开始渲染 */
+-(void)present;
 
 @end
