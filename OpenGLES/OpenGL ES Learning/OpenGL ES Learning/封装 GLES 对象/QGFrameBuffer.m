@@ -16,19 +16,19 @@
     GLuint _textureID, _frameBufferID;
 }
 
--(instancetype)init{
+-(instancetype)initWithSize:(CGSize)size{
     self = [super init];
     if (self) {
-        [self setuptexture];
+        [self setuptextureSize:size];
     }
     return self;
 }
--(void)setuptexture{
+-(void)setuptextureSize:(CGSize)size{
     glGenFramebuffers(1, &_frameBufferID);
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &_textureID);
     glBindTexture(GL_TEXTURE_2D, _textureID);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 889, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

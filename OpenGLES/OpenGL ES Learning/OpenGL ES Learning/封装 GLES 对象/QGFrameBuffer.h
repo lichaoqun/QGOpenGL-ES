@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
-
+#import <CoreGraphics/CoreGraphics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QGFrameBuffer : NSObject
+
+-(instancetype)initWithSize:(CGSize)size;
 
 /** 纹理索引id */
 -(GLuint)textureID;

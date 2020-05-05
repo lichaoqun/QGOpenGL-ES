@@ -29,6 +29,7 @@
     GLuint _position3, _texture3;
     GLuint _frameBuffer, _renderBuffer;
     GLuint _uni1, _uni2, _uni3;
+    CGSize _bufferSize;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -71,6 +72,7 @@
     UIImage *image = [UIImage imageNamed:@"gyy.jpg"];
     size_t width = CGImageGetWidth(image.CGImage);
     size_t height = CGImageGetHeight(image.CGImage);
+    _bufferSize = CGSizeMake(width, height);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     void *imageData = malloc( height * width * 4 );
     
@@ -130,8 +132,8 @@
 
 
 -(void)setupTexture{
-    self.frameBuffer1 = [[QGFrameBuffer alloc]init];
-    self.frameBuffer2 = [[QGFrameBuffer alloc]init];
+    self.frameBuffer1 = [[QGFrameBuffer alloc]initWithSize:_bufferSize];
+    self.frameBuffer2 = [[QGFrameBuffer alloc]initWithSize:_bufferSize];
 }
 
 -(void)render1{
