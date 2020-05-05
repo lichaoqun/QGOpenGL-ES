@@ -6,13 +6,13 @@
 //  Copyright © 2020 李超群. All rights reserved.
 //
 
-#import "QGFrameBuffer.h"
+#import "QGFrameBufferObject.h"
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
 
-@implementation QGFrameBuffer{
+@implementation QGFrameBufferObject{
     GLuint _textureID, _frameBufferID;
 }
 

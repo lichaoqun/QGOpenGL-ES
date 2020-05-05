@@ -9,7 +9,7 @@
 #import "QGDemo01.h"
 #import "QGShaderCompiler.h"
 #import "QGEAGLContext.h"
-#import "QGFrameBuffer.h"
+#import "QGFrameBufferObject.h"
 
 @interface QGDemo01()
 
@@ -17,8 +17,8 @@
 @property(nonatomic, strong)QGShaderCompiler *shaderCompiler2;
 @property(nonatomic, strong)QGShaderCompiler *shaderCompiler3;
 
-@property(nonatomic, strong)QGFrameBuffer *frameBuffer1;
-@property(nonatomic, strong)QGFrameBuffer *frameBuffer2;
+@property(nonatomic, strong)QGFrameBufferObject *frameBuffer1;
+@property(nonatomic, strong)QGFrameBufferObject *frameBuffer2;
 
 @end
 
@@ -110,8 +110,8 @@
 
 
 -(void)setupFrameBufferObj{
-    self.frameBuffer1 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
-    self.frameBuffer2 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
+    self.frameBuffer1 = [[QGFrameBufferObject alloc]initWithSize:self.frame.size];
+    self.frameBuffer2 = [[QGFrameBufferObject alloc]initWithSize:self.frame.size];
 }
 
 -(void)render1{

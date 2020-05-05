@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QGFrameBuffer : NSObject
+@interface QGFrameBufferObject : NSObject
 
 -(instancetype)initWithSize:(CGSize)size;
 
