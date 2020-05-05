@@ -132,8 +132,8 @@
 
 
 -(void)setupTexture{
-    self.frameBuffer1 = [[QGFrameBuffer alloc]initWithSize:_bufferSize];
-    self.frameBuffer2 = [[QGFrameBuffer alloc]initWithSize:_bufferSize];
+    self.frameBuffer1 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
+    self.frameBuffer2 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
 }
 
 -(void)render1{
