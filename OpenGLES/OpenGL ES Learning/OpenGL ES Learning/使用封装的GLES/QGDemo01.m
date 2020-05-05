@@ -27,6 +27,7 @@
     GLuint _position2, _texture2;
     GLuint _position3, _texture3;
     GLuint _uni1, _uni2, _uni3;
+    GLuint _srcTextureID;
     CGSize _bufferSize;
 }
 
@@ -46,7 +47,6 @@
 }
 
 -(void)setupInputTexture{
-    GLuint texture;
     UIImage *image = [UIImage imageNamed:@"gyy.jpg"];
     size_t width = CGImageGetWidth(image.CGImage);
     size_t height = CGImageGetHeight(image.CGImage);
@@ -68,8 +68,8 @@
     CGContextScaleCTM (context, 1.0,-1.0);
     CGContextDrawImage( context, CGRectMake( 0, 0, width, height ), image.CGImage );
     CGContextRelease(context);
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glGenTextures(1, &_srcTextureID);
+    glBindTexture(GL_TEXTURE_2D, _srcTextureID);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
@@ -83,6 +83,8 @@
                  GL_RGBA,
                  GL_UNSIGNED_BYTE,
                  imageData);
+    // - 解绑
+    glBindTexture(GL_TEXTURE_2D, 0);
     free(imageData);
 }
 
@@ -119,13 +121,18 @@
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
 
-    /*
+    /* 为了统一代码, 修改了代码, 原来的实现在注释中
      已知源纹理的输出纹理单元为 GL_TEXTURE0;
      下边的 glUniform1i(_uni1, 0) 是将 GL_TEXTURE0 作为 self.shaderCompiler1 的输入纹理,
      QGFrameBuffer 中的 glActiveTexture(GL_TEXTURE1); 是将 GL_TEXTURE1, 作为帧缓冲纹理输出单元;
+     
+     之前的代码的实现:
+     glUniform1i(_uni1, 0);
      */
-    glUniform1i(_uni1, 0);
-    
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, _srcTextureID);
+    glUniform1i(_uni1, 2);
+
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
         1.0, -1.0, 0.0,
