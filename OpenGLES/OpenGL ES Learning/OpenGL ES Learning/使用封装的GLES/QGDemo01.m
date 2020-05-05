@@ -111,7 +111,7 @@
 
 
 -(void)setupShader{
-    self.shaderCompiler1 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_00"];
+    self.shaderCompiler1 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_06"];
     _position1 = [self.shaderCompiler1 addAttribute:@"position"];
     _texture1 = [self.shaderCompiler1 addAttribute:@"textCoordinate"];
     _uni1 = [self.shaderCompiler1 addUniform:@"colorMap"];
@@ -123,7 +123,7 @@
     _uni2 = [self.shaderCompiler2 addUniform:@"colorMap"];
 
 
-    self.shaderCompiler3 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_06"];
+    self.shaderCompiler3 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_14"];
     _position3 = [self.shaderCompiler3 addAttribute:@"position"];
     _texture3 = [self.shaderCompiler3 addAttribute:@"textCoordinate"];
     _uni3 = [self.shaderCompiler3 addUniform:@"colorMap"];
@@ -174,7 +174,7 @@
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni2, 1);
+    glUniform1i(_uni2, 3);
     
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
@@ -206,7 +206,7 @@
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni3, 0);
+    glUniform1i(_uni3, 4);
 
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,

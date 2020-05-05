@@ -24,8 +24,9 @@
     return self;
 }
 -(void)setuptextureSize:(CGSize)size{
+    static int a = 3;
     glGenFramebuffers(1, &_frameBufferID);
-    glActiveTexture(GL_TEXTURE0);
+    glActiveTexture(GL_TEXTURE0+a);
     glGenTextures(1, &_textureID);
     glBindTexture(GL_TEXTURE_2D, _textureID);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
@@ -38,6 +39,7 @@
     
     // - 生成一个纹理对象
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, _textureID, 0);
+    a++;
 }
 
 - (GLuint)textureID{

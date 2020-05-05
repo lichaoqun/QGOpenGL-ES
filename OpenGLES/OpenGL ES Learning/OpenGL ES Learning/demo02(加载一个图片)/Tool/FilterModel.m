@@ -31,6 +31,8 @@
             [FilterNormalModel filterModelWithTitle:@"黑白分屏缩放2" shader:@"FragmentShader2_08"],
             [FilterNormalModel filterModelWithTitle:@"黑白上下颠倒" shader:@"FragmentShader2_09"],
             [FilterNormalModel filterModelWithTitle:@"黑白模糊分屏缩放" shader:@"FragmentShader2_10"],
+            [FilterNormalModel filterModelWithTitle:@"饱和度" shader:@"FragmentShader2_13"],
+            [FilterNormalModel filterModelWithTitle:@"色温" shader:@"FragmentShader2_14"],
             [FilterImageModel filterModelWithTitle:@"滤镜1" shader:@"FragmentShader2_11" filterImageName:@"lookup"],
             [FilterImageModel filterModelWithTitle:@"滤镜2" shader:@"FragmentShader2_11" filterImageName:@"lookup_amatorka"],
             [FilterImageModel filterModelWithTitle:@"滤镜3" shader:@"FragmentShader2_11" filterImageName:@"lookup_miss_etikate"],

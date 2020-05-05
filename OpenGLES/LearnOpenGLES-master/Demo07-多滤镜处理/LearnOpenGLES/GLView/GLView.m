@@ -176,15 +176,15 @@ GLint glViewUniforms[NUM_UNIFORMS];
 }
 
 - (void)setupTemp {
-    glGenFramebuffers(1, &_tempFramebuffer);
-    glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &_tempTexture);
     glBindTexture(GL_TEXTURE_2D, _tempTexture);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.frame.size.width * self.contentScaleFactor, self.frame.size.height * self.contentScaleFactor, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glGenFramebuffers(1, &_tempFramebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _tempFramebuffer);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _tempTexture, 0);
+
 }
 
 #pragma mark - Private
@@ -273,6 +273,8 @@ GLint glViewUniforms[NUM_UNIFORMS];
     glViewAttributes[ATTRIBUTE_INPUT_TEXTURE_COORDINATE]  = glGetAttribLocation(_programHandle, "inputTextureCoordinate");
     glViewUniforms[UNIFORM_INPUT_IMAGE_TEXTURE] = glGetUniformLocation(_programHandle, "inputImageTexture");
     glViewUniforms[UNIFORM_TEMPERATURE] = glGetUniformLocation(_programHandle, "temperature");
+    
+    glUniform1i(glViewUniforms[UNIFORM_INPUT_IMAGE_TEXTURE], 0);
     glEnableVertexAttribArray(glViewAttributes[ATTRIBUTE_POSITION]);
     glEnableVertexAttribArray(glViewAttributes[ATTRIBUTE_INPUT_TEXTURE_COORDINATE]);
 }
@@ -298,6 +300,8 @@ GLint glViewUniforms[NUM_UNIFORMS];
     glViewAttributes[TEMP_ATTRIBUTE_INPUT_TEXTURE_COORDINATE]  = glGetAttribLocation(_tempProgramHandle, "inputTextureCoordinate");
     glViewUniforms[TEMP_UNIFORM_INPUT_IMAGE_TEXTURE] = glGetUniformLocation(_tempProgramHandle, "inputImageTexture");
     glViewUniforms[UNIFORM_SATURATION] = glGetUniformLocation(_tempProgramHandle, "saturation");
+
+    glUniform1i(glViewUniforms[TEMP_UNIFORM_INPUT_IMAGE_TEXTURE], 1);
     glEnableVertexAttribArray(glViewAttributes[TEMP_ATTRIBUTE_POSITION]);
     glEnableVertexAttribArray(glViewAttributes[TEMP_ATTRIBUTE_INPUT_TEXTURE_COORDINATE]);
 }
@@ -309,7 +313,6 @@ GLint glViewUniforms[NUM_UNIFORMS];
     glViewport(0, 0, self.frame.size.width * self.contentScaleFactor, self.frame.size.height * self.contentScaleFactor);
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    glUniform1i(glViewUniforms[TEMP_UNIFORM_INPUT_IMAGE_TEXTURE], 1);
     glUniform1f(glViewUniforms[UNIFORM_SATURATION], _saturation);
     glVertexAttribPointer(glViewAttributes[TEMP_ATTRIBUTE_POSITION], 4, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), 0);
     glVertexAttribPointer(glViewAttributes[TEMP_ATTRIBUTE_INPUT_TEXTURE_COORDINATE], 2, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), (GLvoid *)(sizeof(float) * 4));
@@ -318,11 +321,9 @@ GLint glViewUniforms[NUM_UNIFORMS];
     // 绘制第二个滤镜
     glUseProgram(_programHandle);
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
     glClearColor(1, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width * self.contentScaleFactor, self.frame.size.height * self.contentScaleFactor);
-    glUniform1i(glViewUniforms[UNIFORM_INPUT_IMAGE_TEXTURE], 0);
     glUniform1f(glViewUniforms[UNIFORM_TEMPERATURE], _temperature);
     glVertexAttribPointer(glViewAttributes[ATTRIBUTE_POSITION], 4, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), 0);
     glVertexAttribPointer(glViewAttributes[ATTRIBUTE_INPUT_TEXTURE_COORDINATE], 2, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), (GLvoid *)(sizeof(float) * 4));
