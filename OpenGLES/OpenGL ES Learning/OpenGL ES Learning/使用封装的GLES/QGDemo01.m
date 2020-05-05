@@ -210,7 +210,7 @@
     
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, [self.frameBuffer2 textureID]);
-    glUniform1i(_uni2, 2);
+    glUniform1i(_uni3, 2);
 
 
     GLfloat vertices[] = {
