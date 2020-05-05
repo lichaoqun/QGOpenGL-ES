@@ -50,6 +50,7 @@
 
 /** 激活帧缓冲 */
 -(void)activityFrameBuffer{
+    glActiveTexture(GL_TEXTURE0);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferID);
 }
 

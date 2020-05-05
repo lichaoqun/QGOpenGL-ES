@@ -90,7 +90,7 @@
     CGContextScaleCTM (context, 1.0,-1.0);
     CGContextDrawImage( context, CGRectMake( 0, 0, width, height ), image.CGImage );
     CGContextRelease(context);
-    glActiveTexture(GL_TEXTURE0 + 2);
+    glActiveTexture(GL_TEXTURE1);
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -143,7 +143,7 @@
     glClearColor(1, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni1, 0);
+    glUniform1i(_uni1, 1);
 
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
@@ -174,7 +174,7 @@
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni2, 2);
+    glUniform1i(_uni2, 1);
     
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
