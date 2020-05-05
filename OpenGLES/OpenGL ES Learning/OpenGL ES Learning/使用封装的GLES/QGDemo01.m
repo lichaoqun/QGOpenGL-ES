@@ -90,7 +90,6 @@
     CGContextScaleCTM (context, 1.0,-1.0);
     CGContextDrawImage( context, CGRectMake( 0, 0, width, height ), image.CGImage );
     CGContextRelease(context);
-    glActiveTexture(GL_TEXTURE1);
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -139,11 +138,10 @@
 -(void)render1{
     [self.shaderCompiler1 glUseProgram];
     [self.frameBuffer1 activityFrameBuffer];
-
+    glUniform1i(_uni1, 0);
     glClearColor(1, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni1, 1);
 
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
@@ -174,7 +172,10 @@
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni2, 3);
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, [self.frameBuffer1 textureID]);
+
+    glUniform1i(_uni2, 2);
     
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
@@ -206,7 +207,11 @@
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glUniform1i(_uni3, 4);
+    
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, [self.frameBuffer2 textureID]);
+    glUniform1i(_uni2, 2);
+
 
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
