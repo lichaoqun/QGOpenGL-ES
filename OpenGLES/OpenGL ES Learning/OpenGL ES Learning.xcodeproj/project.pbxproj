@@ -688,6 +688,43 @@
 			path = shaders;
 			sourceTree = "<group>";
 		};
+		D04298C42461C78C00FBF837 /* 渲染的 view */ = {
+			isa = PBXGroup;
+			children = (
+				D0A424E3245FB83000BA74D0 /* QGGLESView.h */,
+				D0A424E4245FB83000BA74D0 /* QGGLESView.m */,
+			);
+			path = "渲染的 view";
+			sourceTree = "<group>";
+		};
+		D04298C52461C7A900FBF837 /* 着色器 */ = {
+			isa = PBXGroup;
+			children = (
+				340222EC220E818A005D41E3 /* Utils */,
+				D0A424E9245FBB2F00BA74D0 /* QGShaderCompiler.h */,
+				D0A424EA245FBB2F00BA74D0 /* QGShaderCompiler.m */,
+			);
+			path = "着色器";
+			sourceTree = "<group>";
+		};
+		D04298C62461C7C300FBF837 /* 上下文 */ = {
+			isa = PBXGroup;
+			children = (
+				D0A424E6245FB88F00BA74D0 /* QGEAGLContext.h */,
+				D0A424E7245FB88F00BA74D0 /* QGEAGLContext.m */,
+			);
+			path = "上下文";
+			sourceTree = "<group>";
+		};
+		D04298C72461C7D700FBF837 /* 帧缓冲对象 */ = {
+			isa = PBXGroup;
+			children = (
+				D0A424EC245FC3CE00BA74D0 /* QGFrameBuffer.h */,
+				D0A424ED245FC3CE00BA74D0 /* QGFrameBuffer.m */,
+			);
+			path = "帧缓冲对象";
+			sourceTree = "<group>";
+		};
 		D0752B162393A9A400262358 /* watermark */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,15 +766,10 @@
 		D0A424E2245FB7FF00BA74D0 /* 封装 GLES 对象 */ = {
 			isa = PBXGroup;
 			children = (
-				340222EC220E818A005D41E3 /* Utils */,
-				D0A424E3245FB83000BA74D0 /* QGGLESView.h */,
-				D0A424E4245FB83000BA74D0 /* QGGLESView.m */,
-				D0A424E6245FB88F00BA74D0 /* QGEAGLContext.h */,
-				D0A424E7245FB88F00BA74D0 /* QGEAGLContext.m */,
-				D0A424E9245FBB2F00BA74D0 /* QGShaderCompiler.h */,
-				D0A424EA245FBB2F00BA74D0 /* QGShaderCompiler.m */,
-				D0A424EC245FC3CE00BA74D0 /* QGFrameBuffer.h */,
-				D0A424ED245FC3CE00BA74D0 /* QGFrameBuffer.m */,
+				D04298C72461C7D700FBF837 /* 帧缓冲对象 */,
+				D04298C62461C7C300FBF837 /* 上下文 */,
+				D04298C52461C7A900FBF837 /* 着色器 */,
+				D04298C42461C78C00FBF837 /* 渲染的 view */,
 			);
 			path = "封装 GLES 对象";
 			sourceTree = "<group>";
