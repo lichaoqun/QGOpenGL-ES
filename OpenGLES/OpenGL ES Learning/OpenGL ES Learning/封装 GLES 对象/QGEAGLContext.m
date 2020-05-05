@@ -22,6 +22,15 @@
     return self;
 }
 
+static QGEAGLContext *context_;
++(instancetype)sharedInstance{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        context_ = [[QGEAGLContext alloc]init];
+    });
+    return context_;
+}
+
 /** 初始化上下文 */
 -(void)setupContext{
     _glContext = [[EAGLContext alloc]initWithAPI:kEAGLRenderingAPIOpenGLES2];
@@ -29,8 +38,8 @@
 }
 
 /** 发送到渲染缓冲区, 开始渲染 */
--(void)present{
-    [self.glContext presentRenderbuffer:GL_RENDERBUFFER];
+-(void)presentRenderbuffer{
+    [_glContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 @end

@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QGGLESView : UIView
-/** <#title#> */
-@property(nonatomic, weak)CAEAGLLayer *glLayer;
+
+/** 激活帧缓冲 */
+-(void)activityFrameBuffer;
 
 @end
 

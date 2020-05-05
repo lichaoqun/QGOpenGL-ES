@@ -23,11 +23,15 @@
     }
     return self;
 }
+
+/** 设置帧缓冲对象 */
 -(void)setuptextureSize:(CGSize)size{
     glGenFramebuffers(1, &_frameBufferID);
     glActiveTexture(GL_TEXTURE1);
     glGenTextures(1, &_textureID);
     glBindTexture(GL_TEXTURE_2D, _textureID);
+    
+    // - 这里的 size 是需要渲染的填充的view 的size,而不是图片的 size
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -36,8 +40,15 @@
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferID);
     
-    // - 生成一个纹理对象
+    // - 帧缓冲对象
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, _textureID, 0);
+    
+    /*
+     解绑纹理, 这句很重要(解绑才能重新绑定新的纹理单元);
+     如果要实现链式纹理, 就需要将帧缓冲对象生成的纹理单元最为下一个 shader 纹理的输入;
+     glActiveTexture() : 设置帧缓冲的输出纹理单元;
+     glUniform1i() : 设置 shader 的纹理的输入; 输入和输出不能是同一个纹理单元;
+     */
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 

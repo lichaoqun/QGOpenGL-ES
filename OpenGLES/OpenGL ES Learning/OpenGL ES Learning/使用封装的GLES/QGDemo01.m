@@ -13,7 +13,6 @@
 
 @interface QGDemo01()
 
-@property(nonatomic, strong)QGEAGLContext *context;
 @property(nonatomic, strong)QGShaderCompiler *shaderCompiler1;
 @property(nonatomic, strong)QGShaderCompiler *shaderCompiler2;
 @property(nonatomic, strong)QGShaderCompiler *shaderCompiler3;
@@ -27,7 +26,6 @@
     GLuint _position1, _texture1;
     GLuint _position2, _texture2;
     GLuint _position3, _texture3;
-    GLuint _frameBuffer, _renderBuffer;
     GLuint _uni1, _uni2, _uni3;
     CGSize _bufferSize;
 }
@@ -36,9 +34,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupGLESContext];
-        [self setupBuffer];
-        [self setupTexture];
+        [self setupInputTexture];
+        [self setupFrameBufferObj];
         [self setupShader];
         [self render1];
         [self render2];
@@ -48,26 +45,7 @@
     return self;
 }
 
-/** 设置 GLES上下文 */
--(void)setupGLESContext{
-    self.context = [[QGEAGLContext alloc]init];
-}
-
--(void)setupBuffer{
-    // 生成renderbuffer ( renderbuffer = 用于展示的窗口 )
-    glGenRenderbuffers(1, &_renderBuffer);
-    // 绑定renderbuffer
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
-    // GL_RENDERBUFFER 的内容存储到实现 EAGLDrawable 协议的 CAEAGLLayer
-    [self.context.glContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.glLayer];
-    
-    glGenFramebuffers(1, &_frameBuffer);
-    // 绑定 fraembuffer
-    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-    // framebuffer 不对绘制的内容做存储, 所以这一步是将 framebuffer 绑定到 renderbuffer ( 绘制的结果就存在 renderbuffer )
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                              GL_RENDERBUFFER, _renderBuffer);
-    
+-(void)setupInputTexture{
     GLuint texture;
     UIImage *image = [UIImage imageNamed:@"gyy.jpg"];
     size_t width = CGImageGetWidth(image.CGImage);
@@ -116,7 +94,7 @@
     _uni1 = [self.shaderCompiler1 addUniform:@"colorMap"];
 
     
-    self.shaderCompiler2 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_01"];
+    self.shaderCompiler2 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_04"];
     _position2 = [self.shaderCompiler2 addAttribute:@"position"];
     _texture2 = [self.shaderCompiler2 addAttribute:@"textCoordinate"];
     _uni2 = [self.shaderCompiler2 addUniform:@"colorMap"];
@@ -126,11 +104,10 @@
     _position3 = [self.shaderCompiler3 addAttribute:@"position"];
     _texture3 = [self.shaderCompiler3 addAttribute:@"textCoordinate"];
     _uni3 = [self.shaderCompiler3 addUniform:@"colorMap"];
-
 }
 
 
--(void)setupTexture{
+-(void)setupFrameBufferObj{
     self.frameBuffer1 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
     self.frameBuffer2 = [[QGFrameBuffer alloc]initWithSize:self.frame.size];
 }
@@ -138,11 +115,17 @@
 -(void)render1{
     [self.shaderCompiler1 glUseProgram];
     [self.frameBuffer1 activityFrameBuffer];
-    glUniform1i(_uni1, 0);
     glClearColor(1, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
 
+    /*
+     已知源纹理的输出纹理单元为 GL_TEXTURE0;
+     下边的 glUniform1i(_uni1, 0) 是将 GL_TEXTURE0 作为 self.shaderCompiler1 的输入纹理,
+     QGFrameBuffer 中的 glActiveTexture(GL_TEXTURE1); 是将 GL_TEXTURE1, 作为帧缓冲纹理输出单元;
+     */
+    glUniform1i(_uni1, 0);
+    
     GLfloat vertices[] = {
         1.0, 1.0, 0.0,
         1.0, -1.0, 0.0,
@@ -172,9 +155,15 @@
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    /*
+     前边已知self.frameBuffer1的输出纹理单元为 GL_TEXTURE1;
+     glActiveTexture(GL_TEXTURE2); 和 glBindTexture(GL_TEXTURE_2D, [self.frameBuffer1 textureID]); 是将 self.frameBuffer1的输出纹理单元从 GL_TEXTURE1 改为 GL_TEXTURE2;
+     glUniform1i(_uni2, 2) 是将 GL_TEXTURE2 作为 self.shaderCompiler2 的输入纹理;
+     QGFrameBuffer 中的 glActiveTexture(GL_TEXTURE1); 是将 GL_TEXTURE1, 作为帧缓冲纹理输出单元;
+     */
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, [self.frameBuffer1 textureID]);
-
     glUniform1i(_uni2, 2);
     
     GLfloat vertices[] = {
@@ -202,12 +191,17 @@
 
 -(void)render3{
     [self.shaderCompiler3 glUseProgram];
-    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-    glBindRenderbuffer(GL_FRAMEBUFFER, _renderBuffer);
+    [self activityFrameBuffer];
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
+    /*
+     前边已知self.frameBuffer2的输出纹理单元为 GL_TEXTURE1;
+     glActiveTexture(GL_TEXTURE2); 和 glBindTexture(GL_TEXTURE_2D, [self.frameBuffer1 textureID]); 是将 self.frameBuffer2的输出纹理单元从 GL_TEXTURE1 改为 GL_TEXTURE2;
+     glUniform1i(_uni2, 2) 是将 GL_TEXTURE2 作为 self.shaderCompiler3 的输入纹理;
+     帧缓冲纹理输出单元渲染到屏幕上;
+     */
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, [self.frameBuffer2 textureID]);
     glUniform1i(_uni3, 2);
@@ -235,7 +229,7 @@
     glVertexAttribPointer(_texture3, 2, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 2, texturecoords);
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    [self.context present];
+    [[QGEAGLContext sharedInstance] presentRenderbuffer];
 
 }
 @end

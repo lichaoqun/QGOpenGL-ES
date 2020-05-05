@@ -46,10 +46,26 @@
             filePath = "OpenGL ES Learning/&#x4f7f;&#x7528;&#x5c01;&#x88c5;&#x7684;GLES/QGDemo01.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "QGDemo01"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "280CF8BD-159B-4DEA-A8CC-28ED620F8DDD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGL ES Learning/&#x4f7f;&#x7528;&#x5c01;&#x88c5;&#x7684;GLES/QGDemo01.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-render1"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

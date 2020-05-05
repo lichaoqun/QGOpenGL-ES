@@ -14,7 +14,9 @@
 /** gles 上下文 */
 @property(nonatomic, strong, readonly)EAGLContext * glContext;
 
++(instancetype)sharedInstance;
+
 /** 发送到渲染缓冲区, 开始渲染 */
--(void)present;
+-(void)presentRenderbuffer;
 
 @end
