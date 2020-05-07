@@ -80,8 +80,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "401"
             endingLineNumber = "401"
-            landmarkName = "-render1"
+            landmarkName = "-filterBar:didSelectModel:indexPath:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE2568CD-AC58-4C1C-8EAC-65213FEDC08D - a3a2c9db472e9542"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GLESView2 filterBar:didSelectModel:indexPath:]"
+                  moduleName = "OpenGL ES Learning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lichaoqun/Desktop/QGOpenGL-ES/OpenGLES/OpenGL%20ES%20Learning/OpenGL%20ES%20Learning/demo02(%E5%8A%A0%E8%BD%BD%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87)/GLESView2.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  uuid = "DE2568CD-AC58-4C1C-8EAC-65213FEDC08D - b03198ddd2be4158"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[GLESView2 filterBar:didSelectModel:indexPath:]_block_invoke"
+                  moduleName = "OpenGL ES Learning"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lichaoqun/Desktop/QGOpenGL-ES/OpenGLES/OpenGL%20ES%20Learning/OpenGL%20ES%20Learning/demo02(%E5%8A%A0%E8%BD%BD%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87)/GLESView2.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
             endingLineNumber = "138"
-            landmarkName = "-filterBar:didSelectModel:indexPath:"
-            landmarkType = "7">
+            landmarkName = "GLESView2"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

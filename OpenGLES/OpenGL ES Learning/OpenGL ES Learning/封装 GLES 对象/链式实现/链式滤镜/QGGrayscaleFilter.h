@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QGOutputBase.h"
+#import "QGFilterInputProtocol.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QGGrayscaleFilter : NSObject
-
+@interface QGGrayscaleFilter : QGOutputBase <QGFilterInputProtocol>
+- (instancetype)initWithSize:(CGSize)renderSize;
+- (instancetype)initWithSize:(CGSize)renderSize filterName:(NSString *)filterName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol QGFilterInputProtocol <NSObject>
 
-/**  记录上一个纹理id */
--(void)lastTextureID:(GLuint)textureId;
+- (void)setInputTextureID:(GLuint)textureId;
+
+-(void)render;
 
 @end
 

@@ -1,0 +1,25 @@
+//
+//  QGOutputBase.h
+//  OpenGL ES Learning
+//
+//  Created by 李超群 on 2020/5/7.
+//  Copyright © 2020 李超群. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "QGFilterInputProtocol.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface QGOutputBase : NSObject
+
+/** <#注释#> */
+@property (nonatomic, strong)id<QGFilterInputProtocol> target;
+
+
+
+- (void)addTarget:(id<QGFilterInputProtocol>)target;
+
+@end
+
+NS_ASSUME_NONNULL_END

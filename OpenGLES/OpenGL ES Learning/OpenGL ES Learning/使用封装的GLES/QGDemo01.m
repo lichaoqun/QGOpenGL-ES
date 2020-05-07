@@ -153,6 +153,7 @@
     glVertexAttribPointer(_position1, 3, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 3, vertices);
     glVertexAttribPointer(_texture1, 2, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 2, texturecoords);
     glDrawArrays(GL_TRIANGLES, 0, 6);
+    
 }
 
 -(void)render2{

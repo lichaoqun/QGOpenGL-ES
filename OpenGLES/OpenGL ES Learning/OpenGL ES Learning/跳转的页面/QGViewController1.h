@@ -1,16 +1,16 @@
 //
-//  QGFilterOutputProtoco.h
+//  QGViewController1.h
 //  OpenGL ES Learning
 //
-//  Created by QG on 2020/5/6.
+//  Created by 李超群 on 2020/5/7.
 //  Copyright © 2020 李超群. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol QGFilterOutputProtocol <NSObject>
+@interface QGViewController1 : UIViewController
 
 @end
 

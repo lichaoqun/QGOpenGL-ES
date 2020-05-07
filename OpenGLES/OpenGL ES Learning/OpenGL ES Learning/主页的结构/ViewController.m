@@ -10,6 +10,7 @@
 #import "QGCell.h"
 #import "QGModel.h"
 #import "QGViewController.h"
+#import "QGViewController1.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic, strong)NSArray *modesArray;
@@ -57,6 +58,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     QGViewController *vc = [[QGViewController alloc]init];
     vc.type = indexPath.row;
-    [self presentViewController:vc animated:YES completion:nil];
+
+    QGViewController1 *vc1 = [[QGViewController1 alloc]init];
+    [self presentViewController:vc1 animated:YES completion:nil];
 }
 @end

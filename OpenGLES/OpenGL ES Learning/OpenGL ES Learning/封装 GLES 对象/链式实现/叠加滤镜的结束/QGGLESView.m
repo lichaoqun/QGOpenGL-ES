@@ -8,18 +8,31 @@
 
 #import "QGGLESView.h"
 #import "QGEAGLContext.h"
+#import "QGShaderCompiler.h"
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
+
+@interface QGGLESView ()
+
+/** 三个通用变量 */
+@property(nonatomic, assign) GLuint position, textureCoordinate, colorMap;
+
+/** 三个通用变量 */
+@property(nonatomic, strong) QGShaderCompiler *shaderCompiler;
+
+@end
 
 @implementation QGGLESView{
     GLuint _frameBuffer;
     CAEAGLLayer *_glLayer;
+    GLuint _textureId;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         [self setuplayer];
+        [self setupShaderCompiler];
         [self setupRenderBuffer];
     }
     return self;
@@ -39,6 +52,12 @@
                                       }];
 }
 
+-(void)setupShaderCompiler{
+    self.shaderCompiler = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_00"];
+    _position = [self.shaderCompiler addAttribute:@"position"];
+    _textureCoordinate = [self.shaderCompiler addAttribute:@"textCoordinate"];
+    _colorMap = [self.shaderCompiler addUniform:@"colorMap"];
+}
 /** 设置缓冲数据 */
 -(void)setupRenderBuffer{
     EAGLContext *context = [QGEAGLContext sharedInstance].glContext;
@@ -60,6 +79,54 @@
 /** 激活帧缓冲 */
 -(void)activityFrameBuffer{
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+}
+
+-(void)setInputTextureID:(GLuint)textureId{
+    _textureId = textureId;
+}
+
+-(void)render{
+    [self.shaderCompiler glUseProgram];
+    [self activityFrameBuffer];
+    glClearColor(0, 0, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    /*
+     前边已知self.frameBuffer2的输出纹理单元为 GL_TEXTURE1;
+     glActiveTexture(GL_TEXTURE2); 和 glBindTexture(GL_TEXTURE_2D, [self.frameBuffer1 textureID]); 是将 self.frameBuffer2的输出纹理单元从 GL_TEXTURE1 改为 GL_TEXTURE2;
+     glUniform1i(_uni2, 2) 是将 GL_TEXTURE2 作为 self.shaderCompiler3 的输入纹理;
+     帧缓冲纹理输出单元渲染到屏幕上;
+     */
+    glActiveTexture(GL_TEXTURE3);
+    glBindTexture(GL_TEXTURE_2D, _textureId);
+    glUniform1i(_colorMap, 3);
+
+
+    GLfloat vertices[] = {
+        1.0, 1.0, 0.0,
+        1.0, -1.0, 0.0,
+        -1.0, 1.0, 0.0,
+        
+        1.0, -1.0, 0.0,
+        -1.0, -1.0, 0.0,
+        -1.0, 1.0, 0.0};
+    
+    GLfloat texturecoords[] ={
+        1.0, 1.0,
+        1.0, 0.0,
+        0.0, 1.0,
+        1.0, 0.0,
+        0.0, 0.0,
+        0.0, 1.0};
+    
+
+    glVertexAttribPointer(_position, 3, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 3, vertices);
+    glVertexAttribPointer(_textureCoordinate, 2, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 2, texturecoords);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+
+    [[QGEAGLContext sharedInstance] presentRenderbuffer];
+
 }
 
 @end

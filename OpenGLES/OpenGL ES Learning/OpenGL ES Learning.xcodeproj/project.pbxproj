@@ -74,6 +74,9 @@
 		344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */ = {isa = PBXBuildFile; fileRef = 3417EA5022156DB400A9F54A /* GLESView9.m */; };
 		34841D382217E1280088D974 /* VertextShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D342217E1280088D974 /* VertextShader10.glsl */; };
 		34841D392217E1280088D974 /* FragmentShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D362217E1280088D974 /* FragmentShader10.glsl */; };
+		34B013C02463CFAA003007F0 /* QGInputImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B013BF2463CFAA003007F0 /* QGInputImage.m */; };
+		34B013C32463D648003007F0 /* QGViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B013C22463D648003007F0 /* QGViewController1.m */; };
+		34B013C72463E07F003007F0 /* QGOutputBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B013C62463E07F003007F0 /* QGOutputBase.m */; };
 		34E4098D237E880300F6BCF5 /* FilterBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E40989237E880300F6BCF5 /* FilterBarCell.m */; };
 		34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4098A237E880300F6BCF5 /* FilterBar.m */; };
 		34EA40C4238234F600AD48AF /* FragmentShader2_24.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EA409D238234F600AD48AF /* FragmentShader2_24.glsl */; };
@@ -239,6 +242,12 @@
 		34841D342217E1280088D974 /* VertextShader10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader10.glsl; sourceTree = "<group>"; };
 		34841D352217E1280088D974 /* GLESView10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView10.h; sourceTree = "<group>"; };
 		34841D362217E1280088D974 /* FragmentShader10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader10.glsl; sourceTree = "<group>"; };
+		34B013BE2463CFAA003007F0 /* QGInputImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QGInputImage.h; path = "OpenGL ES Learning/封装 GLES 对象/链式实现/输入&输出协议/QGInputImage.h"; sourceTree = SOURCE_ROOT; };
+		34B013BF2463CFAA003007F0 /* QGInputImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QGInputImage.m; path = "OpenGL ES Learning/封装 GLES 对象/链式实现/输入&输出协议/QGInputImage.m"; sourceTree = SOURCE_ROOT; };
+		34B013C12463D648003007F0 /* QGViewController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGViewController1.h; sourceTree = "<group>"; };
+		34B013C22463D648003007F0 /* QGViewController1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGViewController1.m; sourceTree = "<group>"; };
+		34B013C52463E07F003007F0 /* QGOutputBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGOutputBase.h; sourceTree = "<group>"; };
+		34B013C62463E07F003007F0 /* QGOutputBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGOutputBase.m; sourceTree = "<group>"; };
 		34E40989237E880300F6BCF5 /* FilterBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBarCell.m; sourceTree = "<group>"; };
 		34E4098A237E880300F6BCF5 /* FilterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBar.m; sourceTree = "<group>"; };
 		34E4098B237E880300F6BCF5 /* FilterBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBarCell.h; sourceTree = "<group>"; };
@@ -288,7 +297,6 @@
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
 		34EB365521FC4CD20087CE1B /* VertextShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertextShader2.glsl; sourceTree = "<group>"; };
 		D04298CC2461CA5D00FBF837 /* QGFilterInputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGFilterInputProtocol.h; sourceTree = "<group>"; };
-		D04298CD2461CA6D00FBF837 /* QGFilterOutputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGFilterOutputProtocol.h; sourceTree = "<group>"; };
 		D04298CE2461CC8500FBF837 /* QGGrayscaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGGrayscaleFilter.h; sourceTree = "<group>"; };
 		D04298CF2461CC8500FBF837 /* QGGrayscaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGGrayscaleFilter.m; sourceTree = "<group>"; };
 		D0752B212393AF5300262358 /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
@@ -733,6 +741,8 @@
 		D04298C82461C99500FBF837 /* 叠加滤镜的开始 */ = {
 			isa = PBXGroup;
 			children = (
+				34B013BE2463CFAA003007F0 /* QGInputImage.h */,
+				34B013BF2463CFAA003007F0 /* QGInputImage.m */,
 			);
 			path = "叠加滤镜的开始";
 			sourceTree = "<group>";
@@ -750,8 +760,8 @@
 			isa = PBXGroup;
 			children = (
 				D04298CB2461C9CA00FBF837 /* 输入&输出协议 */,
-				D04298C92461C99B00FBF837 /* 链式滤镜 */,
 				D04298C82461C99500FBF837 /* 叠加滤镜的开始 */,
+				D04298C92461C99B00FBF837 /* 链式滤镜 */,
 				D04298C42461C78C00FBF837 /* 叠加滤镜的结束 */,
 			);
 			path = "链式实现";
@@ -761,7 +771,8 @@
 			isa = PBXGroup;
 			children = (
 				D04298CC2461CA5D00FBF837 /* QGFilterInputProtocol.h */,
-				D04298CD2461CA6D00FBF837 /* QGFilterOutputProtocol.h */,
+				34B013C52463E07F003007F0 /* QGOutputBase.h */,
+				34B013C62463E07F003007F0 /* QGOutputBase.m */,
 			);
 			path = "输入&输出协议";
 			sourceTree = "<group>";
@@ -800,6 +811,8 @@
 				3417EA5D22165CCC00A9F54A /* DYGestureRecognizerView.m */,
 				D0EFA0D72457AB6D00E2065A /* QGViewController.h */,
 				D0EFA0D82457AB6D00E2065A /* QGViewController.m */,
+				34B013C12463D648003007F0 /* QGViewController1.h */,
+				34B013C22463D648003007F0 /* QGViewController1.m */,
 			);
 			path = "跳转的页面";
 			sourceTree = "<group>";
@@ -992,6 +1005,7 @@
 				D0A424E8245FB88F00BA74D0 /* QGEAGLContext.m in Sources */,
 				34133A1F21F999A700B6CE10 /* ViewController.m in Sources */,
 				3417EA312215402000A9F54A /* GLESView7.m in Sources */,
+				34B013C32463D648003007F0 /* QGViewController1.m in Sources */,
 				3424E54122125EFF00F8E743 /* GLESView5.m in Sources */,
 				D0EFA0DC2459D22600E2065A /* FilterModel.m in Sources */,
 				3428AA2C221D4B21005E6AD5 /* DYGLESView.m in Sources */,
@@ -1005,10 +1019,12 @@
 				D0A424E5245FB83000BA74D0 /* QGGLESView.m in Sources */,
 				3428AA2D221D4B21005E6AD5 /* DYGLESUtils.m in Sources */,
 				34E4098E237E880300F6BCF5 /* FilterBar.m in Sources */,
+				34B013C72463E07F003007F0 /* QGOutputBase.m in Sources */,
 				D0A424EE245FC3CE00BA74D0 /* QGFrameBufferObject.m in Sources */,
 				D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */,
 				344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */,
 				D04298D02461CC8600FBF837 /* QGGrayscaleFilter.m in Sources */,
+				34B013C02463CFAA003007F0 /* QGInputImage.m in Sources */,
 				3417EA5E22165CCC00A9F54A /* DYGestureRecognizerView.m in Sources */,
 				34133A2A21F999A900B6CE10 /* main.m in Sources */,
 				34133A3521F9A3BE00B6CE10 /* GLESUtils.m in Sources */,
