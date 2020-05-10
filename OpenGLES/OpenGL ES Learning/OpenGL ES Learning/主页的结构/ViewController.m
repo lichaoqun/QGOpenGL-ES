@@ -60,6 +60,6 @@
     vc.type = indexPath.row;
 
     QGViewController1 *vc1 = [[QGViewController1 alloc]init];
-    [self presentViewController:vc1 animated:YES completion:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 @end

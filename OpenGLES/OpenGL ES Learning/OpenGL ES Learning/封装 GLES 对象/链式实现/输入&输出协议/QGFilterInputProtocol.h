@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol QGFilterInputProtocol <NSObject>
 
-- (void)setInputTextureID:(GLuint)textureId;
+-(void)setLastTextureID:(GLuint)lastTextureID;
+
+-(GLuint)getCurrentTextureId;
 
 -(void)render;
 

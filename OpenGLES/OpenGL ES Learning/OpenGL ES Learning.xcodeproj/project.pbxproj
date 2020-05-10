@@ -63,6 +63,7 @@
 		3428AA32221D4B21005E6AD5 /* rocket.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA28221D4B21005E6AD5 /* rocket.mp4 */; };
 		3428AA33221D4B21005E6AD5 /* guanjun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3428AA29221D4B21005E6AD5 /* guanjun.mp4 */; };
 		3428AA34221D4B21005E6AD5 /* DYGiftEffectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */; };
+		343B5D0C24682BCE00C3014F /* QGNormalFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 343B5D0B24682BCE00C3014F /* QGNormalFilters.m */; };
 		343F2F122391199000576324 /* lookup_soft_elegance_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0D2391198F00576324 /* lookup_soft_elegance_2.png */; };
 		343F2F132391199000576324 /* lookup_soft_elegance_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0E2391198F00576324 /* lookup_soft_elegance_1.png */; };
 		343F2F142391199000576324 /* lookup.png in Resources */ = {isa = PBXBuildFile; fileRef = 343F2F0F2391198F00576324 /* lookup.png */; };
@@ -122,7 +123,7 @@
 		34EB365221FC4C220087CE1B /* GLESView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB365121FC4C220087CE1B /* GLESView2.m */; };
 		34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */; };
 		34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365521FC4CD20087CE1B /* VertextShader2.glsl */; };
-		D04298D02461CC8600FBF837 /* QGGrayscaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D04298CF2461CC8500FBF837 /* QGGrayscaleFilter.m */; };
+		D04298D02461CC8600FBF837 /* QGNormalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D04298CF2461CC8500FBF837 /* QGNormalFilter.m */; };
 		D0752B282393AF5400262358 /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B212393AF5300262358 /* 03.png */; };
 		D0752B292393AF5400262358 /* 07.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B222393AF5300262358 /* 07.png */; };
 		D0752B2A2393AF5400262358 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B232393AF5300262358 /* 02.png */; };
@@ -225,6 +226,9 @@
 		3428AA29221D4B21005E6AD5 /* guanjun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = guanjun.mp4; sourceTree = "<group>"; };
 		3428AA2A221D4B21005E6AD5 /* DYGiftEffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGiftEffectManager.h; sourceTree = "<group>"; };
 		3428AA2B221D4B21005E6AD5 /* DYGiftEffectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGiftEffectManager.m; sourceTree = "<group>"; };
+		343B5D0A24682BCE00C3014F /* QGNormalFilters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGNormalFilters.h; sourceTree = "<group>"; };
+		343B5D0B24682BCE00C3014F /* QGNormalFilters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGNormalFilters.m; sourceTree = "<group>"; };
+		343B5D0D24682E8B00C3014F /* QGGPUImge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGGPUImge.h; sourceTree = "<group>"; };
 		343F2F0D2391198F00576324 /* lookup_soft_elegance_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_2.png; sourceTree = "<group>"; };
 		343F2F0E2391198F00576324 /* lookup_soft_elegance_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_soft_elegance_1.png; sourceTree = "<group>"; };
 		343F2F0F2391198F00576324 /* lookup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup.png; sourceTree = "<group>"; };
@@ -297,8 +301,8 @@
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
 		34EB365521FC4CD20087CE1B /* VertextShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertextShader2.glsl; sourceTree = "<group>"; };
 		D04298CC2461CA5D00FBF837 /* QGFilterInputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGFilterInputProtocol.h; sourceTree = "<group>"; };
-		D04298CE2461CC8500FBF837 /* QGGrayscaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGGrayscaleFilter.h; sourceTree = "<group>"; };
-		D04298CF2461CC8500FBF837 /* QGGrayscaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGGrayscaleFilter.m; sourceTree = "<group>"; };
+		D04298CE2461CC8500FBF837 /* QGNormalFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGNormalFilter.h; sourceTree = "<group>"; };
+		D04298CF2461CC8500FBF837 /* QGNormalFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGNormalFilter.m; sourceTree = "<group>"; };
 		D0752B212393AF5300262358 /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
 		D0752B222393AF5300262358 /* 07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 07.png; sourceTree = "<group>"; };
 		D0752B232393AF5300262358 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
@@ -585,6 +589,24 @@
 			path = "demo07(球体)";
 			sourceTree = "<group>";
 		};
+		343B5D0824682B2500C3014F /* 滤镜基类 */ = {
+			isa = PBXGroup;
+			children = (
+				D04298CE2461CC8500FBF837 /* QGNormalFilter.h */,
+				D04298CF2461CC8500FBF837 /* QGNormalFilter.m */,
+			);
+			path = "滤镜基类";
+			sourceTree = "<group>";
+		};
+		343B5D0924682B4900C3014F /* Normal 滤镜 */ = {
+			isa = PBXGroup;
+			children = (
+				343B5D0A24682BCE00C3014F /* QGNormalFilters.h */,
+				343B5D0B24682BCE00C3014F /* QGNormalFilters.m */,
+			);
+			path = "Normal 滤镜";
+			sourceTree = "<group>";
+		};
 		343F2F0C2391198F00576324 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,8 +772,8 @@
 		D04298C92461C99B00FBF837 /* 链式滤镜 */ = {
 			isa = PBXGroup;
 			children = (
-				D04298CE2461CC8500FBF837 /* QGGrayscaleFilter.h */,
-				D04298CF2461CC8500FBF837 /* QGGrayscaleFilter.m */,
+				343B5D0924682B4900C3014F /* Normal 滤镜 */,
+				343B5D0824682B2500C3014F /* 滤镜基类 */,
 			);
 			path = "链式滤镜";
 			sourceTree = "<group>";
@@ -820,6 +842,7 @@
 		D0A424E2245FB7FF00BA74D0 /* 封装 GLES 对象 */ = {
 			isa = PBXGroup;
 			children = (
+				343B5D0D24682E8B00C3014F /* QGGPUImge.h */,
 				D04298CA2461C9A800FBF837 /* 链式实现 */,
 				D04298C72461C7D700FBF837 /* 帧缓冲对象 */,
 				D04298C62461C7C300FBF837 /* 上下文 */,
@@ -1023,9 +1046,10 @@
 				D0A424EE245FC3CE00BA74D0 /* QGFrameBufferObject.m in Sources */,
 				D0EFA0D92457AB6D00E2065A /* QGViewController.m in Sources */,
 				344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */,
-				D04298D02461CC8600FBF837 /* QGGrayscaleFilter.m in Sources */,
+				D04298D02461CC8600FBF837 /* QGNormalFilter.m in Sources */,
 				34B013C02463CFAA003007F0 /* QGInputImage.m in Sources */,
 				3417EA5E22165CCC00A9F54A /* DYGestureRecognizerView.m in Sources */,
+				343B5D0C24682BCE00C3014F /* QGNormalFilters.m in Sources */,
 				34133A2A21F999A900B6CE10 /* main.m in Sources */,
 				34133A3521F9A3BE00B6CE10 /* GLESUtils.m in Sources */,
 				34E4098D237E880300F6BCF5 /* FilterBarCell.m in Sources */,

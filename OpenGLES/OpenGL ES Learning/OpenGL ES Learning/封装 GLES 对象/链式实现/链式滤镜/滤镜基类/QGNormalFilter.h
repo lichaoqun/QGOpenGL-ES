@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QGGrayscaleFilter : QGOutputBase <QGFilterInputProtocol>
+@interface QGNormalFilter : QGOutputBase <QGFilterInputProtocol>
 - (instancetype)initWithSize:(CGSize)renderSize;
 - (instancetype)initWithSize:(CGSize)renderSize filterName:(NSString *)filterName;
 @end

@@ -6,14 +6,12 @@
 //  Copyright © 2020 李超群. All rights reserved.
 //
 
-#import "QGGrayscaleFilter.h"
+#import "QGNormalFilter.h"
 #import "QGShaderCompiler.h"
 #import "QGFrameBufferObject.h"
 #import "QGFilterInputProtocol.h"
 
-@interface QGGrayscaleFilter (){
-    GLuint _textureId;
-}
+@interface QGNormalFilter ()
 
 /** 三个通用变量 */
 @property(nonatomic, assign) GLuint position, textureCoordinate, colorMap, lastColorMap;
@@ -28,7 +26,7 @@
 
 @end
 
-@implementation QGGrayscaleFilter
+@implementation QGNormalFilter
 
 - (instancetype)initWithSize:(CGSize)renderSize{
     return [self initWithSize:renderSize filterName:@"FragmentShader2_06"];
@@ -66,7 +64,7 @@
      */
     [self.frameBuffer activityFrameBuffer];
     glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, _textureId);
+    glBindTexture(GL_TEXTURE_2D, _lastTextureID);
     
     [self.shaderCompiler glUseProgram];
     glUniform1i(_colorMap, 2);
@@ -95,20 +93,14 @@
     glVertexAttribPointer(_position, 3, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 3, vertices);
     glVertexAttribPointer(_textureCoordinate, 2, GL_FLOAT, GL_FALSE,  sizeof(GLfloat) * 2, texturecoords);
     glDrawArrays(GL_TRIANGLES, 0, 6);
-    
-    [self.target render];
-
 }
 
--(void)addTarget:(id<QGFilterInputProtocol>)target{
-    self.target = target;
-    [target setInputTextureID:self.frameBuffer.textureID];
+-(GLuint)getCurrentTextureId{
+    return self.frameBuffer.textureID;
 }
 
--(void)setInputTextureID:(GLuint)textureId{
-    _textureId = textureId;
+-(void)setLastTextureID:(GLuint)lastTextureID{
+    _lastTextureID = lastTextureID;
 }
-
-
 
 @end

@@ -10,14 +10,9 @@
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
+#import "QGEAGLContext.h"
 
-#import "QGGrayscaleFilter.h"
-
-
-@implementation QGInputImage{
-    GLuint _textureID;
-    
-}
+@implementation QGInputImage
 
 - (instancetype)initWithImageName:(NSString *)imageName;
 {
@@ -30,6 +25,12 @@
 
 /** 创建输入纹理 */
 -(void)setupInputTextureWithImageName:(NSString *)imageName{
+    
+    // - 激活OpenGLES 上下文
+    [QGEAGLContext sharedInstance];
+    
+    
+    GLuint textureID;
     UIImage *image = [UIImage imageNamed:imageName];
     size_t width = CGImageGetWidth(image.CGImage);
     size_t height = CGImageGetHeight(image.CGImage);
@@ -50,8 +51,8 @@
     CGContextScaleCTM (context, 1.0,-1.0);
     CGContextDrawImage( context, CGRectMake( 0, 0, width, height ), image.CGImage );
     CGContextRelease(context);
-    glGenTextures(1, &_textureID);
-    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
@@ -68,14 +69,23 @@
     // - 解绑
     glBindTexture(GL_TEXTURE_2D, 0);
     free(imageData);
+    _lastTextureID = textureID;
 }
 
--(void)addTarget:(id<QGFilterInputProtocol>)target{
-    self.target = target;
-    [target setInputTextureID:_textureID];
+
+-(void)setFilters:(NSArray<QGOutputBase<QGFilterInputProtocol> *> *)filters{
+    _filters = filters;
+    for (QGOutputBase <QGFilterInputProtocol> * filter in filters) {
+        [filter setLastTextureID:_lastTextureID];
+        _lastTextureID = [filter getCurrentTextureId];
+    }
 }
 
--(void)render{
-    [self.target render];
+-(void)startRenderInView:(UIView<QGFilterInputProtocol> *)renderView{
+    for (QGOutputBase <QGFilterInputProtocol> * filter in self.filters) {
+        [filter render];
+    }
+    [renderView setLastTextureID:_lastTextureID];
+    [renderView render];
 }
 @end

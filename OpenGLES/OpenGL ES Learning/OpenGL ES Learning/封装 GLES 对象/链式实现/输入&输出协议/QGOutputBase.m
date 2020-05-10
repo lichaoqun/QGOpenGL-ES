@@ -9,8 +9,5 @@
 #import "QGOutputBase.h"
 
 @implementation QGOutputBase
-- (void)addTarget:(id<QGFilterInputProtocol>)target{
-    self.target = target;
-}
 
 @end

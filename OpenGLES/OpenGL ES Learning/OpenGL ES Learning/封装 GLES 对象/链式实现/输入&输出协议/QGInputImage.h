@@ -6,18 +6,21 @@
 //  Copyright © 2020 李超群. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "QGOutputBase.h"
-#import "QGFilterInputProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QGInputImage : QGOutputBase
 
+/** 滤镜数组 */
+@property (nonatomic, strong) NSArray <QGOutputBase <QGFilterInputProtocol> *> *filters;
+
 /** 根据imageName 初始化输入源 */
 - (instancetype)initWithImageName:(NSString *)imageName;
 
--(void)render;
+-(void)startRenderInView:(UIView <QGFilterInputProtocol> *)renderView;
+
 @end
 
 

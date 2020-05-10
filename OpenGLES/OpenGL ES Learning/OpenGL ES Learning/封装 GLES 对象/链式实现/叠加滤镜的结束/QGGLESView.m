@@ -80,15 +80,10 @@
 -(void)activityFrameBuffer{
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
 }
-
--(void)setInputTextureID:(GLuint)textureId{
-    _textureId = textureId;
-}
-
 -(void)render{
     [self.shaderCompiler glUseProgram];
     [self activityFrameBuffer];
-    glClearColor(0, 0, 1, 1);
+    glClearColor(1, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
@@ -129,4 +124,7 @@
 
 }
 
+- (void)setLastTextureID:(GLuint)lastTextureID{
+    _textureId = lastTextureID;
+}
 @end

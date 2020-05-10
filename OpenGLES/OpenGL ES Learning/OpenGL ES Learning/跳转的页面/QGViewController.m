@@ -19,6 +19,7 @@
 #import "GLESView10.h"
 #import "DYGiftEffectManager.h"
 #import "QGDemo01.h"
+#import "QGGPUImge.h"
 
 @interface QGViewController ()
 
@@ -104,8 +105,18 @@
             break;
         }
         case 11:{
-            // - 光照+贴图
-            v = [[QGDemo01 alloc]initWithFrame:viewRect];
+            
+
+            // - 封装的滤镜
+            QGInputImage *inputImg = [[QGInputImage alloc]initWithImageName:@"gyy.jpg"];
+            v = [[QGGLESView alloc]initWithFrame:self.view.bounds];
+
+            [inputImg setFilters:@[
+                [[QGWhiteAndBlack alloc]initWithSize:self.view.frame.size],
+                [[QGBaoHeDu alloc]initWithSize:self.view.frame.size],
+                [[QGSeWen alloc]initWithSize:self.view.frame.size],
+            ]];
+            [inputImg startRenderInView:v];
             break;
         }
         default:

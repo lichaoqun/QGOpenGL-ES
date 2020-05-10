@@ -11,14 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QGOutputBase : NSObject
-
-/** <#注释#> */
-@property (nonatomic, strong)id<QGFilterInputProtocol> target;
-
-
-
-- (void)addTarget:(id<QGFilterInputProtocol>)target;
+@interface QGOutputBase : NSObject{
+    GLuint _lastTextureID;
+}
 
 @end
 
