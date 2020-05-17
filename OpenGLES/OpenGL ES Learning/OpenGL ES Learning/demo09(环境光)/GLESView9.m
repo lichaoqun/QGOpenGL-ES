@@ -229,7 +229,9 @@ typedef struct {
     glUniformMatrix4fv(_shaderV.inverseTransposeModelMat, 1, GL_FALSE, inverseTransposeModelMat.m);
     
     // - 观察矩阵 (观察空间) (观察矩阵, 可以说是相机的位置在变, 也可以是物体的位置在变, 所以以下的两种写法都可以)
-//    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0); 设置摄像机在 arg0，arg1，arg2 坐标，看向 arg3，arg4，arg5点。(arg7, arg7, arg8)点为摄像机顶部指向的方向
+//    GLKMatrix4 viewMat = GLKMatrix4Translate(GLKMatrix4Identity,  0.0, 0.0, -5.0);
+    
+    // - GLKMatrix4MakeLookAt 参数说明 : 设置摄像机在 arg0，arg1，arg2 坐标，看向 arg3，arg4，arg5点。(arg6, arg7, arg8)点为摄像机顶部指向的方向
     GLKMatrix4 viewMat = GLKMatrix4MakeLookAt(0, 0, -5, 0, 0, 0, 0, 1, 0);
     glUniformMatrix4fv(_shaderV.viewMat, 1, GL_FALSE, viewMat.m);
     
