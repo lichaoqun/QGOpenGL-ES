@@ -106,7 +106,6 @@
         }
         case 11:{
             
-
             // - 封装的滤镜
             QGInputImage *inputImg = [[QGInputImage alloc]initWithImageName:@"gyy.jpg"];
             v = [[QGGLESView alloc]initWithFrame:self.view.bounds];

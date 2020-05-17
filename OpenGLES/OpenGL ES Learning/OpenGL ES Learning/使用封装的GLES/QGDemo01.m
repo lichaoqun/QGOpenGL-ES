@@ -90,13 +90,13 @@
 
 
 -(void)setupShader{
-    self.shaderCompiler1 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_06"];
+    self.shaderCompiler1 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_00"];
     _position1 = [self.shaderCompiler1 addAttribute:@"position"];
     _texture1 = [self.shaderCompiler1 addAttribute:@"textCoordinate"];
     _uni1 = [self.shaderCompiler1 addUniform:@"colorMap"];
 
     
-    self.shaderCompiler2 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_04"];
+    self.shaderCompiler2 = [[QGShaderCompiler alloc]initWithvshaderFileName:@"VertextShader2" fshaderFileName:@"FragmentShader2_00"];
     _position2 = [self.shaderCompiler2 addAttribute:@"position"];
     _texture2 = [self.shaderCompiler2 addAttribute:@"textCoordinate"];
     _uni2 = [self.shaderCompiler2 addUniform:@"colorMap"];
@@ -110,16 +110,18 @@
 
 
 -(void)setupFrameBufferObj{
-    self.frameBuffer1 = [[QGFrameBufferObject alloc]initWithSize:self.frame.size];
-    self.frameBuffer2 = [[QGFrameBufferObject alloc]initWithSize:self.frame.size];
+    self.frameBuffer1 = [[QGFrameBufferObject alloc]initWithSize:_bufferSize];
+    self.frameBuffer2 = [[QGFrameBufferObject alloc]initWithSize:_bufferSize];
 }
 
 -(void)render1{
     [self.shaderCompiler1 glUseProgram];
     [self.frameBuffer1 activityFrameBuffer];
     glClearColor(1, 0, 0, 1);
+    
+    // - 将内容绘制到多大的窗口上, 在 fbo 的过程中都应该是framebufer 的 size, 只有在最终渲染的 view上才是 frame 的 size
     glClear(GL_COLOR_BUFFER_BIT);
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    glViewport(0, 0, _bufferSize.width, _bufferSize.height);
 
     /* 为了统一代码, 修改了代码, 原来的实现在注释中
      已知源纹理的输出纹理单元为 GL_TEXTURE0;
@@ -162,7 +164,9 @@
 
     glClearColor(0, 1, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    // - 将内容绘制到多大的窗口上, 在 fbo 的过程中都应该是framebufer 的 size, 只有在最终渲染的 view上才是 frame 的 size
+    glViewport(0, 0, _bufferSize.width, _bufferSize.height);
     
     /*
      前边已知self.frameBuffer1的输出纹理单元为 GL_TEXTURE1;
@@ -202,6 +206,8 @@
     [self activityFrameBuffer];
     glClearColor(0, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    // - 将内容绘制到多大的窗口上, 在 fbo 的过程中都应该是framebufer 的 size, 只有在最终渲染的 view上才是 frame 的 size
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
     /*
