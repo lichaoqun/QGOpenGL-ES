@@ -123,6 +123,8 @@
 		34EB365221FC4C220087CE1B /* GLESView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EB365121FC4C220087CE1B /* GLESView2.m */; };
 		34EB365421FC4CBE0087CE1B /* FragmentShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */; };
 		34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34EB365521FC4CD20087CE1B /* VertextShader2.glsl */; };
+		34F48A7824CAAEDA00E9EEA5 /* youlun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 34F48A7724CAAE8800E9EEA5 /* youlun.mp4 */; };
+		34F48A7A24CAB9FB00E9EEA5 /* ceshi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 34F48A7924CAB9FB00E9EEA5 /* ceshi.mp4 */; };
 		D04298D02461CC8600FBF837 /* QGNormalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D04298CF2461CC8500FBF837 /* QGNormalFilter.m */; };
 		D0752B282393AF5400262358 /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B212393AF5300262358 /* 03.png */; };
 		D0752B292393AF5400262358 /* 07.png in Resources */ = {isa = PBXBuildFile; fileRef = D0752B222393AF5300262358 /* 07.png */; };
@@ -300,6 +302,8 @@
 		34EB365121FC4C220087CE1B /* GLESView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLESView2.m; sourceTree = "<group>"; };
 		34EB365321FC4CBE0087CE1B /* FragmentShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader2.glsl; sourceTree = "<group>"; };
 		34EB365521FC4CD20087CE1B /* VertextShader2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertextShader2.glsl; sourceTree = "<group>"; };
+		34F48A7724CAAE8800E9EEA5 /* youlun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = youlun.mp4; sourceTree = "<group>"; };
+		34F48A7924CAB9FB00E9EEA5 /* ceshi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ceshi.mp4; sourceTree = "<group>"; };
 		D04298CC2461CA5D00FBF837 /* QGFilterInputProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGFilterInputProtocol.h; sourceTree = "<group>"; };
 		D04298CE2461CC8500FBF837 /* QGNormalFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGNormalFilter.h; sourceTree = "<group>"; };
 		D04298CF2461CC8500FBF837 /* QGNormalFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGNormalFilter.m; sourceTree = "<group>"; };
@@ -658,7 +662,9 @@
 			children = (
 				3428AA24221D4B20005E6AD5 /* DYGLESUtils.h */,
 				3428AA20221D4B1F005E6AD5 /* DYGLESUtils.m */,
+				34F48A7924CAB9FB00E9EEA5 /* ceshi.mp4 */,
 				3428AA28221D4B21005E6AD5 /* rocket.mp4 */,
+				34F48A7724CAAE8800E9EEA5 /* youlun.mp4 */,
 				3428AA29221D4B21005E6AD5 /* guanjun.mp4 */,
 			);
 			path = recourse;
@@ -936,6 +942,7 @@
 				34EA40C9238234F600AD48AF /* FragmentShader2_04.glsl in Resources */,
 				34EA40D3238234F600AD48AF /* FragmentShader2_34.glsl in Resources */,
 				34133A2721F999A900B6CE10 /* LaunchScreen.storyboard in Resources */,
+				34F48A7824CAAEDA00E9EEA5 /* youlun.mp4 in Resources */,
 				34EA40E7238234F600AD48AF /* FragmentShader2_11.glsl in Resources */,
 				340222F6220EE92A005D41E3 /* wall.jpg in Resources */,
 				3417EA4922155F4600A9F54A /* Orange_Color.jpg in Resources */,
@@ -984,6 +991,7 @@
 				34EA40DB238234F600AD48AF /* FragmentShader2_16.glsl in Resources */,
 				3424E5572212B12300F8E743 /* color_3.png in Resources */,
 				34EB365621FC4CD20087CE1B /* VertextShader2.glsl in Resources */,
+				34F48A7A24CAB9FB00E9EEA5 /* ceshi.mp4 in Resources */,
 				343F2F132391199000576324 /* lookup_soft_elegance_1.png in Resources */,
 				343F2F162391199000576324 /* lookup_miss_etikate.png in Resources */,
 				3417EA5B22165C1D00A9F54A /* jinshu.jpg in Resources */,
@@ -1201,7 +1209,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: wei liu (4599FFQGB3)";
+				CODE_SIGN_IDENTITY = "Apple Development: wei liu (4599FFQGB3)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R9TTUZA6N2;
 				INFOPLIST_FILE = "OpenGL ES Learning/Info.plist";
@@ -1221,7 +1229,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: wei liu (4599FFQGB3)";
+				CODE_SIGN_IDENTITY = "Apple Development: wei liu (4599FFQGB3)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R9TTUZA6N2;
 				INFOPLIST_FILE = "OpenGL ES Learning/Info.plist";

@@ -35,9 +35,10 @@
 
 
 -(void)testVideo{
+    self.view.backgroundColor = [UIColor redColor];
     DYGiftEffectManager *mgr = [[DYGiftEffectManager alloc]initWithSuperView:self.view];
     for (int i = 0; i < 7; i++) {
-        NSURL *url = [[NSBundle mainBundle]URLForResource:@"rocket" withExtension:@"mp4"];
+        NSURL *url = [[NSBundle mainBundle]URLForResource:@"ceshi" withExtension:@"mp4"];
         AVPlayerItem *item = [[AVPlayerItem alloc]initWithURL:url];
         [mgr pushItem:item];
     }
