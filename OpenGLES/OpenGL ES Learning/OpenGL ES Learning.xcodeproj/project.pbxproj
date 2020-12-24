@@ -73,6 +73,7 @@
 		344FFFCB221A500E00BBD174 /* box_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 344FFFC9221A500E00BBD174 /* box_1.png */; };
 		344FFFD2221A6FF700BBD174 /* GLESView10.m in Sources */ = {isa = PBXBuildFile; fileRef = 34841D332217E1280088D974 /* GLESView10.m */; };
 		344FFFD3221A732C00BBD174 /* GLESView9.m in Sources */ = {isa = PBXBuildFile; fileRef = 3417EA5022156DB400A9F54A /* GLESView9.m */; };
+		347804D325948C0900ACE110 /* QIEBeautyShapeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 347804D125948C0900ACE110 /* QIEBeautyShapeFilter.m */; };
 		34841D382217E1280088D974 /* VertextShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D342217E1280088D974 /* VertextShader10.glsl */; };
 		34841D392217E1280088D974 /* FragmentShader10.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 34841D362217E1280088D974 /* FragmentShader10.glsl */; };
 		34B013C02463CFAA003007F0 /* QGInputImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B013BF2463CFAA003007F0 /* QGInputImage.m */; };
@@ -244,6 +245,8 @@
 		344FFFD4221A744000BBD174 /* cube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cube.h; sourceTree = "<group>"; };
 		344FFFD5221A968800BBD174 /* WavefrontOBJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WavefrontOBJ.m; sourceTree = "<group>"; };
 		344FFFD6221A968C00BBD174 /* WavefrontOBJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WavefrontOBJ.h; sourceTree = "<group>"; };
+		347804D125948C0900ACE110 /* QIEBeautyShapeFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QIEBeautyShapeFilter.m; sourceTree = "<group>"; };
+		347804D225948C0900ACE110 /* QIEBeautyShapeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QIEBeautyShapeFilter.h; sourceTree = "<group>"; };
 		34841D332217E1280088D974 /* GLESView10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESView10.m; sourceTree = "<group>"; };
 		34841D342217E1280088D974 /* VertextShader10.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader10.glsl; sourceTree = "<group>"; };
 		34841D352217E1280088D974 /* GLESView10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESView10.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				3417EA5022156DB400A9F54A /* GLESView9.m */,
 				3417EA4F22156DB400A9F54A /* FragmentShader9.glsl */,
 				3417EA572215719C00A9F54A /* VertextShader9.glsl */,
+				347804D225948C0900ACE110 /* QIEBeautyShapeFilter.h */,
+				347804D125948C0900ACE110 /* QIEBeautyShapeFilter.m */,
 			);
 			path = "demo09(环境光)";
 			sourceTree = "<group>";
@@ -1034,6 +1039,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A424E8245FB88F00BA74D0 /* QGEAGLContext.m in Sources */,
+				347804D325948C0900ACE110 /* QIEBeautyShapeFilter.m in Sources */,
 				34133A1F21F999A700B6CE10 /* ViewController.m in Sources */,
 				3417EA312215402000A9F54A /* GLESView7.m in Sources */,
 				34B013C32463D648003007F0 /* QGViewController1.m in Sources */,
